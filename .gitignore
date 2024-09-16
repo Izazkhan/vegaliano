@@ -2,7 +2,6 @@
 node_modules/
 
 # Build directories
-assets/
 dist/
 build/
 
@@ -20,10 +19,6 @@ Thumbs.db
 
 # Shopify CLI settings
 .shopify-cli/
-
-# Environment files
-.env
-.env.local
 
 # Yarn or npm lock files (optional)
 yarn.lock
