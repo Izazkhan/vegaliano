@@ -13,10 +13,6 @@ build/
 *.swp
 *.swo
 
-# Operating system files
-.DS_Store
-Thumbs.db
-
 # Shopify CLI settings
 .shopify-cli/
 
