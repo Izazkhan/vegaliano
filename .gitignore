@@ -1,0 +1,36 @@
+# Node.js dependencies
+node_modules/
+
+# Build directories
+assets/
+dist/
+build/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Shopify CLI settings
+.shopify-cli/
+
+# Environment files
+.env
+.env.local
+
+# Yarn or npm lock files (optional)
+yarn.lock
+package-lock.json
+
+# Cache files
+.cache/
+
+# MacOS specific files
+*.DS_Store
