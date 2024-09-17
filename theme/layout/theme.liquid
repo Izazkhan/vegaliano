@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vegan Italian Food</title>
     {{ content_for_header }}
-    <link href="{{ 'base.css' |  asset_url }}" rel="stylesheet">
+    {{ 'base.css' |  asset_url | stylesheet_tag }}
 </head>
 <body>
+    {% render 'header' %}
+    {% render 'sidebar' %}
     {{ content_for_layout }}
+    <script src="{{ 'flowbite.min.js' | asset_url }}" defer></script>
 </body>
 </html>
