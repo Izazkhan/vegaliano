@@ -4,7 +4,12 @@ module.exports = {
     "./theme/**/*.liquid"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#493323",
+        link: "#493323"
+      }
+    },
     fontFamily: {
       'body': [
         'Lato',
@@ -20,6 +25,10 @@ module.exports = {
       ]
     }
   },
+  safelist: [
+    'bg-gray-900/50',
+    'inset-0'
+  ],
   plugins: [],
 }
 

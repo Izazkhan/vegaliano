@@ -16,36 +16,45 @@
   </div>
   <div class="py-4 overflow-y-auto text-sm sidebar-menu">
     <ul class="font-medium">
-      <li class="border-gray-200 border-b">
-        <button type="button"
-          class="flex items-center w-full p-2 text-base text-primary transition duration-75 rounded-lg hover:bg-gray-100"
-          aria-controls="dropdown-example" data-collapse-toggle="dropdown-example" aria-expanded="false">
-          <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Cheese</span>
-          <svg class="transition-transform duration-200 ease-in-out rotate-0" width="8px" height="5px" viewBox="0 0 8 5"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill="#493323" d="M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z" />
-          </svg>
-        </button>
+      {% for link in linklists.main-menu.links -%}
+        <li class="border-gray-200 border-b">
+          <button type="button"
+            class="flex items-center w-full p-2 text-base text-primary transition duration-75 rounded-lg hover:bg-gray-100"
+            aria-controls="dropdown-example" data-collapse-toggle="dropdown-example" aria-expanded="false">
+            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">{{ link.title  }}</span>
+            <svg class="transition-transform duration-200 ease-in-out rotate-0" width="8px" height="5px" viewBox="0 0 8 5"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill="#493323" d="M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z" />
+            </svg>
+          </button>
+          
+          <ul id="dropdown-example" class="hidden _dropdown">
+            {% for childlink in link.links %}
+            <li>
+              {% if childlink.links == blank %}
+                <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+              {% else %}
+                <a href="#" aria-controls="dropdown-example1" data-collapse-toggle="dropdown-example1"
+                  aria-expanded="false">
+                  <span class="flex-1 text-left rtl:text-right">{{ childlink.title }}</span>
+                  <svg class="transition-transform duration-200 ease-in-out rotate-0" width="8px" height="5px"
+                    viewBox="0 0 8 5" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#493323" d="M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z" />
+                  </svg>
+                </a>
+                <ul id="dropdown-example1" class="hidden _dropdown pl-3">
+                  {% for grandchildlink in childlink.links %}
+                    <li><a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
 
-        <ul id="dropdown-example" class="hidden _dropdown">
-          <li>
-            <a href="#" aria-controls="dropdown-example1" data-collapse-toggle="dropdown-example1"
-              aria-expanded="false">
-              <span class="flex-1 text-left rtl:text-right">Vegan Parmesan-Gondino</span>
-              <svg class="transition-transform duration-200 ease-in-out rotate-0" width="8px" height="5px"
-                viewBox="0 0 8 5" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#493323" d="M0,0c0,0,3.4,4.4,3.5,4.4C3.7,4.4,7.1,0,7.1,0H0z" />
-              </svg>
-            </a>
-            <ul id="dropdown-example1" class="hidden _dropdown pl-3">
-              <li><a href="#" class="">Billing</a>
-              </li>
-              <li><a href="#" class="">Billing</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
+            </li>
+          {% endfor %}
+
+          </ul>
+        </li>
+      {%- endfor -%}
       <li>
         <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <span class="flex-1 ms-3 whitespace-nowrap">Sign In</span>

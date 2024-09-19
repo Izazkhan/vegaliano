@@ -3,19 +3,39 @@
 @tailwind utilities;
 
 @layer base {
-    h1 {
-        @apply text-2xl;
-    }
+  h1 {
+    @apply text-2xl;
+  }
 
-    h2 {
-        @apply text-xl;
-    }
-
-    /* ... */
+  h2 {
+    @apply text-xl;
+  }
 }
 
 @layer utilities {
-    .h-10\.5 {
-        height: 42px;
-    }
+  .h-10\.5 {
+    height: 42px;
+  }
+}
+
+button[aria-expanded="true"] svg {
+  transform: scaleY(-1);
+}
+
+._dropdown {
+  @apply py-2 space-y-2;
+}
+
+._dropdown a {
+  @apply flex
+  items-center 
+  w-full 
+  p-2 
+  text-gray-900 
+  transition 
+  duration-75 
+  rounded-lg 
+  pl-8 
+  hover:bg-gray-100
+  text-primary
 }
