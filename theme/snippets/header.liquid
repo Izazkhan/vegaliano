@@ -1,31 +1,50 @@
-<nav class="bg-white border-gray-200 dark:bg-gray-900">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto h-10.5">
-    <button data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
-      aria-controls="drawer-navigation" type="button"
-      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-      aria-controls="navbar-default" aria-expanded="false">
-      <span class="sr-only">Open main menu</span>
-      <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg">
-        <path clip-rule="evenodd" fill-rule="evenodd"
-          d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
-        </path>
-      </svg>
-    </button>
-    <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse hidden md:block"> Search </a>
-    <div class="hidden w-full md:w-auto md:flex justify-end items-center grow pe-8" id="navbar-default">
-      <ul class="font-medium flex flex-col justify-between rounded-lg bg-gray-50 md:flex-row md:space-x-2 bg-white">
-        <li class="relative mr-1 pr-2 border-r border-gray-300">
-          <a href="#"
-            class="block px-2 py-1 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
-        </li>
-        <li>
-          <a href="#"
-            class="block py-1 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Create
-            Account</a>
-        </li>
-      </ul>
+<header class="px-4 w-full mx-auto" style="max-width: 1600px;">
+  <!-- Luxury | Essentials buttons -->
+  <div class="flex h-16 items-center">
+    <!-- Menu Button on small screens -->
+    <div class="flex-1 md:hidden">
+      <button data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
+        aria-controls="drawer-navigation" type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm outline-none text-gray-500 rounded-lg md:hidden focus:outline-none"
+        aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg">
+          <path clip-rule="evenodd" fill-rule="evenodd"
+            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+          </path>
+        </svg>
+      </button>
     </div>
-    <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse pe-6"> Cart </a>
+    <!-- Luxury | Essentials buttons | Large screens -->
+    <div class="flex items-center justify-start flex-1">
+      <button class="bg-black text-white">Luxury</button>
+      <button class="bg-black text-white">Essentials</button>
+    </div>
+    <!-- Logo -->
+    <div class="flex items-center justify-center flex-1">
+      <img src="{{ 'Asim_Jofa_logo.webp' | asset_url }}" width="120">
+    </div>
+    <!-- Right side icons -->
+    <div class="flex justify-end items-center flex-1">
+      <a href="#" class="ps-2">
+        <svg width="24" height="24">
+          <use href="#search"></use>
+        </svg>
+      </a>
+      <a href="#" class="ps-2">
+        <svg width="24" height="24">
+          <use href="#user"></use>
+        </svg>
+      </a>
+      <a href="#" class="ps-2">
+        <svg width="24" height="24">
+          <use href="#cart"></use>
+        </svg>
+      </a>
+    </div>
   </div>
-</nav>
+  <div class="h-10 header-menu">
+    <!-- Menu  | Large screen -->
+  </div>
+</header>

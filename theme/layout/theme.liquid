@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vegan Italian Food</title>
+    <title>Asim Jofa</title>
+    <link rel="icon" type="image/svg+xml" href="{{ 'icons.xml' | asset_url }}">
     {{ content_for_header }}
-    {{ 'base.css' |  asset_url | stylesheet_tag }}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
 </head>
 <body class="min-h-screen">
+    {% render 'icons' %}
     {% render 'header' %}
     {% render 'sidebar' %}
     {{ content_for_layout }}
     <script src="{{ 'flowbite.min.js' | asset_url }}" defer></script>
+
+    
 </body>
 </html>
