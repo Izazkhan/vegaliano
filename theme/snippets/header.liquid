@@ -1,50 +1,89 @@
-<header class="px-4 w-full mx-auto" style="max-width: 1600px;">
-  <!-- Luxury | Essentials buttons -->
-  <div class="flex h-16 items-center">
-    <!-- Menu Button on small screens -->
-    <div class="flex-1 md:hidden">
-      <button data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
-        aria-controls="drawer-navigation" type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm outline-none text-gray-500 rounded-lg md:hidden focus:outline-none"
-        aria-controls="navbar-default" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg">
-          <path clip-rule="evenodd" fill-rule="evenodd"
-            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
-          </path>
-        </svg>
-      </button>
+<div class="top-bar">
+  Limited Edition is live.
+  <a href="https://asimjofa.com/collections/limited-edition-luxury-lawn" title="Limited Edition"
+    >&nbsp;<strong>Shop&nbsp;</strong></a
+  >
+  your favourites now!
+</div>
+<header class="px-4 w-full sticky top-0 z-10 bg-white">
+  <div class="_header max-w-[1600px] mx-auto">
+    <!-- Luxury | Essentials buttons -->
+    <div class="flex items-center justify-start w-full md:hidden py-2">
+      <div class="flex justify-center w-full">
+        <a href="#" class="lux-es-btn active">LUXURY</a>
+        <a href="#" class="lux-es-btn">ESSENTIALS</a>
+      </div>
     </div>
-    <!-- Luxury | Essentials buttons | Large screens -->
-    <div class="flex items-center justify-start flex-1">
-      <button class="bg-black text-white">Luxury</button>
-      <button class="bg-black text-white">Essentials</button>
+    <div class="flex h-[70px] items-center border-b">
+      <!-- Menu Button on small screens -->
+      <div class="flex-1 md:hidden">
+        <button
+          data-drawer-target="drawer-navigation"
+          data-drawer-show="drawer-navigation"
+          aria-controls="drawer-navigation"
+          type="button"
+          class="inline-flex items-center h-10 justify-center text-sm outline-none text-gray-500 rounded-lg md:hidden focus:outline-none"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path clip-rule="evenodd" fill-rule="evenodd"
+              d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+            </path>
+          </svg>
+        </button>
+      </div>
+      <!-- Luxury | Essentials buttons | Large screens -->
+      <div class="items-center justify-start flex-1 hidden md:flex">
+        <div class="flex justify-center">
+          <a href="#" class="lux-es-btn active">LUXURY</a>
+          <a href="#" class="lux-es-btn">ESSENTIALS</a>
+        </div>
+      </div>
+      <!-- Logo -->
+      <div class="flex items-center justify-center w-1/2">
+        <img class="pb-[7px] pt-[5px]" src="{{ 'Asim_Jofa_logo.png' | asset_url }}" width="120" height="auto">
+      </div>
+      <!-- Right side icons -->
+      <div class="flex justify-end items-center flex-1">
+        <a href="#" class="ps-2">
+          <svg width="20" height="20">
+            <use href="#search"></use>
+          </svg>
+        </a>
+        <a href="#" class="ps-2">
+          <svg width="20" height="20">
+            <use href="#user"></use>
+          </svg>
+        </a>
+        <a href="#" class="ps-2">
+          <svg width="20" height="20">
+            <use href="#cart"></use>
+          </svg>
+        </a>
+      </div>
     </div>
-    <!-- Logo -->
-    <div class="flex items-center justify-center flex-1">
-      <img src="{{ 'Asim_Jofa_logo.webp' | asset_url }}" width="120">
+    <div class="h-10 header-menu hidden md:flex justify-center items-center">
+      <!-- Menu  | Large screen -->
+      <nav class="h- w-full">
+        <ul class="h-10 uppercase flex items-center justify-center text-[11px]">
+          <li><a class="px-3 py-1" href="#">New In</a></li>
+          <li><a class="px-3 py-1" href="#">unstiched luxury</a></li>
+          <li><a class="px-3 py-1" href="#">luxury pret</a></li>
+          <li><a class="px-3 py-1" href="#">limited editions</a></li>
+          <li><a class="px-3 py-1" href="#">signature styles</a></li>
+          <li><a class="px-3 py-1" href="#">menswear</a></li>
+          <li><a class="px-3 py-1" href="#">kids</a></li>
+          <li><a class="px-3 py-1" href="#">jewelry</a></li>
+        </ul>
+      </nav>
     </div>
-    <!-- Right side icons -->
-    <div class="flex justify-end items-center flex-1">
-      <a href="#" class="ps-2">
-        <svg width="24" height="24">
-          <use href="#search"></use>
-        </svg>
-      </a>
-      <a href="#" class="ps-2">
-        <svg width="24" height="24">
-          <use href="#user"></use>
-        </svg>
-      </a>
-      <a href="#" class="ps-2">
-        <svg width="24" height="24">
-          <use href="#cart"></use>
-        </svg>
-      </a>
-    </div>
-  </div>
-  <div class="h-10 header-menu">
-    <!-- Menu  | Large screen -->
   </div>
 </header>

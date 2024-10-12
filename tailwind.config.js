@@ -12,15 +12,13 @@ module.exports = {
     },
     fontFamily: {
       'body': [
-        'Lato',
-        'ui-sans-serif',
-        'system-ui',
+        'Montserrat',
+        'sans-serif',
         // other fallback fonts
       ],
       'sans': [
-        'Lato',
-        'ui-sans-serif',
-        'system-ui',
+        'Montserrat',
+        'sans-serif',
         // other fallback fonts
       ]
     }
