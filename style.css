@@ -31,8 +31,8 @@ button[aria-expanded="true"] svg {
   font-bold
   text-white
   w-[50%]
-  md:min-w-[140px]
-  md:max-w-[180px]
+  lg:min-w-[140px]
+  lg:max-w-[180px]
   text-center
   py-1;
 }
@@ -49,8 +49,8 @@ button[aria-expanded="true"] svg {
   border-transparent
   text-center
   w-[50%]
-  md:min-w-[140px]
-  md:max-w-[180px]
+  lg:min-w-[140px]
+  lg:max-w-[180px]
   /* Hover */
   hover:border
   hover:border-black;
@@ -61,9 +61,44 @@ button[aria-expanded="true"] svg {
 }
 
 ._dropdown a {
-  @apply flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-8 hover:bg-gray-100 text-primary;
+  @apply
+  flex
+  items-center
+  w-full
+  p-2
+  text-gray-900
+  transition
+  duration-75
+  rounded-lg
+  pl-8
+  hover:bg-gray-100
+  text-primary;
 }
 
 .top-bar {
-  @apply text-center text-white bg-black p-2 text-[12px] h-10 flex items-center justify-center leading-5 tracking-[.04rem] font-thin
+  @apply
+  text-center
+  text-white
+  bg-black
+  p-2
+  text-[12px]
+  h-10
+  flex
+  items-center
+  justify-center
+  leading-5
+}
+
+.mega-menu {
+  @apply
+  w-screen
+  absolute
+  left-0
+  bg-white
+  border-t
+  mt-[0.76rem]
+  z-40
+  max-h-[789px]
+  max-h-[512px]
+  overflow-hidden
 }

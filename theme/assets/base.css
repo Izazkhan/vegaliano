@@ -633,10 +633,6 @@ h2 {
   z-index: 10;
 }
 
-.z-30 {
-  z-index: 30;
-}
-
 .z-40 {
   z-index: 40;
 }
@@ -674,6 +670,10 @@ h2 {
   display: none;
 }
 
+.aspect-\[2\.3\] {
+  aspect-ratio: 2.3;
+}
+
 .h-10 {
   height: 2.5rem;
 }
@@ -700,6 +700,10 @@ h2 {
 
 .h-screen {
   height: 100vh;
+}
+
+.max-h-\[512px\] {
+  max-height: 512px;
 }
 
 .min-h-screen {
@@ -769,6 +773,10 @@ h2 {
   cursor: pointer;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -801,6 +809,12 @@ h2 {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
   margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .overflow-hidden {
@@ -867,13 +881,16 @@ h2 {
   background-color: rgb(255 255 255 / 0.5);
 }
 
-.object-cover {
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .px-2 {
@@ -942,6 +959,14 @@ h2 {
   padding-top: 5px;
 }
 
+.ps-\[13px\] {
+  padding-inline-start: 13px;
+}
+
+.pb-\[13px\] {
+  padding-bottom: 13px;
+}
+
 .text-left {
   text-align: left;
 }
@@ -960,12 +985,24 @@ h2 {
   line-height: 1.25rem;
 }
 
+.text-\[12px\] {
+  font-size: 12px;
+}
+
+.text-\[14px\] {
+  font-size: 14px;
+}
+
 .font-medium {
   font-weight: 500;
 }
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 .text-gray-500 {
@@ -986,6 +1023,11 @@ h2 {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#363636\] {
+  --tw-text-opacity: 1;
+  color: rgb(54 54 54 / var(--tw-text-opacity));
 }
 
 .outline-none {
@@ -1044,7 +1086,7 @@ button[aria-expanded="true"] svg {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .lux-es-btn.active {
     min-width: 140px;
     max-width: 180px;
@@ -1072,7 +1114,7 @@ button[aria-expanded="true"] svg {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .lux-es-btn {
     min-width: 140px;
     max-width: 180px;
@@ -1122,11 +1164,22 @@ button[aria-expanded="true"] svg {
   padding: 0.5rem;
   text-align: center;
   font-size: 12px;
-  font-weight: 100;
   line-height: 1.25rem;
-  letter-spacing: .04rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.mega-menu {
+  position: absolute;
+  left: 0px;
+  z-index: 40;
+  margin-top: 0.76rem;
+  max-height: 512px;
+  width: 100vw;
+  overflow: hidden;
+  border-top-width: 1px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-100:hover {
@@ -1193,6 +1246,16 @@ button[aria-expanded="true"] svg {
   .md\:hover\:text-blue-700:hover {
     --tw-text-opacity: 1;
     color: rgb(29 78 216 / var(--tw-text-opacity));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:hidden {
+    display: none;
   }
 }
 

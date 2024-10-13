@@ -1,14 +1,16 @@
 <div class="top-bar">
-  Limited Edition is live.
-  <a href="https://asimjofa.com/collections/limited-edition-luxury-lawn" title="Limited Edition"
-    >&nbsp;<strong>Shop&nbsp;</strong></a
-  >
-  your favourites now!
+  <p>
+    Limited Edition is live.
+    <a href="https://asimjofa.com/collections/limited-edition-luxury-lawn" title="Limited Edition"
+      >&nbsp;<strong>Shop&nbsp;</strong></a
+    >
+    your favourites now!
+  </p>
 </div>
 <header class="px-4 w-full sticky top-0 z-10 bg-white">
   <div class="_header max-w-[1600px] mx-auto">
     <!-- Luxury | Essentials buttons -->
-    <div class="flex items-center justify-start w-full md:hidden py-2">
+    <div class="flex items-center justify-start w-full lg:hidden py-2">
       <div class="flex justify-center w-full">
         <a href="#" class="lux-es-btn active">LUXURY</a>
         <a href="#" class="lux-es-btn">ESSENTIALS</a>
@@ -16,13 +18,13 @@
     </div>
     <div class="flex h-[70px] items-center border-b">
       <!-- Menu Button on small screens -->
-      <div class="flex-1 md:hidden">
+      <div class="flex-1 lg:hidden">
         <button
           data-drawer-target="drawer-navigation"
           data-drawer-show="drawer-navigation"
           aria-controls="drawer-navigation"
           type="button"
-          class="inline-flex items-center h-10 justify-center text-sm outline-none text-gray-500 rounded-lg md:hidden focus:outline-none"
+          class="inline-flex items-center h-10 justify-center text-sm outline-none text-gray-500 rounded-lg lg:hidden focus:outline-none"
           aria-controls="navbar-default"
           aria-expanded="false"
         >
@@ -41,7 +43,7 @@
         </button>
       </div>
       <!-- Luxury | Essentials buttons | Large screens -->
-      <div class="items-center justify-start flex-1 hidden md:flex">
+      <div class="items-center justify-start flex-1 hidden lg:flex">
         <div class="flex justify-center">
           <a href="#" class="lux-es-btn active">LUXURY</a>
           <a href="#" class="lux-es-btn">ESSENTIALS</a>
@@ -70,11 +72,39 @@
         </a>
       </div>
     </div>
-    <div class="h-10 header-menu hidden md:flex justify-center items-center">
+    <div class="h-10 header-menu hidden lg:flex justify-center items-center">
       <!-- Menu  | Large screen -->
-      <nav class="h- w-full">
+      <nav class="h-10 w-full">
         <ul class="h-10 uppercase flex items-center justify-center text-[11px]">
-          <li><a class="px-3 py-1" href="#">New In</a></li>
+          <li>
+            <a class="px-3 py-1" href="#">New In</a>
+            <div class="mega-menu capitalize">
+              <div class="flex space-x-4 justify-between p-5 max-h-[512px]">
+                <div class="flex-1">
+                  <div class="header border-b text-[12px] font-medium uppercase pb-[13px]">Collections</div>
+                  <ul class="flex-1 flex flex-col text-[#363636]">
+                    <li class="py-2 text-[14px]"><a href="#">Limited Edition</a></li>
+                    <li class="py-2 text-[14px]"><a href="#">Chandni Raatein</a></li>
+                    <li class="py-2 text-[14px]"><a href="#">Chamkeeli</a></li>
+                    <li class="py-2 text-[14px]"><a href="#">Asim Jofa kids</a></li>
+                    <li class="py-2 text-[14px]"><a href="#">Afsanay - Luxury Pret</a></li>
+                    <li class="py-2 text-[14px]"><a href="#">Paar Diyan Gallan</a></li>
+                    <li class="py-2 text-[14px]"><a href="#">Uraan</a></li>
+                    <li class="py-2 text-[14px]"><a href="#">Menswear</a></li>
+                  </ul>
+                </div>
+                <div class="flex-1 overflow-hidden">
+                  <img src="{{ 'new_in_1.jpg' | asset_url }}" alt="New In Collection" class="h-full w-full">
+                </div>
+                <div class="flex-1">
+                  <img src="{{ 'new_in_2.jpg' | asset_url }}" alt="New In Collection" class="h-full w-full">
+                </div>
+                <div class="flex-1">
+                  <img src="{{ 'new_in_3.jpg' | asset_url }}" alt="New In Collection" class="h-full w-full">
+                </div>
+              </div>
+            </div>
+          </li>
           <li><a class="px-3 py-1" href="#">unstiched luxury</a></li>
           <li><a class="px-3 py-1" href="#">luxury pret</a></li>
           <li><a class="px-3 py-1" href="#">limited editions</a></li>
