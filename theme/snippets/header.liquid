@@ -1,4 +1,4 @@
-<div class="top-bar">
+<div class="text-center text-white bg-black p-2 text-[12px] h-10 flex items-center justify-center leading-5">
   <p>
     Limited Edition is live.
     <a href="https://asimjofa.com/collections/limited-edition-luxury-lawn" title="Limited Edition"
@@ -12,7 +12,7 @@
     <!-- Luxury | Essentials buttons -->
     <div class="flex items-center justify-start w-full lg:hidden py-2">
       <div class="flex justify-center w-full">
-        <a href="#" class="lux-es-btn active">LUXURY</a>
+        <a href="#" class="lux-es-btn lux-es-btn__active">LUXURY</a>
         <a href="#" class="lux-es-btn">ESSENTIALS</a>
       </div>
     </div>
@@ -45,7 +45,7 @@
       <!-- Luxury | Essentials buttons | Large screens -->
       <div class="items-center justify-start flex-1 hidden lg:flex">
         <div class="flex justify-center">
-          <a href="#" class="lux-es-btn active">LUXURY</a>
+          <a href="#" class="lux-es-btn lux-es-btn__active">LUXURY</a>
           <a href="#" class="lux-es-btn">ESSENTIALS</a>
         </div>
       </div>
@@ -76,12 +76,12 @@
       <!-- Menu  | Large screen -->
       <nav class="h-10 w-full">
         <ul class="h-10 uppercase flex items-center justify-center text-[11px]">
-          <li>
+          <li class="is-action__hover">
             <a class="px-3 py-1" href="#">New In</a>
-            <div class="mega-menu capitalize">
-              <div class="flex space-x-4 justify-between p-5 max-h-[512px]">
+            <div class="w-full absolute left-0 bg-white border-t mt-[0.76rem] z-40 max-h-[789px] max-h-[512px] overflow-hidden capitalize">
+              <div class="flex space-x-4 justify-between p-5 max-h-[512px] max-w-[1200px] mx-auto left-0 right-0">
                 <div class="flex-1">
-                  <div class="header border-b text-[12px] font-medium uppercase pb-[13px]">Collections</div>
+                  <div class="header border-b text-[12px] font-medium uppercase pb-3">Collections</div>
                   <ul class="flex-1 flex flex-col text-[#363636]">
                     <li class="py-2 text-[14px]"><a href="#">Limited Edition</a></li>
                     <li class="py-2 text-[14px]"><a href="#">Chandni Raatein</a></li>
@@ -93,8 +93,14 @@
                     <li class="py-2 text-[14px]"><a href="#">Menswear</a></li>
                   </ul>
                 </div>
-                <div class="flex-1 overflow-hidden">
-                  <img src="{{ 'new_in_1.jpg' | asset_url }}" alt="New In Collection" class="h-full w-full">
+                <div class="relative flex-1 overflow-hidden">
+                  <a href="#">
+                    <img src="{{ 'new_in_1.jpg' | asset_url }}" alt="New In Collection" class="h-full w-full">
+                  </a>
+                  <div class="absolute bottom-4 left-0 right-0 text-center text-white p-2">
+                    <h1 class="font-semibold">Limited Edition</h1>
+                    <a href="#" class="font-thin text-[15px]">Shop Now</a>
+                  </div>
                 </div>
                 <div class="flex-1">
                   <img src="{{ 'new_in_2.jpg' | asset_url }}" alt="New In Collection" class="h-full w-full">
@@ -105,7 +111,63 @@
               </div>
             </div>
           </li>
-          <li><a class="px-3 py-1" href="#">unstiched luxury</a></li>
+          <li>
+            <a class="px-3 py-1" href="#">unstiched luxury</a>
+            <div class="w-full absolute left-0 bg-white border-t mt-[0.76rem] z-40 max-h-[789px] min-h-[512px] overflow-hidden capitalize">
+              <div class="flex space-x-4 justify-between p-5 max-h-[512px] max-w-[1200px] mx-auto left-0 right-0">
+                <div class="flex-1">
+                  <div class="header border-b text-[12px] font-medium uppercase pb-3">Collections</div>
+                  <ul class="flex-1 text-[14px] flex flex-col text-[#363636]">
+                    <li class="py-2"><a href="#">Limited Edition</a></li>
+                    <li class="py-2"><a href="#">Chandni Raatein</a></li>
+                    <li class="py-2"><a href="#">Chamkeeli</a></li>
+                    <li class="py-2"><a href="#">Jag Mag Collection</a></li>
+                    <li class="py-2"><a href="#">Pyaar Diyan Gallan</a></li>
+                    <li class="py-2"><a href="#">Dhanal Rang</a></li>
+                    <li class="py-2"><a href="#">Chamak Damak</a></li>
+                    <li class="py-2"><a href="#">View All</a></li>
+                  </ul>
+                </div>
+                <div class="relative w-1/6 overflow-hidden">
+                  <div class="header border-b text-[12px] font-medium uppercase pb-3">Shop by Type</div>
+                  <ul class="flex-1 flex flex-col text-[#363636] text-[14px]">
+                    <li class="py-2 "><a href="#">Printed</a></li>
+                    <li class="py-2 "><a href="#">Embriodered</a></li>
+                    <li class="py-2 "><a hsref="#">Embellished</a></li>
+                  </ul>
+                </div>
+                <div class="w-1/6">
+                  <div class="header border-b text-[12px] font-medium uppercase pb-3">Shop by Fabric</div>
+                  <ul class="flex-1 flex flex-col text-[#363636] text-[14px]">
+                    <li class="py-2 "><a href="#">Cambric</a></li>
+                    <li class="py-2 "><a href="#">Chiffon</a></li>
+                    <li class="py-2 "><a href="#">Net</a></li>
+                    <li class="py-2 "><a href="#">Silk</a></li>
+                    <li class="py-2 "><a href="#">Velvet</a></li>
+                    <li class="py-2 "><a href="#">Lawn</a></li>
+                    <li class="py-2 "><a href="#">Cotton</a></li>
+                  </ul>
+                </div>
+                <div class="w-1/6">
+                  <div class="header border-b text-[12px] font-medium uppercase pb-3">Shop by Pcs</div>
+                  <ul class="flex-1 flex flex-col text-[#363636] text-[14px]">
+                    <li class="py-2 "><a href="#">1px</a></li>
+                    <li class="py-2 "><a href="#">2pcs</a></li>
+                    <li class="py-2 "><a href="#">3pcs</a></li>
+                  </ul>
+                </div>
+                <div class="relative flex-1 overflow-hidden">
+                  <a href="#">
+                    <img src="{{ 'new_in_1.jpg' | asset_url }}" alt="New In Collection" class="h-full w-full">
+                  </a>
+                  <div class="absolute bottom-4 left-0 right-0 text-center text-white p-2">
+                    <h1 class="font-semibold">Unstiched</h1>
+                    <a href="#" class="text-[15px]">Shop Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
           <li><a class="px-3 py-1" href="#">luxury pret</a></li>
           <li><a class="px-3 py-1" href="#">limited editions</a></li>
           <li><a class="px-3 py-1" href="#">signature styles</a></li>

@@ -605,6 +605,10 @@ h2 {
   bottom: 0px;
 }
 
+.bottom-4 {
+  bottom: 1rem;
+}
+
 .bottom-5 {
   bottom: 1.25rem;
 }
@@ -619,6 +623,10 @@ h2 {
 
 .left-1\/2 {
   left: 50%;
+}
+
+.right-0 {
+  right: 0px;
 }
 
 .start-0 {
@@ -652,6 +660,10 @@ h2 {
 
 .ms-3 {
   margin-inline-start: 0.75rem;
+}
+
+.mt-\[0\.76rem\] {
+  margin-top: 0.76rem;
 }
 
 .block {
@@ -706,8 +718,16 @@ h2 {
   max-height: 512px;
 }
 
+.max-h-\[789px\] {
+  max-height: 789px;
+}
+
 .min-h-screen {
   min-height: 100vh;
+}
+
+.min-h-\[512px\] {
+  min-height: 512px;
 }
 
 .w-1\/2 {
@@ -736,6 +756,22 @@ h2 {
 
 .w-full {
   width: 100%;
+}
+
+.w-14 {
+  width: 3.5rem;
+}
+
+.w-\[16\.67\%\] {
+  width: 16.67%;
+}
+
+.w-1\/6 {
+  width: 16.666667%;
+}
+
+.max-w-\[1200px\] {
+  max-width: 1200px;
 }
 
 .max-w-\[1600px\] {
@@ -771,10 +807,6 @@ h2 {
 
 .cursor-pointer {
   cursor: pointer;
-}
-
-.flex-row {
-  flex-direction: row;
 }
 
 .flex-col {
@@ -849,6 +881,10 @@ h2 {
   border-right-width: 1px;
 }
 
+.border-t {
+  border-top-width: 1px;
+}
+
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
@@ -857,6 +893,11 @@ h2 {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-gray-50 {
@@ -889,10 +930,6 @@ h2 {
   padding: 1.25rem;
 }
 
-.p-3 {
-  padding: 0.75rem;
-}
-
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -921,6 +958,10 @@ h2 {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.pb-\[13px\] {
+  padding-bottom: 13px;
 }
 
 .pb-\[7px\] {
@@ -959,20 +1000,32 @@ h2 {
   padding-top: 5px;
 }
 
-.ps-\[13px\] {
-  padding-inline-start: 13px;
-}
-
-.pb-\[13px\] {
-  padding-bottom: 13px;
+.pb-3 {
+  padding-bottom: 0.75rem;
 }
 
 .text-left {
   text-align: left;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-\[11px\] {
   font-size: 11px;
+}
+
+.text-\[12px\] {
+  font-size: 12px;
+}
+
+.text-\[14px\] {
+  font-size: 14px;
+}
+
+.text-\[15px\] {
+  font-size: 15px;
 }
 
 .text-base {
@@ -985,16 +1038,20 @@ h2 {
   line-height: 1.25rem;
 }
 
-.text-\[12px\] {
-  font-size: 12px;
-}
-
-.text-\[14px\] {
-  font-size: 14px;
-}
-
 .font-medium {
   font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-thin {
+  font-weight: 100;
+}
+
+.font-extralight {
+  font-weight: 200;
 }
 
 .uppercase {
@@ -1003,6 +1060,15 @@ h2 {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.leading-5 {
+  line-height: 1.25rem;
+}
+
+.text-\[\#363636\] {
+  --tw-text-opacity: 1;
+  color: rgb(54 54 54 / var(--tw-text-opacity));
 }
 
 .text-gray-500 {
@@ -1023,11 +1089,6 @@ h2 {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-\[\#363636\] {
-  --tw-text-opacity: 1;
-  color: rgb(54 54 54 / var(--tw-text-opacity));
 }
 
 .outline-none {
@@ -1069,30 +1130,6 @@ button[aria-expanded="true"] svg {
   transform: scaleY(-1);
 }
 
-.lux-es-btn.active {
-  width: 50%;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .21rem;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-@media (min-width: 1024px) {
-  .lux-es-btn.active {
-    min-width: 140px;
-    max-width: 180px;
-  }
-}
-
 .lux-es-btn {
   width: 50%;
   border-width: 1px;
@@ -1103,6 +1140,7 @@ button[aria-expanded="true"] svg {
   padding-bottom: 0.25rem;
   text-align: center;
   font-size: 13px;
+  font-weight: 500;
   letter-spacing: .21rem;
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -1119,6 +1157,16 @@ button[aria-expanded="true"] svg {
     min-width: 140px;
     max-width: 180px;
   }
+}
+
+.lux-es-btn__active {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 ._dropdown > :not([hidden]) ~ :not([hidden]) {
@@ -1152,34 +1200,6 @@ button[aria-expanded="true"] svg {
 ._dropdown a:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.top-bar {
-  display: flex;
-  height: 2.5rem;
-  align-items: center;
-  justify-content: center;
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-  padding: 0.5rem;
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.25rem;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.mega-menu {
-  position: absolute;
-  left: 0px;
-  z-index: 40;
-  margin-top: 0.76rem;
-  max-height: 512px;
-  width: 100vw;
-  overflow: hidden;
-  border-top-width: 1px;
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-100:hover {
