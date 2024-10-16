@@ -74,12 +74,12 @@
     </div>
     <div class="h-10 header-menu hidden lg:flex justify-center items-center">
       <!-- Menu  | Large screen -->
-      <nav class="h-10 w-full">
+      <nav class="nav h-10 w-full">
         <ul class="h-10 uppercase flex items-center justify-center text-[11px]">
-          <li class="is-action__hover">
+          <li>
             <a class="px-3 py-1" href="#">New In</a>
-            <div class="w-full absolute left-0 bg-white border-t mt-[0.76rem] z-40 max-h-[789px] max-h-[512px] overflow-hidden capitalize">
-              <div class="flex space-x-4 justify-between p-5 max-h-[512px] max-w-[1200px] mx-auto left-0 right-0">
+            <div class="mega-menu">
+              <div class="mega-menu__container">
                 <div class="flex-1">
                   <div class="header border-b text-[12px] font-medium uppercase pb-3">Collections</div>
                   <ul class="flex-1 flex flex-col text-[#363636]">
@@ -113,9 +113,9 @@
           </li>
           <li>
             <a class="px-3 py-1" href="#">unstiched luxury</a>
-            <div class="w-full absolute left-0 bg-white border-t mt-[0.76rem] z-40 max-h-[789px] min-h-[512px] overflow-hidden capitalize">
-              <div class="flex space-x-4 justify-between p-5 max-h-[512px] max-w-[1200px] mx-auto left-0 right-0">
-                <div class="flex-1">
+            <div class="mega-menu">
+              <div class="mega-menu__container">
+                <div class="w-1/4">
                   <div class="header border-b text-[12px] font-medium uppercase pb-3">Collections</div>
                   <ul class="flex-1 text-[14px] flex flex-col text-[#363636]">
                     <li class="py-2"><a href="#">Limited Edition</a></li>
@@ -156,7 +156,7 @@
                     <li class="py-2 "><a href="#">3pcs</a></li>
                   </ul>
                 </div>
-                <div class="relative flex-1 overflow-hidden">
+                <div class="relative w-1/4 overflow-hidden">
                   <a href="#">
                     <img src="{{ 'new_in_1.jpg' | asset_url }}" alt="New In Collection" class="h-full w-full">
                   </a>
@@ -179,3 +179,27 @@
     </div>
   </div>
 </header>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const headerMenu = document.querySelector('.header-menu');
+
+      headerMenu.addEventListener('mouseover', (event) => {
+        const hoveredLi = event.target.closest('li');
+        console.log('here',hoveredLi, event.target);
+        if (hoveredLi) {
+            hoveredLi.classList.add('hovered');
+        }
+    });
+
+    headerMenu.querySelectorAll('li').forEach((li) => {
+      li.addEventListener('mouseleave', () => {
+          li.classList.remove('hovered');
+          const megaMenu = li.querySelector('.mega-menu');
+          if (megaMenu && !megaMenu.contains(event.relatedTarget)) {
+              megaMenu.classList.remove('open');
+          }
+      });
+    });
+  });
+
+</script>

@@ -67,3 +67,22 @@ button[aria-expanded="true"] svg {
   hover:bg-gray-100
   text-primary;
 }
+
+.mega-menu {
+  @apply hidden w-full absolute left-0 bg-white border-t z-40 max-h-[789px] min-h-[512px] overflow-hidden capitalize
+}
+
+
+.mega-menu__container {
+  @apply flex space-x-4 justify-between p-5 max-h-[512px] max-w-[1200px] mx-auto left-0 right-0
+}
+
+.header-menu nav ul li{
+  @apply h-full
+}
+.header-menu nav ul li.hovered .mega-menu{
+  @apply block
+}
+.header-menu nav ul li a {
+  @apply flex items-center h-full
+}
