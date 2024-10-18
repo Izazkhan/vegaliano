@@ -167,37 +167,37 @@
       </nav>
     </div>
   </div>
-</header>
-<script>
-  // Wait for the DOM to fully load before running the script
-  document.addEventListener('DOMContentLoaded', () => {
-
-    // Select the header menu using its class name
-    const headerMenu = document.querySelector('.header-menu');
-
-    // Add an event listener for when the mouse hovers over a list item in the header menu
-    headerMenu.addEventListener('mouseover', (event) => {
-      // Find the closest <li> element to the hovered target (if one exists)
-      const hoveredLi = event.target.closest('li');
-      if (hoveredLi) {
-        hoveredLi.classList.add('is-action__hovered');
-      }
-    });
-
-    // Iterate over all <li> elements inside the header menu
-    headerMenu.querySelectorAll('li').forEach((li) => {
-      li.addEventListener('mouseleave', () => {
-        li.classList.remove('is-action__hovered');
-
-        // Look for a '.mega-menu' element inside the current <li>
-        const megaMenu = li.querySelector('.mega-menu');
-
-        // Check if there's a mega menu and if the element that triggered the event isn't inside the mega menu
-        if (megaMenu && !megaMenu.contains(event.relatedTarget)) {
-          megaMenu.classList.remove('open');
+  <script>
+    // Wait for the DOM to fully load before running the script
+    document.addEventListener('DOMContentLoaded', () => {
+  
+      // Select the header menu using its class name
+      const headerMenu = document.querySelector('.header-menu');
+  
+      // Add an event listener for when the mouse hovers over a list item in the header menu
+      headerMenu.addEventListener('mouseover', (event) => {
+        // Find the closest <li> element to the hovered target (if one exists)
+        const hoveredLi = event.target.closest('li');
+        if (hoveredLi) {
+          hoveredLi.classList.add('is-action__hovered');
         }
       });
+  
+      // Iterate over all <li> elements inside the header menu
+      headerMenu.querySelectorAll('li').forEach((li) => {
+        li.addEventListener('mouseleave', () => {
+          li.classList.remove('is-action__hovered');
+  
+          // Look for a '.mega-menu' element inside the current <li>
+          const megaMenu = li.querySelector('.mega-menu');
+  
+          // Check if there's a mega menu and if the element that triggered the event isn't inside the mega menu
+          if (megaMenu && !megaMenu.contains(event.relatedTarget)) {
+            megaMenu.classList.remove('open');
+          }
+        });
+      });
     });
-  });
-
-</script>
+  
+  </script>
+</header>

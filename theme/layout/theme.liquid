@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asim Jofa</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     {{ content_for_header }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
 </head>
 <body class="min-h-screen">
     {% render 'icons' %}
     {% render 'header' %}
-    {% render 'sidebar' %}
     {{ content_for_layout }}
-    <script src="{{ 'flowbite.min.js' | asset_url }}" defer></script>    
+    <script src="{{ 'flowbite.min.js' | asset_url }}" defer></script>
+    {% render 'sidebar' %}
 </body>
 </html>
