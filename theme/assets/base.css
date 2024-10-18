@@ -1153,10 +1153,10 @@ button[aria-expanded="true"] svg {
 }
 
 .mega-menu {
+  visibility: hidden;
   position: absolute;
   left: 0px;
   z-index: 40;
-  display: none;
   max-height: 789px;
   min-height: 512px;
   width: 100%;
@@ -1165,6 +1165,15 @@ button[aria-expanded="true"] svg {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   text-transform: capitalize;
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-menu nav ul li.is-action__hovered .mega-menu {
+  visibility: visible;
+  opacity: 1;
 }
 
 .mega-menu__container {
@@ -1190,10 +1199,6 @@ button[aria-expanded="true"] svg {
 
 .header-menu nav ul li {
   height: 100%;
-}
-
-.header-menu nav ul li.hovered .mega-menu {
-  display: block;
 }
 
 .header-menu nav ul li a {

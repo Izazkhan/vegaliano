@@ -69,9 +69,15 @@ button[aria-expanded="true"] svg {
 }
 
 .mega-menu {
-  @apply hidden w-full absolute left-0 bg-white border-t z-40 max-h-[789px] min-h-[512px] overflow-hidden capitalize
+  @apply w-full absolute left-0 bg-white border-t z-40 max-h-[789px] min-h-[512px] overflow-hidden capitalize
+  /* For hiding and transitions */
+  opacity-0 invisible transition-all duration-300 ease-in-out 
 }
 
+
+.header-menu nav ul li.is-action__hovered .mega-menu{
+  @apply opacity-100 visible;
+}
 
 .mega-menu__container {
   @apply flex space-x-4 justify-between p-5 max-h-[512px] max-w-[1200px] mx-auto left-0 right-0
@@ -80,9 +86,7 @@ button[aria-expanded="true"] svg {
 .header-menu nav ul li{
   @apply h-full
 }
-.header-menu nav ul li.hovered .mega-menu{
-  @apply block
-}
+
 .header-menu nav ul li a {
   @apply flex items-center h-full
 }
