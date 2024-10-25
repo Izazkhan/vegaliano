@@ -1,106 +1,42 @@
-<div id="carousel-example" class="relative aspect-[1.07] md:aspect-[2.3]">
-    <div class="relative aspect-[1.07] md:aspect-[2.3] overflow-hidden">
-        <div id="carousel-item-1">
-            <img src="{{ 'Chamkeeli-Web-min.jpg' | asset_url }}" srcset="
-                    {{ 'Chamkeeli-Mobile-min.jpg' | asset_url }} 768w, 
-                    {{ 'Chamkeeli-Web-min.jpg' | asset_url }} 1200w" sizes="100vw"
-                class="absolute inset-0 object-cover w-full h-full" alt="Item 1">
+<div class="slick-slider relative">
 
-        </div>
-        <div id="carousel-item-2">
-            <img src="{{ 'Web-Banner-3.jpg' | asset_url }}" class="absolute object-cover inset-0 w-full h-full"
-                alt="Item 2" sizes="(min-width: 768px) 768px,100vw" />
-        </div>
-        <div id="carousel-item-3">
-            <img src="{{ 'Basic-Print-Web-min.jpg' | asset_url }}" class="absolute object-cover inset-0 w-full h-full"
-                alt="Item 3" sizes="(min-width: 768px) 768px,100vw" />
-        </div>
-    </div>
+    <img src="{{ 'Chamkeeli-Web-min.jpg' | asset_url }}" srcset="
+                {{ 'Chamkeeli-Mobile-min.jpg' | asset_url }} 768w, 
+                {{ 'Chamkeeli-Web-min.jpg' | asset_url }} 1200w" sizes="100vw" class="w-full h-full"
+        alt="Item 1">
 
-    <!-- Slider indicators -->
-    <div class="absolute flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-        <button id="carousel-indicator-1" class="w-3 h-3 rounded-full bg-white" aria-current="true"
-            aria-label="Slide 1"></button>
-        <button id="carousel-indicator-2" class="w-3 h-3 rounded-full bg-white/50" aria-current="false"
-            aria-label="Slide 2"></button>
-        <button id="carousel-indicator-3" class="w-3 h-3 rounded-full bg-white/50" aria-current="false"
-            aria-label="Slide 3"></button>
-    </div>
+    <img src=" {{ 'Web-Banner-3.jpg' | asset_url }}" class="w-full h-full" alt="Item 2"
+        sizes="(min-width: 768px) 768px,100vw" />
 
-    <!-- Slider controls -->
-    <button id="carousel-prev" type="button"
-        class="absolute top-0 start-0 flex items-center justify-center h-full px-4 cursor-pointer">
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30">
-            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M5 1 1 5l4 4" />
-            </svg>
-            <span class="sr-only">Previous</span>
-        </span>
-    </button>
 
-    <button id="carousel-next" type="button"
-        class="absolute top-0 end-0 flex items-center justify-center h-full px-4 cursor-pointer">
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30">
-            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="m1 9 4-4-4-4" />
-            </svg>
-            <span class="sr-only">Next</span>
-        </span>
-    </button>
+    <img src="{{ 'Basic-Print-Web-min.jpg' | asset_url }}" class="w-full h-full" alt="Item 3"
+        sizes="(min-width: 768px) 768px,100vw" />
+
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const carouselElement = document.getElementById('carousel-example');
 
-        const items = Array.from(carouselElement.querySelectorAll('[id^="carousel-item-"]')).map((item, index) => ({
-            position: index,
-            el: item,
-        }));
-
-        const indicators = Array.from(carouselElement.querySelectorAll('[id^="carousel-indicator-"]'));
-
-        let currentIndex = 0;
-
-        function showItem(index) {
-            items.forEach(item => {
-                item.el.classList.add('hidden');
-            });
-            items[index].el.classList.remove('hidden');
-
-            indicators.forEach((indicator, idx) => {
-                indicator.classList.remove('bg-white');
-                indicator.classList.add('bg-white/50');
-                if (idx === index) {
-                    indicator.classList.add('bg-white');
-                    indicator.classList.remove('bg-white/50');
-                }
-            });
-        }
-
-        document.getElementById('carousel-next').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % items.length;
-            showItem(currentIndex);
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.slick-slider').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear'
         });
 
-        document.getElementById('carousel-prev').addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + items.length) % items.length;
-            showItem(currentIndex);
-        });
+        function updateImageSizes() {
+            const images = document.querySelectorAll('.slick-slider img');
+            const viewportWidth = window.innerWidth;
 
-        // Show the initial item
-        showItem(currentIndex);
-
-        function updateImageSrc() {
-            const images = document.querySelectorAll('img');
             images.forEach(img => {
-                img.src = img.src; // Force reload the image
+                img.setAttribute('sizes', `${viewportWidth}px`);
             });
         }
 
-        window.addEventListener('resize', updateImageSrc);
+        // Update image sizes on window resize
+        window.addEventListener('resize', updateImageSizes);
+
+        // Trigger the function when the page loads
+        window.addEventListener('load', updateImageSizes);
     });
 </script>

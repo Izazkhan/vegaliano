@@ -25,7 +25,7 @@ module.exports = {
   },
   safelist: [
     'bg-gray-900/50',
-    'inset-0'
+    'inset-0',
   ],
   plugins: [],
 }
