@@ -1,7 +1,7 @@
-<div class="slick-slider relative">
+<div class="slick-slider relative main-slider">
 
     <img src="{{ 'Chamkeeli-Web-min.jpg' | asset_url }}" srcset="
-                {{ 'Chamkeeli-Mobile-min.jpg' | asset_url }} 768w, 
+                {{ 'Chamkeeli-Mobile-min.jpg' | asset_url }} 767w, 
                 {{ 'Chamkeeli-Web-min.jpg' | asset_url }} 1200w" sizes="100vw" class="w-full h-full"
         alt="Item 1">
 
@@ -25,7 +25,7 @@
         });
 
         function updateImageSizes() {
-            const images = document.querySelectorAll('.slick-slider img');
+            const images = document.querySelectorAll('.main-slider img');
             const viewportWidth = window.innerWidth;
 
             images.forEach(img => {

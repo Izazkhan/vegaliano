@@ -1,56 +1,107 @@
-<div class="flex p-5">
-    <div class="w-1/4">
-        <h2>WHAT'S</h2>
-        <h2>NEW</h2>
+<div class="flex justify-center items-center p-5">
+    <div class="text-[#363636] text-center w-1/5">
+        <h2 class="text-[15px] md:text-[30px] leading-[1.4] font-medium">WHAT'S</h2>
+        <h2 class="text-[30px] md:text-[45px] leading-[1.4] font-semibold">NEW</h2>
     </div>
-    <div class="flex-1 flex ">
-        <div class="collection flex flex-col justify-center items-center px-2">
-            <div>
-                <img src="{{ '200_x_200_whats_new_circle.jpg' | asset_url }}" class="rounded-full" width="200px" height="200px">
-            </div>
-            <div class="pt-4 text-[#191918] text-[10px] lg:text-[12px]">
-                Vasl
-            </div>
-        </div>
-        <div class="collection flex flex-col justify-center items-center px-2">
-            <div>
-                <img src="{{ '200_x_200_whats_new_circle.jpg' | asset_url }}" class="rounded-full" width="200px" height="200px">
-            </div>
-            <div class="pt-4 text-[#191918] text-[10px] lg:text-[12px]">
-                Limited Edition
+    <div class="w-4/5 flex-1 flex multi-slick">
+        <div>
+            <div class="w-full px-2">
+                <a href="#" class="w-full flex flex-col justify-center items-center ">
+                    <div class="flex w-full justify-center items-center">
+                        <img src="{{ 'vasl.jpg' | asset_url }}" class="rounded-full w-full">
+                    </div>
+                    <div class="pt-4 text-[#191918] text-[12px]">
+                        Vasl
+                    </div>
+                </a>
             </div>
         </div>
-        <div class="collection flex flex-col justify-center items-center px-2">
-            <div>
-                <img src="{{ '200_x_200_whats_new_circle.jpg' | asset_url }}" class="rounded-full" width="200px" height="200px">
-            </div>
-            <div class="pt-4 text-[#191918] text-[10px] lg:text-[12px]">
-                Chandni Raatein
-            </div>
-        </div>
-        <div class="collection flex flex-col justify-center items-center px-2">
-            <div>
-                <img src="{{ '200_x_200_whats_new_circle.jpg' | asset_url }}" class="rounded-full" width="200px" height="200px">
-            </div>
-            <div class="pt-4 text-[#191918] text-[10px] lg:text-[12px]">
-                Basic Prints
+        <div>
+            <div class="w-full px-2">
+                <a href="#" class="w-full flex flex-col justify-center items-center ">
+                    <div class="flex w-full justify-center items-center">
+                        <img src="{{ 'limited.jpg' | asset_url }}" class="rounded-full w-full">
+                    </div>
+                    <div class="pt-4 text-[#191918] text-[12px]">
+                        Limited Edition
+                    </div>
+                </a>
             </div>
         </div>
-        <div class="collection flex flex-col justify-center items-center px-2">
-            <div>
-                <img src="{{ '200_x_200_whats_new_circle.jpg' | asset_url }}" class="rounded-full" width="200px" height="200px">
-            </div>
-            <div class="pt-4 text-[#191918] text-[10px] lg:text-[12px]">
-                Essential Pret
+        <div>
+            <div class="w-full px-2">
+                <a href="#" class="w-full flex flex-col justify-center items-center ">
+                    <div class="flex w-full justify-center items-center">
+                        <img src="{{ 'chaandni_ratein.jpg' | asset_url }}" class="rounded-full w-full">
+                    </div>
+                    <div class="pt-4 text-[#191918] text-[12px]">
+                        Chandni Raatein
+                    </div>
+                </a>
             </div>
         </div>
-        <div class="collection flex flex-col justify-center items-center px-2">
-            <div>
-                <img src="{{ '200_x_200_whats_new_circle.jpg' | asset_url }}" class="rounded-full" width="200px" height="200px">
+        <div>
+            <div class="w-full px-2">
+                <a href="#" class="w-full flex flex-col justify-center items-center ">
+                    <div class="flex w-full justify-center items-center">
+                        <img src="{{ 'basic_print.jpg' | asset_url }}" class="rounded-full w-full">
+                    </div>
+                    <div class="pt-4 text-[#191918] text-[12px]">
+                        Basic Prints
+                    </div>
+                </a>
             </div>
-            <div class="pt-4 text-[#191918] text-[10px] lg:text-[12px]">
-                Chamkeeli
+        </div>
+        <div>
+            <div class="w-full px-2">
+                <a href="#" class="w-full flex flex-col justify-center items-center ">
+                    <div class="flex w-full justify-center items-center">
+                        <img src="{{ 'essential_pret.jpg' | asset_url }}" class="rounded-full w-full">
+                    </div>
+                    <div class="pt-4 text-[#191918] text-[12px]">
+                        Essential Pret
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <div class="w-full px-2">
+                <a href="#" class="w-full flex flex-col justify-center items-center ">
+                    <div class="flex w-full justify-center items-center">
+                        <img src="{{ 'kids.jpg' | asset_url }}" class="rounded-full w-full">
+                    </div>
+                    <div class="pt-4 text-[#191918] text-[12px]">
+                        Kids Pret
+                    </div>
+                </a>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $('.multi-slick').slick({
+            slidesToShow: 6,
+            slidesToScroll: 6,
+            arrows: false,
+            draggable: false,
+            responsive: [
+                {
+                    breakpoint: 768,      // For screens smaller than 768px
+                    settings: {
+                        slidesToShow: 2,  // Show 2 slides on mobile
+                        slidesToScroll: 2, // Scroll 2 slides at a time on mobile
+                        draggable: true
+                    }
+                }, {
+                    breakpoint: 1024,      // For screens smaller than 768px
+                    settings: {
+                        slidesToShow: 4,  // Show 4 slides on mobile
+                        slidesToScroll: 4, // Scroll 4 slides at a time on mobile
+                        draggable: true
+                    }
+                }
+            ]
+        });
+    });
+</script>

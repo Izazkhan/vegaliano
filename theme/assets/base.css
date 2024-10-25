@@ -666,10 +666,6 @@ h2 {
   display: none;
 }
 
-.aspect-\[1\.07\] {
-  aspect-ratio: 1.07;
-}
-
 .h-10 {
   height: 2.5rem;
 }
@@ -714,6 +710,10 @@ h2 {
   width: 2.5rem;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
 .w-4 {
   width: 1rem;
 }
@@ -728,6 +728,14 @@ h2 {
 
 .w-full {
   width: 100%;
+}
+
+.w-1\/5 {
+  width: 20%;
+}
+
+.w-4\/5 {
+  width: 80%;
 }
 
 .max-w-\[1600px\] {
@@ -855,11 +863,6 @@ h2 {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.object-cover {
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 .p-2 {
   padding: 0.5rem;
 }
@@ -970,6 +973,10 @@ h2 {
   font-size: 15px;
 }
 
+.text-\[30px\] {
+  font-size: 30px;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -998,6 +1005,10 @@ h2 {
 
 .leading-5 {
   line-height: 1.25rem;
+}
+
+.leading-\[1\.4\] {
+  line-height: 1.4;
 }
 
 .text-\[\#191918\] {
@@ -1262,15 +1273,6 @@ button[aria-expanded="true"] svg {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.slick-slider .slick-list .slick-track img {
-  position: absolute;
-  inset: 0px;
-  height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 .slick-dotted .slick-dots li {
   bottom: 1rem;
   height: 0.75rem;
@@ -1344,6 +1346,14 @@ button[aria-expanded="true"] svg {
     border-width: 0px;
   }
 
+  .md\:text-\[30px\] {
+    font-size: 30px;
+  }
+
+  .md\:text-\[45px\] {
+    font-size: 45px;
+  }
+
   .md\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -1365,6 +1375,14 @@ button[aria-expanded="true"] svg {
 
   .lg\:text-\[12px\] {
     font-size: 12px;
+  }
+
+  .lg\:text-\[30px\] {
+    font-size: 30px;
+  }
+
+  .lg\:text-\[45px\] {
+    font-size: 45px;
   }
 }
 
