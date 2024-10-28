@@ -646,6 +646,10 @@ h2 {
   margin-right: 0.25rem;
 }
 
+.mr-8 {
+  margin-right: 2rem;
+}
+
 .ms-3 {
   margin-inline-start: 0.75rem;
 }
@@ -706,6 +710,10 @@ h2 {
   width: 25%;
 }
 
+.w-1\/5 {
+  width: 20%;
+}
+
 .w-1\/6 {
   width: 16.666667%;
 }
@@ -714,12 +722,12 @@ h2 {
   width: 2.5rem;
 }
 
-.w-3\/4 {
-  width: 75%;
-}
-
 .w-4 {
   width: 1rem;
+}
+
+.w-4\/5 {
+  width: 80%;
 }
 
 .w-6 {
@@ -732,14 +740,6 @@ h2 {
 
 .w-full {
   width: 100%;
-}
-
-.w-1\/5 {
-  width: 20%;
-}
-
-.w-4\/5 {
-  width: 80%;
 }
 
 .max-w-\[1600px\] {
@@ -804,24 +804,6 @@ h2 {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
   margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-x-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-x-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-x-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .overflow-hidden {
@@ -975,10 +957,6 @@ h2 {
   text-align: center;
 }
 
-.text-\[10px\] {
-  font-size: 10px;
-}
-
 .text-\[11px\] {
   font-size: 11px;
 }
@@ -995,6 +973,10 @@ h2 {
   font-size: 15px;
 }
 
+.text-\[18px\] {
+  font-size: 18px;
+}
+
 .text-\[30px\] {
   font-size: 30px;
 }
@@ -1007,10 +989,6 @@ h2 {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-
-.text-\[18px\] {
-  font-size: 18px;
 }
 
 .font-medium {
@@ -1047,6 +1025,11 @@ h2 {
   color: rgb(54 54 54 / var(--tw-text-opacity));
 }
 
+.text-\[\#888\] {
+  --tw-text-opacity: 1;
+  color: rgb(136 136 136 / var(--tw-text-opacity));
+}
+
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -1065,11 +1048,6 @@ h2 {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-\[\#888\] {
-  --tw-text-opacity: 1;
-  color: rgb(136 136 136 / var(--tw-text-opacity));
 }
 
 .outline-none {
@@ -1320,6 +1298,46 @@ button[aria-expanded="true"] svg {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+/* Featured Tabs */
+
+/* Ensure ul and li are inline and enable horizontal scrolling */
+
+.featured-tabs ul {
+  margin: 0px;
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0px;
+}
+
+.featured-tabs ul li {
+  flex: 0 0 auto;
+  /* Prevents items from shrinking */
+  margin-right: 10px;
+  /* Optional: space between items */
+}
+
+/* Hide scrollbar for cleaner look */
+
+.featured-tabs ul::-webkit-scrollbar {
+  display: none;
+}
+
+/* Apply color to the SVG by setting the color on the button or span */
+
+.featured-tabs .slick-prev {
+  color: #FF5733;
+  /* Desired color for the SVG arrow */
+}
+
+.featured-tabs .slick-prev:hover {
+  color: #C70039;
+  /* Optional: Color on hover */
+}
+
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -1402,18 +1420,6 @@ button[aria-expanded="true"] svg {
 
   .lg\:hidden {
     display: none;
-  }
-
-  .lg\:text-\[12px\] {
-    font-size: 12px;
-  }
-
-  .lg\:text-\[30px\] {
-    font-size: 30px;
-  }
-
-  .lg\:text-\[45px\] {
-    font-size: 45px;
   }
 }
 
