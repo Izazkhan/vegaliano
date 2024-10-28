@@ -1,27 +1,63 @@
-<ul class="links-slider space-x-4 text-[18px] text-[#888]">
-    <li><a href="#">Kids Pret</a></li>
-    <li><a href="#">Limited Edition</a></li>
-    <li><a href="#">Vasl</a></li>
-    <li><a href="#">Chandni Raatein</a></li>
-    <li><a href="#">Asim Jofa Kids</a></li>
-    <li><a href="#">Afsany - Luxury Pret</a></li>
-    <li><a href="#">Menswear</a></li>
-    <li><a href="#">chamkeeli</a></li>
-    <li><a href="#">Pyaar Diyan Gallan</a></li>
-    <li><a href="#">Dhanak Rang</a></li>
-    <li><a href="#">Jag Mag</a></li>
-</ul>
+<section class="embla relative max-w-3xl mx-auto">
+    <div class="embla__viewport overflow-hidden">
+        <div class="embla__container flex space-x-6">
+            <div class="embla__slide flex-shrink-0">
+                <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Kids Pret</a>
+            </div>
+            <div class="embla__slide flex-shrink-0">
+                <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Limited Edition</a>
+            </div>
+            <div class="embla__slide flex-shrink-0">
+                <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Vasl</a>
+            </div>
+            <div class="embla__slide flex-shrink-0">
+                <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Chandni Raatein</a>
+            </div>
+            <div class="embla__slide flex-shrink-0">
+                <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Asim Jofa Kids</a>
+            </div>
+            <div class="embla__slide flex-shrink-0">
+                <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Afsany - Luxury Pret</a>
+            </div>
+            <div class="embla__slide flex-shrink-0">
+                <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Menswear</a>
+            </div>
+            <div class="embla__slide flex-shrink-0">
+                <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Chamkeeli</a>
+            </div>
+            <div class="embla__slide flex-shrink-0">
+                <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Pyaar Diyan Gallan</a>
+            </div>
+            <div class="embla__slide flex-shrink-0">
+                <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Dhanak Rang</a>
+            </div>
+            <div class="embla__slide flex-shrink-0">
+                <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Jag Mag</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls positioned absolutely to the left and right -->
+    <button class="embla__button embla__button--prev absolute left-0 top-1/2 transform -translate-y-1/2 text-[#888]">
+        <svg class="embla__button__svg" viewBox="0 0 532 532" fill="currentColor" width="24" height="24">
+            <path d="M355.66 11.354c13.793-13.805 36.208-13.805 50.001 0 13.785 13.804 13.785 36.238 0 50.034L201.22 266l204.442 204.61c13.785 13.805 13.785 36.239 0 50.044-13.793 13.796-36.208 13.796-50.002 0a5994246.277 5994246.277 0 0 0-229.332-229.454 35.065 35.065 0 0 1-10.326-25.126c0-9.2 3.393-18.26 10.326-25.2C172.192 194.973 332.731 34.31 355.66 11.354Z"></path>
+        </svg>
+    </button>
+
+    <button class="embla__button embla__button--next absolute right-0 top-1/2 transform -translate-y-1/2 text-[#888]">
+        <svg class="embla__button__svg" viewBox="0 0 532 532" fill="currentColor" width="24" height="24">
+            <path d="M176.34 520.646c-13.793 13.805-36.208 13.805-50.001 0-13.785-13.804-13.785-36.238 0-50.034L330.78 266 126.34 61.391c-13.785-13.805-13.785-36.239 0-50.044 13.793-13.796 36.208-13.796 50.002 0 22.928 22.947 206.395 206.507 229.332 229.454a35.065 35.065 0 0 1 10.326 25.126c0 9.2-3.393 18.26-10.326 25.2-45.865 45.901-206.404 206.564-229.332 229.52Z"></path>
+        </svg>
+    </button>
+</section>
+
 <script>
-    $(document).ready(function () {
-        $('.links-slider').slick({
-            slidesToShow: 1,        // Set to 1 to focus on smooth scrolling rather than snapping
-            slidesToScroll: 1,
-            infinite: false,
-            arrows: false,          // Remove arrows for continuous scroll
-            dots: false,
-            speed: 500,            // Adjust to control the speed of the scroll
-            cssEase: 'linear',      // Linear easing for smooth, continuous motion
-            variableWidth: true
-        });
+    document.addEventListener("DOMContentLoaded", () => {
+        const OPTIONS = { dragFree: true };
+
+        const emblaNode = document.querySelector('.embla');
+        const viewportNode = emblaNode.querySelector('.embla__viewport');
+
+        const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
     });
 </script>
