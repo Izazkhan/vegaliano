@@ -1,29 +1,68 @@
-<div class="featured-tabs">
-<ul class="text-[18px] text-[#888] ">
-    <li class="mr-8"><a href="#">Kids Pret</a></li>
-    <li class="mr-8"><a href="#">Limited Edition</a></li>
-    <li class="mr-8"><a href="#">Vasl</a></li>
-    <li class="mr-8"><a href="#">Chandni Raatein</a></li>
-    <li class="mr-8"><a href="#">Asim Jofa Kids</a></li>
-    <li class="mr-8"><a href="#">Afsany - Luxury Pret</a></li>
-    <li class="mr-8"><a href="#">Menswear</a></li>
-    <li class="mr-8"><a href="#">chamkeeli</a></li>
-    <li class="mr-8"><a href="#">Pyaar Diyan Gallan</a></li>
-    <li class="mr-8"><a href="#">Dhanak Rang</a></li>
-    <li class="mr-8"><a href="#">Jag Mag</a></li>
-</ul>
-</div>
-<script> 
-    $(document).ready(function () {
-        $('.featured-tabs ul').slick({
-            infinite: false,    // Prevents infinite scrolling
-            slidesToShow: 1,    // Shows one at a time, but adjusts with variableWidth
-            slidesToScroll: 1,
-            variableWidth: true,    // Allows items to display inline with varying widths
-            arrows: true,   // Hides arrow controls
-            dots: false,    // Hides pagination dots
-            initialSlide: 0,          // Ensures it starts at the very beginning
-            swipeToSlide: true  // Allows swipe-to-scroll functionality
-          });
-    });
+<section class="embla_tabs relative mx-auto">
+  <div class="embla_tabs__viewport overflow-hidden mx-8">
+    <div class="embla_tabs__container flex space-x-6">
+      <div class="embla_tabs__slide flex-shrink-0">
+        <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Kids Pret</a>
+      </div>
+      <div class="embla_tabs__slide flex-shrink-0">
+        <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Limited Edition</a>
+      </div>
+      <div class="embla_tabs__slide flex-shrink-0">
+        <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Vasl</a>
+      </div>
+      <div class="embla_tabs__slide flex-shrink-0">
+        <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Chandni Raatein</a>
+      </div>
+      <div class="embla_tabs__slide flex-shrink-0">
+        <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Asim Jofa Kids</a>
+      </div>
+      <div class="embla_tabs__slide flex-shrink-0">
+        <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Afsany - Luxury Pret</a>
+      </div>
+      <div class="embla_tabs__slide flex-shrink-0">
+        <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Menswear</a>
+      </div>
+      <div class="embla_tabs__slide flex-shrink-0">
+        <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Chamkeeli</a>
+      </div>
+      <div class="embla_tabs__slide flex-shrink-0">
+        <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Pyaar Diyan Gallan</a>
+      </div>
+      <div class="embla_tabs__slide flex-shrink-0">
+        <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Dhanak Rang</a>
+      </div>
+      <div class="embla_tabs__slide flex-shrink-0">
+        <a href="#" class="tab-link text-[18px] text-[#888] block p-2 text-center">Jag Mag</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls positioned absolutely to the left and right -->
+  <button class="embla_tabs__button embla_tabs__button--prev absolute left-0 top-1/2 transform -translate-y-1/2 text-[#888]">
+    <svg class="embla_tabs__button__svg" viewBox="0 0 532 532" fill="currentColor" width="24" height="24">
+      <path d="M355.66 11.354c13.793-13.805 36.208-13.805 50.001 0 13.785 13.804 13.785 36.238 0 50.034L201.22 266l204.442 204.61c13.785 13.805 13.785 36.239 0 50.044-13.793 13.796-36.208 13.796-50.002 0a5994246.277 5994246.277 0 0 0-229.332-229.454 35.065 35.065 0 0 1-10.326-25.126c0-9.2 3.393-18.26 10.326-25.2C172.192 194.973 332.731 34.31 355.66 11.354Z"></path>
+    </svg>
+  </button>
+
+  <button class="embla_tabs__button embla_tabs__button--next absolute right-0 top-1/2 transform -translate-y-1/2 text-[#888]">
+    <svg class="embla_tabs__button__svg" viewBox="0 0 532 532" fill="currentColor" width="24" height="24">
+      <path d="M176.34 520.646c-13.793 13.805-36.208 13.805-50.001 0-13.785-13.804-13.785-36.238 0-50.034L330.78 266 126.34 61.391c-13.785-13.805-13.785-36.239 0-50.044 13.793-13.796 36.208-13.796 50.002 0 22.928 22.947 206.395 206.507 229.332 229.454a35.065 35.065 0 0 1 10.326 25.126c0 9.2-3.393 18.26-10.326 25.2-45.865 45.901-206.404 206.564-229.332 229.52Z"></path>
+    </svg>
+  </button>
+</section>
+
+<script type="module">
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const OPTIONS = { dragFree: true };
+
+    const emblaNode = document.querySelector('.embla_tabs');
+    const viewportNode = emblaNode.querySelector('.embla_tabs__viewport');
+    const prevBtnNode = emblaNode.querySelector('.embla_tabs__button--prev');
+    const nextBtnNode = emblaNode.querySelector('.embla_tabs__button--next');
+    const snapDisplayNode = emblaNode.querySelector('.embla_tabs__selected-snap-display');
+
+    const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
+    const removePrevNextBtnsClickHandlers = EmblaUtils.addPrevNextBtnsClickHandlers(emblaApi, prevBtnNode, nextBtnNode);
+  });
 </script>

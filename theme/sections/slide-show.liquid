@@ -1,42 +1,62 @@
-<div class="slick-slider relative main-slider">
-
-    <img src="{{ 'Chamkeeli-Web-min.jpg' | asset_url }}" srcset="
-                {{ 'Chamkeeli-Mobile-min.jpg' | asset_url }} 767w, 
-                {{ 'Chamkeeli-Web-min.jpg' | asset_url }} 1200w" sizes="100vw" class="w-full h-full"
-        alt="Item 1">
-
-    <img src=" {{ 'Web-Banner-3.jpg' | asset_url }}" class="w-full h-full" alt="Item 2"
-        sizes="(min-width: 768px) 768px,100vw" />
-
-
-    <img src="{{ 'Basic-Print-Web-min.jpg' | asset_url }}" class="w-full h-full" alt="Item 3"
-        sizes="(min-width: 768px) 768px,100vw" />
-
+<div class="mx-auto">
+  <div class="overflow-hidden">
+    <div class="flex -ml-4">
+      <!-- Slide 1 -->
+      <div class="flex-none w-full pl-4">
+        <div class="w-full bg-gray-200" style="aspect-ratio: 16 / 9;">
+          <!-- Placeholder with reserved space -->
+          <img
+            srcset="{{ 'Chamkeeli-Mobile-min.jpg' | asset_url }} 767w, {{ 'Chamkeeli-Web-min.jpg' | asset_url }} 1200w"
+            sizes="100vw"
+            class="w-full object-cover select-none h-full"
+            alt="Item 1"
+            loading="lazy"
+          >
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="flex-none w-full pl-4">
+        <div class="w-full bg-gray-200" style="aspect-ratio: 16 / 9;">
+          <!-- Placeholder with reserved space -->
+          <img
+            src="{{ 'Web-Banner-3.jpg' | asset_url }}"
+            sizes="(min-width: 768px) 768px,100vw"
+            class="w-full object-cover select-none h-full"
+            alt="Item 2"
+            loading="lazy"
+          >
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="flex-none w-full pl-4">
+        <div class="w-full bg-gray-200 aspect-[2.3]">
+          <!-- Placeholder with reserved space -->
+          <img
+            src="{{ 'Basic-Print-Web-min.jpg' | asset_url }}"
+            sizes="(min-width: 768px) 768px,100vw"
+            class="w-full object-cover select-none h-full"
+            alt="Item 3"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.slick-slider').slick({
-            dots: true,
-            infinite: true,
-            speed: 500,
-            fade: true,
-            cssEase: 'linear'
-        });
+  {% comment %} const OPTIONS = { loop: true, duration: 30 };
 
-        function updateImageSizes() {
-            const images = document.querySelectorAll('.main-slider img');
-            const viewportWidth = window.innerWidth;
+  const emblaNode = document.querySelector('.embla');
+  const viewportNode = emblaNode.querySelector('.embla__viewport');
+  const prevBtn = emblaNode.querySelector('.embla__button--prev');
+  const nextBtn = emblaNode.querySelector('.embla__button--next');
+  const dotsNode = document.querySelector('.embla__dots');
 
-            images.forEach(img => {
-                img.setAttribute('sizes', `${viewportWidth}px`);
-            });
-        }
+  const emblaApi = EmblaCarousel(viewportNode, OPTIONS, [Fade()]);
 
-        // Update image sizes on window resize
-        window.addEventListener('resize', updateImageSizes);
+  const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(emblaApi, prevBtn, nextBtn);
+  const removeDotBtnsAndClickHandlers = addDotBtnsAndClickHandlers(emblaApi, dotsNode);
 
-        // Trigger the function when the page loads
-        window.addEventListener('load', updateImageSizes);
-    });
+  emblaApi.on('destroy', removePrevNextBtnsClickHandlers).on('destroy', removeDotBtnsAndClickHandlers); {% endcomment %}
 </script>
