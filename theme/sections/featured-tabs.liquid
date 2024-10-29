@@ -55,16 +55,16 @@
 
 <script type="module">
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const OPTIONS = { dragFree: true };
+  (function () {
+    document.addEventListener('DOMContentLoaded', () => {
+      const emblaNode = document.querySelector('.embla_tabs');
+      const viewportNode = emblaNode.querySelector('.embla_tabs__viewport');
+      const prevBtnNode = emblaNode.querySelector('.embla_tabs__button--prev');
+      const nextBtnNode = emblaNode.querySelector('.embla_tabs__button--next');
+      const snapDisplayNode = emblaNode.querySelector('.embla_tabs__selected-snap-display');
 
-    const emblaNode = document.querySelector('.embla_tabs');
-    const viewportNode = emblaNode.querySelector('.embla_tabs__viewport');
-    const prevBtnNode = emblaNode.querySelector('.embla_tabs__button--prev');
-    const nextBtnNode = emblaNode.querySelector('.embla_tabs__button--next');
-    const snapDisplayNode = emblaNode.querySelector('.embla_tabs__selected-snap-display');
-
-    const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
-    const removePrevNextBtnsClickHandlers = EmblaUtils.addPrevNextBtnsClickHandlers(emblaApi, prevBtnNode, nextBtnNode);
-  });
+      const emblaApi = EmblaCarousel(viewportNode, { dragFree: true });
+      const removePrevNextBtnsClickHandlers = EmblaUtils.addPrevNextBtnsClickHandlers(emblaApi, prevBtnNode, nextBtnNode);
+    });
+  })();
 </script>

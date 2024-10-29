@@ -20,13 +20,13 @@ var EmblaUtils = (function () {
     };
   }
 
-  function addDotBtnsAndClickHandlers(emblaApi, dotsNode){
+  function addDotBtnsAndClickHandlers(emblaApi, dotsNode) {
     let dotNodes = []
   
     const addDotBtnsWithClickHandlers = () => {
       dotsNode.innerHTML = emblaApi
         .scrollSnapList()
-        .map(() => '<button class="embla__dot" type="button"></button>')
+        .map(() => `<button type="button" class="w-3 h-3 embla__dot rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>`)
         .join('')
   
       const scrollTo = (index) => {
@@ -82,5 +82,6 @@ var EmblaUtils = (function () {
   return {
     addTogglePrevNextBtnsActive: addTogglePrevNextBtnsActive,
     addPrevNextBtnsClickHandlers: addPrevNextBtnsClickHandlers,
+    addDotBtnsAndClickHandlers: addDotBtnsAndClickHandlers
   };
 })();

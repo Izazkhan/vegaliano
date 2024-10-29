@@ -144,3 +144,10 @@ button[aria-expanded="true"] svg {
 .featured-tabs .slick-prev:hover {
   color: #C70039; /* Optional: Color on hover */
 }
+
+.embla__dot {
+  @apply bg-white/50
+}
+.embla__dot--selected {
+  @apply bg-white
+}
