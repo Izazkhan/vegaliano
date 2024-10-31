@@ -9,42 +9,6 @@
         <button id="limited-ed-tab" data-tab-target="#limited-ed-tab-content"
           class="tab-link text-[18px] text-[#888] block p-2 text-center">Limited Edition</button>
       </div>
-      <div class="embla_tabs__slide flex-shrink-0">
-        <button id="vasl-tab" data-tab-target="#vasl-tab-content"
-          class="tab-link text-[18px] text-[#888] block p-2 text-center">Vasl</button>
-      </div>
-      <div class="embla_tabs__slide flex-shrink-0">
-        <button id="chandni-tab" data-tab-target="#chandni-tab-content"
-          class="tab-link text-[18px] text-[#888] block p-2 text-center">Chandni Raatein</button>
-      </div>
-      <div class="embla_tabs__slide flex-shrink-0">
-        <button id="aj-kids-tab" data-tab-target="#aj-kids-tab-content"
-          class="tab-link text-[18px] text-[#888] block p-2 text-center">Asim Jofa Kids</button>
-      </div>
-      <div class="embla_tabs__slide flex-shrink-0">
-        <button id="afsany-lxy-tab" data-tab-target="#afsany-lxy-tab-content"
-          class="tab-link text-[18px] text-[#888] block p-2 text-center">Afsany - Luxury Pret</button>
-      </div>
-      <div class="embla_tabs__slide flex-shrink-0">
-        <button id="vmenswear-tab" data-tab-target="#vmenswear-tab-content"
-          class="tab-link text-[18px] text-[#888] block p-2 text-center">Menswear</button>
-      </div>
-      <div class="embla_tabs__slide flex-shrink-0">
-        <button id="chankeeli-tab" data-tab-target="#chankeeli-tab-content"
-          class="tab-link text-[18px] text-[#888] block p-2 text-center">Chamkeeli</button>
-      </div>
-      <div class="embla_tabs__slide flex-shrink-0">
-        <button id="pyaar-dg-tab" data-tab-target="#pyaar-dg-tab-content"
-          class="tab-link text-[18px] text-[#888] block p-2 text-center">Pyaar Diyan Gallan</button>
-      </div>
-      <div class="embla_tabs__slide flex-shrink-0">
-        <button id="dhanak-rg-tab" data-tab-target="#dhanak-rg-tab-content"
-          class="tab-link text-[18px] text-[#888] block p-2 text-center">Dhanak Rang</button>
-      </div>
-      <div class="embla_tabs__slide flex-shrink-0">
-        <button id="jag-mag-tab" data-tab-target="#jag-mag-tab-content"
-          class="tab-link text-[18px] text-[#888] block p-2 text-center">Jag Mag</button>
-      </div>
     </div>
   </div>
 
@@ -63,28 +27,71 @@
     </svg>
   </button>
 </section>
-<div class="tabsContent">
-  <div class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800" id="kids-pret-tab-content" role="tabpanel"
-    aria-labelledby="kids-pret-tab">
+
+<div class="tabsContent relative">
+  <div class="tab-content active right-0 rounded-lg bg-gray-50 p-4 dark:bg-gray-800" id="kids-pret-tab-content"
+    role="tabpanel" aria-labelledby="kids-pret-tab">
     Kids Pret Tab
   </div>
-  <div class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800" id="limited-ed-tab-content" role="tabpanel"
+  <div class="tab-content rounded-lg bg-gray-50 p-4 dark:bg-gray-800" id="limited-ed-tab-content" role="tabpanel"
     aria-labelledby="limited-ed-tab">
-    limited edition Tab
+    Limited Edition Tab
   </div>
 </div>
-<script type="module">
 
+<style>
+  /* Transition styles for tab content */
+  .tab-content {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.2s ease-in-out;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .tab-content.active {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    position: relative;
+  }
+</style>
+<script>
   (function () {
     document.addEventListener('DOMContentLoaded', () => {
       const emblaNode = document.querySelector('.embla_tabs');
       const viewportNode = emblaNode.querySelector('.embla_tabs__viewport');
       const prevBtnNode = emblaNode.querySelector('.embla_tabs__button--prev');
       const nextBtnNode = emblaNode.querySelector('.embla_tabs__button--next');
-      const snapDisplayNode = emblaNode.querySelector('.embla_tabs__selected-snap-display');
 
       const emblaApi = EmblaCarousel(viewportNode, { dragFree: true });
-      const removePrevNextBtnsClickHandlers = EmblaUtils.addPrevNextBtnsClickHandlers(emblaApi, prevBtnNode, nextBtnNode);
+      EmblaUtils.addPrevNextBtnsClickHandlers(emblaApi, prevBtnNode, nextBtnNode);
+
+      const tabLinks = document.querySelectorAll('.tab-link');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      let transitionTimeout;
+
+      tabLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          const targetId = link.getAttribute('data-tab-target');
+          const targetContent = document.querySelector(targetId);
+
+          const currentContent = document.querySelector('.tab-content.active');
+          if (currentContent && currentContent !== targetContent) {
+            currentContent.classList.remove('active');
+            currentContent.style.visibility = 'hidden';
+          }
+
+          targetContent.style.visibility = 'visible';
+          targetContent.classList.remove('exiting');
+          targetContent.classList.add('active');
+        });
+      });
     });
   })();
 </script>
