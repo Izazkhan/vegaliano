@@ -751,6 +751,14 @@ h2 {
   height: 400px;
 }
 
+.h-\[20\%\] {
+  height: 20%;
+}
+
+.h-\[80\%\] {
+  height: 80%;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -793,6 +801,10 @@ h2 {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[250px\] {
+  width: 250px;
 }
 
 .max-w-\[1600px\] {
@@ -941,6 +953,14 @@ h2 {
   border-radius: 0.5rem;
 }
 
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
 .border-b {
   border-bottom-width: 1px;
 }
@@ -976,6 +996,16 @@ h2 {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
 .object-cover {
@@ -1192,6 +1222,11 @@ h2 {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 .opacity-0 {
@@ -1512,6 +1547,11 @@ button[aria-expanded="true"] svg {
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
 .hover\:text-gray-900:hover {

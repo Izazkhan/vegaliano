@@ -1,6 +1,10 @@
-<section class="embla_tabs relative mx-auto">
+<div class="embla_tabs relative mx-auto">
   <div class="embla_tabs__viewport overflow-hidden mx-8">
     <div class="embla_tabs__container flex space-x-1">
+      <div class="embla_tabs__slide flex-shrink-0">
+        <button id="lounge-wear-tab" data-tab-target="#lounge-wear-tab-content"
+          class="tab-link text-[18px] text-[#888] block p-2 text-center">Lounge Wear</button>
+      </div>
       <div class="embla_tabs__slide flex-shrink-0">
         <button id="kids-pret-tab" data-tab-target="#kids-pret-tab-content"
           class="tab-link text-[18px] text-[#888] block p-2 text-center">Kids Pret</button>
@@ -26,9 +30,29 @@
       <use href="#embla_tabs__button__svg--next"></use>
     </svg>
   </button>
-</section>
+</div>
 
 <div class="tabsContent relative">
+  <div class="tab-content active right-0 rounded-lg bg-gray-50 p-4 dark:bg-gray-800" id="lounge-wear-tab-content"
+    role="tabpanel" aria-labelledby="lounge-wear-tab">
+    <div class="embla_tabs relative mx-auto">
+      <div class="embla_tabs__viewport overflow-hidden mx-8">
+        <div class="embla_tabs__container flex space-x-1">
+          <div class="flex flex-col border border-gray-300 rounded-lg overflow-hidden">
+            <img src="{{ '268A4332.jpg' | asset_url }}" alt="Product Image" class="h-[80%] w-full object-cover" />
+            <div class="flex justify-between items-center p-2 h-[20%] bg-gray-100">
+              <div class="flex flex-col">
+                <span class="text-lg font-semibold">Product Title</span>
+                <span class="text-gray-600">$25.00</span>
+              </div>
+              <button class="px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600">Add to Cart</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="tab-content active right-0 rounded-lg bg-gray-50 p-4 dark:bg-gray-800" id="kids-pret-tab-content"
     role="tabpanel" aria-labelledby="kids-pret-tab">
     Kids Pret Tab
