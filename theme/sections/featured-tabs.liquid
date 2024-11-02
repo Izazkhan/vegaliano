@@ -3,20 +3,29 @@
   <div class="embla_tabs__viewport overflow-hidden mx-8">
     <div class="embla_tabs__container flex space-x-1">
       <div class="embla_tabs__slide flex-shrink-0">
-        <button id="lounge-wear-tab" data-tab-target="#lounge-wear-tab-content"
-          class="tab-link text-[18px] text-[#888] block p-2 text-center">
+        <button
+          id="lounge-wear-tab"
+          data-tab-target="#lounge-wear-tab-content"
+          class="tab-link text-[18px] text-[#888] block p-2 text-center"
+        >
           Lounge Wear
         </button>
       </div>
       <div class="embla_tabs__slide flex-shrink-0">
-        <button id="kids-pret-tab" data-tab-target="#kids-pret-tab-content"
-          class="tab-link text-[18px] text-[#888] block p-2 text-center">
+        <button
+          id="kids-pret-tab"
+          data-tab-target="#kids-pret-tab-content"
+          class="tab-link text-[18px] text-[#888] block p-2 text-center"
+        >
           Kids Pret
         </button>
       </div>
       <div class="embla_tabs__slide flex-shrink-0">
-        <button id="limited-ed-tab" data-tab-target="#limited-ed-tab-content"
-          class="tab-link text-[18px] text-[#888] block p-2 text-center">
+        <button
+          id="limited-ed-tab"
+          data-tab-target="#limited-ed-tab-content"
+          class="tab-link text-[18px] text-[#888] block p-2 text-center"
+        >
           Limited Edition
         </button>
       </div>
@@ -25,14 +34,16 @@
 
   <!-- Controls positioned absolutely to the left and right -->
   <button
-    class="embla_tabs__button embla_tabs__button--prev absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888]">
+    class="embla_tabs__button embla_tabs__button--prev absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888]"
+  >
     <svg class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]">
       <use href="#embla_tabs__button__svg--prev"></use>
     </svg>
   </button>
 
   <button
-    class="embla_tabs__button embla_tabs__button--next absolute right-4 top-1/2 transform -translate-y-1/2 text-[#888]">
+    class="embla_tabs__button embla_tabs__button--next absolute right-4 top-1/2 transform -translate-y-1/2 text-[#888]"
+  >
     <svg class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]">
       <use href="#embla_tabs__button__svg--next"></use>
     </svg>
@@ -40,307 +51,97 @@
 </div>
 
 <div class="tabsContent relative">
-  <div class="tab-content active right-0 rounded-lg bg-gray-50" id="lounge-wear-tab-content" role="tabpanel"
-    aria-labelledby="lounge-wear-tab">
+  <div
+    class="tab-content active right-0 rounded-lg bg-gray-50"
+    id="lounge-wear-tab-content"
+    role="tabpanel"
+    aria-labelledby="lounge-wear-tab"
+  >
     <div class="embla_tabs_content relative mx-auto">
       <div class="embla_tabs_content__viewport overflow-hidden">
         <div class="embla_tabs_content__container w-full flex">
+          {% for i in (1..8) %}
+            <div class="embla_tabs_content__slide px-4 flex flex-col grow-0 shrink-0 basis-1/2 lg:basis-1/4 overflow-hidden">
+              <a href="#" class="w-full flex flex-col justify-center items-center">
+                <!-- Image Container with Hover Effect -->
+                <div class="relative w-full overflow-hidden group select-none">
+                  <img
+                    src="//asimjofa.com/cdn/shop/files/268A4332.jpg"
+                    alt="AJLW-07 SATIN SILK 2 PCS"
+                    class="main-img w-full h-full object-cover object-center"
+                  >
 
-          <div
-            class="embla_tabs_content__slide px-4 flex flex-col grow-0 shrink-0 basis-1/2 lg:basis-1/4 overflow-hidden">
-            <!-- Image Container with Hover Effect -->
-            <div class="relative w-full overflow-hidden group">
-              <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="main-img w-full h-full object-cover object-center">
+                  <!-- Hover Image with Scale and Opacity Transitions -->
+                  <img
+                    src="//asimjofa.com/cdn/shop/files/268A4374.jpg"
+                    alt="AJLW-07 SATIN SILK 2 PCS"
+                    class="hover-img absolute top-0 left-0 h-full w-full object-cover object-center"
+                  >
+                  <noscript>
+                    <img
+                      src="//asimjofa.com/cdn/shop/files/268A4332.jpg?v=1729765773&width=600"
+                      alt="AJLW-07 SATIN SILK 2 PCS"
+                      class="h-full w-full object-cover object-center"
+                    >
+                  </noscript>
+                </div>
+              </a>
 
-              <!-- Hover Image with Scale and Opacity Transitions -->
-              <img src="//asimjofa.com/cdn/shop/files/268A4374.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="hover-img absolute top-0 left-0 h-full w-full object-cover object-center">
-              <noscript>
-                <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg?v=1729765773&width=600"
-                  alt="AJLW-07 SATIN SILK 2 PCS" class="h-full w-full object-cover object-center">
-              </noscript>
-            </div>
-
-            <!-- Product Details -->
-            <div class="flex justify-between items-center p-2 bg-gray-100">
-              <div class="flex flex-col text-[14px] w-3/5 ">
-                <span class="font-medium leading-6">AJLW-01 Satin Silk 2 PCS</span>
-                <span class="text-gray-600">Rs. 3,890</span>
-              </div>
-              <div class="basis-1/2 flex justify-center items-center">
-                <a href="#"
-                  class="inline-flex justify-center items-center overflow-hidden relative atc-btn text-[12px] min-w-10 md:min-w-32 !h-[38px] bg-blue-500 text-white rounded-md hover:bg-blue-600 uppercase font-semibold">
-                  <span class="btn-text h-full hidden md:flex justify-center items-center transition-all duration-200">Add to
-                    Cart</span>
-                  <span
-                    class="btn-icon absolute flex justify-center items-center h-full transition-all duration-200 md:translate-y-[100%]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="9" cy="21" r="1"></circle>
-                      <circle cx="20" cy="21" r="1"></circle>
-                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div
-            class="embla_tabs_content__slide px-4 flex flex-col grow-0 shrink-0 basis-1/2 lg:basis-1/4 overflow-hidden">
-            <!-- Image Container with Hover Effect -->
-            <div class="relative w-full overflow-hidden group">
-              <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="main-img w-full h-full object-cover object-center">
-
-              <!-- Hover Image with Scale and Opacity Transitions -->
-              <img src="//asimjofa.com/cdn/shop/files/268A4374.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="hover-img absolute top-0 left-0 h-full w-full object-cover object-center">
-              <noscript>
-                <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg?v=1729765773&width=600"
-                  alt="AJLW-07 SATIN SILK 2 PCS" class="h-full w-full object-cover object-center">
-              </noscript>
-            </div>
-
-            <!-- Product Details -->
-            <div class="flex justify-between items-center p-2 bg-gray-100">
-              <div class="flex flex-col text-[14px] w-3/5 ">
-                <span class="font-medium leading-6">AJLW-01 Satin Silk 2 PCS</span>
-                <span class="text-gray-600">Rs. 3,890</span>
-              </div>
-              <div class="basis-1/2 flex justify-center items-center">
-                <a href="#"
-                  class="inline-flex justify-center items-center overflow-hidden relative atc-btn text-[12px] min-w-10 md:min-w-32 !h-[38px] bg-blue-500 text-white rounded-md hover:bg-blue-600 uppercase font-semibold">
-                  <span class="btn-text h-full hidden md:flex justify-center items-center transition-all duration-200">Add to
-                    Cart</span>
-                  <span
-                    class="btn-icon absolute flex justify-center items-center h-full transition-all duration-200 md:translate-y-[100%]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="9" cy="21" r="1"></circle>
-                      <circle cx="20" cy="21" r="1"></circle>
-                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                  </span>
-                </a>
+              <!-- Product Details -->
+              <div class="flex justify-between items-center p-2 bg-gray-100">
+                <div class="flex flex-col text-[14px] w-3/5 ">
+                  <span class="font-medium leading-6">AJLW-0{{ i }} Satin Silk 2 PCS</span>
+                  <span class="text-gray-600">Rs. 3,890</span>
+                </div>
+                <div class="basis-1/2 flex justify-center items-center">
+                  <a
+                    href="#"
+                    class="inline-flex justify-center items-center overflow-hidden relative atc-btn text-[12px] min-w-10 md:min-w-32 !h-[38px] bg-blue-500 text-white rounded-md hover:bg-blue-600 uppercase font-semibold"
+                  >
+                    <span class="btn-text h-full hidden md:flex justify-center items-center transition-all duration-200"
+                      >Add to Cart</span
+                    >
+                    <span
+                      class="btn-icon absolute flex justify-center items-center h-full transition-all duration-200 md:translate-y-[100%]"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                      </svg>
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div
-            class="embla_tabs_content__slide px-4 flex flex-col grow-0 shrink-0 basis-1/2 lg:basis-1/4 overflow-hidden">
-            <!-- Image Container with Hover Effect -->
-            <div class="relative w-full overflow-hidden group">
-              <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="main-img w-full h-full object-cover object-center">
-
-              <!-- Hover Image with Scale and Opacity Transitions -->
-              <img src="//asimjofa.com/cdn/shop/files/268A4374.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="hover-img absolute top-0 left-0 h-full w-full object-cover object-center">
-              <noscript>
-                <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg?v=1729765773&width=600"
-                  alt="AJLW-07 SATIN SILK 2 PCS" class="h-full w-full object-cover object-center">
-              </noscript>
-            </div>
-
-            <!-- Product Details -->
-            <div class="flex justify-between items-center p-2 bg-gray-100">
-              <div class="flex flex-col text-[14px] w-3/5 ">
-                <span class="font-medium leading-6">AJLW-02 Satin Silk 2 PCS</span>
-                <span class="text-gray-600">Rs. 3,890</span>
-              </div>
-              <div class="basis-1/2 flex justify-center items-center">
-                <a href="#"
-                  class="inline-flex justify-center items-center overflow-hidden relative atc-btn text-[12px] min-w-10 md:min-w-32 !h-[38px] bg-blue-500 text-white rounded-md hover:bg-blue-600 uppercase font-semibold">
-                  <span class="btn-text h-full hidden md:flex justify-center items-center transition-all duration-200">Add to
-                    Cart</span>
-                  <span
-                    class="btn-icon absolute flex justify-center items-center h-full transition-all duration-200 md:translate-y-[100%]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="9" cy="21" r="1"></circle>
-                      <circle cx="20" cy="21" r="1"></circle>
-                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="embla_tabs_content__slide px-4 flex flex-col grow-0 shrink-0 basis-1/2 lg:basis-1/4 overflow-hidden">
-            <!-- Image Container with Hover Effect -->
-            <div class="relative w-full overflow-hidden group">
-              <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="main-img w-full h-full object-cover object-center">
-
-              <!-- Hover Image with Scale and Opacity Transitions -->
-              <img src="//asimjofa.com/cdn/shop/files/268A4374.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="hover-img absolute top-0 left-0 h-full w-full object-cover object-center">
-              <noscript>
-                <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg?v=1729765773&width=600"
-                  alt="AJLW-07 SATIN SILK 2 PCS" class="h-full w-full object-cover object-center">
-              </noscript>
-            </div>
-
-            <!-- Product Details -->
-            <div class="flex justify-between items-center p-2 bg-gray-100">
-              <div class="flex flex-col text-[14px] w-3/5 ">
-                <span class="font-medium leading-6">AJLW-03 Satin Silk 2 PCS</span>
-                <span class="text-gray-600">Rs. 3,890</span>
-              </div>
-              <div class="basis-1/2 flex justify-center items-center">
-                <a href="#"
-                  class="inline-flex justify-center items-center overflow-hidden relative atc-btn text-[12px] min-w-10 md:min-w-32 !h-[38px] bg-blue-500 text-white rounded-md hover:bg-blue-600 uppercase font-semibold">
-                  <span class="btn-text h-full hidden md:flex justify-center items-center transition-all duration-200">Add to
-                    Cart</span>
-                  <span
-                    class="btn-icon absolute flex justify-center items-center h-full transition-all duration-200 md:translate-y-[100%]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="9" cy="21" r="1"></circle>
-                      <circle cx="20" cy="21" r="1"></circle>
-                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="embla_tabs_content__slide px-4 flex flex-col grow-0 shrink-0 basis-1/2 lg:basis-1/4 overflow-hidden">
-            <!-- Image Container with Hover Effect -->
-            <div class="relative w-full overflow-hidden group">
-              <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="main-img w-full h-full object-cover object-center">
-
-              <!-- Hover Image with Scale and Opacity Transitions -->
-              <img src="//asimjofa.com/cdn/shop/files/268A4374.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="hover-img absolute top-0 left-0 h-full w-full object-cover object-center">
-              <noscript>
-                <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg?v=1729765773&width=600"
-                  alt="AJLW-07 SATIN SILK 2 PCS" class="h-full w-full object-cover object-center">
-              </noscript>
-            </div>
-
-            <!-- Product Details -->
-            <div class="flex justify-between items-center p-2 bg-gray-100">
-              <div class="flex flex-col text-[14px] w-3/5 ">
-                <span class="font-medium leading-6">AJLW-04 Satin Silk 2 PCS</span>
-                <span class="text-gray-600">Rs. 3,890</span>
-              </div>
-              <div class="basis-1/2 flex justify-center items-center">
-                <a href="#"
-                  class="inline-flex justify-center items-center overflow-hidden relative atc-btn text-[12px] min-w-10 md:min-w-32 !h-[38px] bg-blue-500 text-white rounded-md hover:bg-blue-600 uppercase font-semibold">
-                  <span class="btn-text h-full hidden md:flex justify-center items-center transition-all duration-200">Add to
-                    Cart</span>
-                  <span
-                    class="btn-icon absolute flex justify-center items-center h-full transition-all duration-200 md:translate-y-[100%]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="9" cy="21" r="1"></circle>
-                      <circle cx="20" cy="21" r="1"></circle>
-                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div
-            class="embla_tabs_content__slide px-4 flex flex-col grow-0 shrink-0 basis-1/2 lg:basis-1/4 overflow-hidden">
-            <!-- Image Container with Hover Effect -->
-            <div class="relative w-full overflow-hidden group">
-              <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="main-img w-full h-full object-cover object-center">
-
-              <!-- Hover Image with Scale and Opacity Transitions -->
-              <img src="//asimjofa.com/cdn/shop/files/268A4374.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="hover-img absolute top-0 left-0 h-full w-full object-cover object-center">
-              <noscript>
-                <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg?v=1729765773&width=600"
-                  alt="AJLW-07 SATIN SILK 2 PCS" class="h-full w-full object-cover object-center">
-              </noscript>
-            </div>
-
-            <!-- Product Details -->
-            <div class="flex justify-between items-center p-2 bg-gray-100">
-              <div class="flex flex-col text-[14px] w-3/5 ">
-                <span class="font-medium leading-6">AJLW-05 Satin Silk 2 PCS</span>
-                <span class="text-gray-600">Rs. 3,890</span>
-              </div>
-              <div class="basis-1/2 flex justify-center items-center">
-                <a href="#"
-                  class="inline-flex justify-center items-center overflow-hidden relative atc-btn text-[12px] min-w-10 md:min-w-32 !h-[38px] bg-blue-500 text-white rounded-md hover:bg-blue-600 uppercase font-semibold">
-                  <span class="btn-text h-full hidden md:flex justify-center items-center transition-all duration-200">Add to
-                    Cart</span>
-                  <span
-                    class="btn-icon absolute flex justify-center items-center h-full transition-all duration-200 md:translate-y-[100%]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="9" cy="21" r="1"></circle>
-                      <circle cx="20" cy="21" r="1"></circle>
-                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="embla_tabs_content__slide px-4 flex flex-col grow-0 shrink-0 basis-1/2 lg:basis-1/4 overflow-hidden">
-            <!-- Image Container with Hover Effect -->
-            <div class="relative w-full overflow-hidden group">
-              <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="main-img w-full h-full object-cover object-center">
-
-              <!-- Hover Image with Scale and Opacity Transitions -->
-              <img src="//asimjofa.com/cdn/shop/files/268A4374.jpg" alt="AJLW-07 SATIN SILK 2 PCS"
-                class="hover-img absolute top-0 left-0 h-full w-full object-cover object-center">
-              <noscript>
-                <img src="//asimjofa.com/cdn/shop/files/268A4332.jpg?v=1729765773&width=600"
-                  alt="AJLW-07 SATIN SILK 2 PCS" class="h-full w-full object-cover object-center">
-              </noscript>
-            </div>
-
-            <!-- Product Details -->
-            <div class="flex justify-between items-center p-2 bg-gray-100">
-              <div class="flex flex-col text-[14px] w-3/5 ">
-                <span class="font-medium leading-6">AJLW-06 Satin Silk 2 PCS</span>
-                <span class="text-gray-600">Rs. 3,890</span>
-              </div>
-              <div class="basis-1/2 flex justify-center items-center">
-                <a href="#"
-                  class="inline-flex justify-center items-center overflow-hidden relative atc-btn text-[12px] min-w-10 md:min-w-32 !h-[38px] bg-blue-500 text-white rounded-md hover:bg-blue-600 uppercase font-semibold">
-                  <span class="btn-text h-full hidden md:flex justify-center items-center transition-all duration-200">Add to
-                    Cart</span>
-                  <span
-                    class="btn-icon absolute flex justify-center items-center h-full transition-all duration-200 md:translate-y-[100%]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="9" cy="21" r="1"></circle>
-                      <circle cx="20" cy="21" r="1"></circle>
-                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
   </div>
-  <div class="tab-content right-0 rounded-lg bg-gray-50 p-4 dark:bg-gray-800" id="kids-pret-tab-content"
-    role="tabpanel" aria-labelledby="kids-pret-tab">
+  <div
+    class="tab-content right-0 rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
+    id="kids-pret-tab-content"
+    role="tabpanel"
+    aria-labelledby="kids-pret-tab"
+  >
     Kids Pret Tab
   </div>
-  <div class="tab-content rounded-lg bg-gray-50 p-4 dark:bg-gray-800" id="limited-ed-tab-content" role="tabpanel"
-    aria-labelledby="limited-ed-tab">
+  <div
+    class="tab-content rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
+    id="limited-ed-tab-content"
+    role="tabpanel"
+    aria-labelledby="limited-ed-tab"
+  >
     Limited Edition Tab
   </div>
 </div>
@@ -366,28 +167,32 @@
     position: relative;
   }
 
+  .tab-link.active {
+    font-weight: bold
+  }
+
   .group .main-img {
     transform: scale(1);
     opacity: 1;
-    transition: opacity .5s, transform 2s ease-in-out;
+    transition: opacity 0.5s, transform 2s ease-in-out;
   }
 
   .group:hover .main-img {
     transform: scale(1.1);
     opacity: 0;
-    transition: opacity .5s, transform 2s ease-in-out;
+    transition: opacity 0.5s, transform 2s ease-in-out;
   }
 
   .group .hover-img {
     transform: scale(1);
     opacity: 0;
-    transition: opacity .5s, transform 2s ease-in-out;
+    transition: opacity 0.5s, transform 2s ease-in-out;
   }
 
   .group:hover .hover-img {
     transform: scale(1.1);
     opacity: 1;
-    transition: opacity .5s, transform 2s ease-in-out;
+    transition: opacity 0.5s, transform 2s ease-in-out;
   }
 
   .atc-btn:hover .btn-icon {
@@ -400,18 +205,27 @@
 </style>
 <script>
   (function () {
-    // Tabs Content Slider
-    const emblaNode = document.querySelector('.embla_tabs_content');
-    const viewportNode = emblaNode.querySelector('.embla_tabs_content__viewport');
-    const prevBtnNode = emblaNode.querySelector('.embla_tabs_content__button--prev');
-    const nextBtnNode = emblaNode.querySelector('.embla_tabs_content__button--next');
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tabs Content Slider
+      const emblaNode = document.querySelector('.embla_tabs_content');
+      const viewportNode = emblaNode.querySelector('.embla_tabs_content__viewport');
 
-    const emblaApi = EmblaCarousel(viewportNode, { slidesToScroll: 4, loop: true, align: 'start' }, [
-      EmblaCarouselAutoplay({ playOnInit: true, delay: 3000, stopOnFocusIn: false })
-    ]);
+      const emblaApi = EmblaCarousel(
+        viewportNode,
+        {
+          slidesToScroll: 'auto',
+          loop: true,
+          align: 'start',
+        },
+        [EmblaCarouselAutoplay({ playOnInit: true, delay: 3000, stopOnFocusIn: false })]
+      );
 
-    EmblaUtils.addPrevNextBtnsClickHandlers(emblaApi, prevBtnNode, nextBtnNode);
-
+      embla.on('dragEnd', () => {
+        if (Math.abs(embla.scrollProgress()) < 0.1) {
+          embla.scrollTo(embla.target());
+        }
+      });
+    });
   })();
 
   (function () {
@@ -432,7 +246,9 @@
 
       tabLinks.forEach((link) => {
         link.addEventListener('click', () => {
-          console.log("Gere")
+          tabLinks.forEach((otherLink) => otherLink.classList.remove('active'));
+          // Add active class to the clicked link
+          link.classList.add('active');
           const targetId = link.getAttribute('data-tab-target');
           const targetContent = document.querySelector(targetId);
 
