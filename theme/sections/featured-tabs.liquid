@@ -52,19 +52,19 @@
 
 <div class="tabsContent relative">
   <div
-    class="tab-content active right-0 rounded-lg bg-gray-50"
+    class="tab-content active right-0"
     id="lounge-wear-tab-content"
     role="tabpanel"
     aria-labelledby="lounge-wear-tab"
   >
-    <div class="embla_tabs_content relative mx-auto">
+    <div class="embla_tabs_content relative mx-auto px-2">
       <div class="embla_tabs_content__viewport overflow-hidden">
         <div class="embla_tabs_content__container w-full flex">
           {% for i in (1..8) %}
-            <div class="embla_tabs_content__slide px-4 flex flex-col grow-0 shrink-0 basis-1/2 lg:basis-1/4 overflow-hidden">
+            <div class="embla_tabs_content__slide px-1 md:px-4 flex flex-col grow-0 shrink-0 basis-1/2 lg:basis-1/4 overflow-hidden">
               <a href="#" class="w-full flex flex-col justify-center items-center">
                 <!-- Image Container with Hover Effect -->
-                <div class="relative w-full overflow-hidden group select-none">
+                <div class="relative w-full overflow-hidden group select-none aspect-[0.68]">
                   <img
                     src="//asimjofa.com/cdn/shop/files/268A4332.jpg"
                     alt="AJLW-07 SATIN SILK 2 PCS"
@@ -129,7 +129,7 @@
     </div>
   </div>
   <div
-    class="tab-content right-0 rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
+    class="tab-content"
     id="kids-pret-tab-content"
     role="tabpanel"
     aria-labelledby="kids-pret-tab"
@@ -137,7 +137,7 @@
     Kids Pret Tab
   </div>
   <div
-    class="tab-content rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
+    class="tab-content"
     id="limited-ed-tab-content"
     role="tabpanel"
     aria-labelledby="limited-ed-tab"
@@ -168,7 +168,8 @@
   }
 
   .tab-link.active {
-    font-weight: bold
+    font-weight: 500;
+    color: #111
   }
 
   .group .main-img {
@@ -219,12 +220,6 @@
         },
         [EmblaCarouselAutoplay({ playOnInit: true, delay: 3000, stopOnFocusIn: false })]
       );
-
-      embla.on('dragEnd', () => {
-        if (Math.abs(embla.scrollProgress()) < 0.1) {
-          embla.scrollTo(embla.target());
-        }
-      });
     });
   })();
 
