@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asim Jofa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     {{ content_for_header }}
-    {{ 'slick.css' | asset_url | stylesheet_tag }}
-    {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
     <script src="https://unpkg.com/embla-carousel-fade/embla-carousel-fade.umd.js"></script>
+    <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
     <script src="{{ 'embla-utils.js' | asset_url }}"></script>
 </head>
+
 <body class="min-h-screen">
     {% render 'icons' %}
     {% render 'header' %}
     {{ content_for_layout }}
-    <script src="{{ 'flowbite.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
     {% render 'sidebar' %}
 </body>
+
 </html>
