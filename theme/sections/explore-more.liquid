@@ -1,0 +1,71 @@
+<div class="shop-by-category relative">
+    <h2 class="text-[30px] text-[#363636] text-center mt-4 uppercase font-semibold"><span>More To Explore</span></h2>
+    <div class="embla_categories relative w-full">
+        <div class="embla_categories__viewport overflow-hidden">
+            <div class="embla_categories__container flex">
+                {% for i in (1..8) %}
+                <div
+                    class="embla_categories__slide px-1 flex flex-col justify-center gap-2 items-center grow-0 shrink-0 basis-2/3">
+                    <div class="relative w-full overflow-hidden group select-none aspect-[4/3]">
+                        <img src="//asimjofa.com/cdn/shop/files/Kids_Teen-min_ba3f59ad-efa1-45f4-bccf-86515aaf3e5d.jpg"
+                            alt="AJLW-07 SATIN SILK 2 PCS"
+                            class="absolute top-0 w-full h-full object-cover object-center">
+                    </div>
+                    <div class="cat-title font-semibold text-[#222] text-[22px] tracking-[3px] uppercase">
+                        Essentials {{ i }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+</style>
+<script>
+    (function () {
+        const OPTIONS = {
+            slidesToScroll: 1,
+            loop: true,
+            align: 'center'
+        };
+        const emblaNode = document.querySelector('.embla_categories');
+        const viewportNode = emblaNode.querySelector('.embla_categories__viewport');
+
+        const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
+
+        const slides = Array.from(emblaNode.querySelectorAll('.embla_categories__slide'));
+
+        function applyScaleEffect() {
+            const scrollProgress = emblaApi.scrollProgress();
+            const centerIndex = emblaApi.selectedScrollSnap(); // Center slide index
+            slides.forEach((slide, index) => {
+                const slideProgress = emblaApi.scrollSnapList()[index] - scrollProgress; // Distance from the center
+                const scaleFactor = Math.max(1 - Math.abs(slideProgress) * 0.3, 0.85); // Scale calculation
+                // const opacityFactor = Math.max(1 - Math.abs(slideProgress) * 0.6, 0.6); // Opacity calculation
+
+                const currentTransform = slide.style.transform || '';
+                slide.style.transform = updateScaleOnly(currentTransform, scaleFactor);
+                // slide.style.opacity = `${opacityFactor}`;
+            });
+        }
+
+        function updateScaleOnly(transformString, scaleFactor) {
+            // Check if the transform string already includes a scale transformation
+            if (transformString.includes('scale(')) {
+                // Update existing scale transformation
+                return transformString.replace(/scale\([^\)]+\)/, `scale(${scaleFactor})`);
+            } else {
+                // If no scale is present, add it at the end
+                return `${transformString} scale(${scaleFactor})`;
+            }
+        }
+
+        // Run scale effect on load and on select
+
+        emblaApi.on('scroll', applyScaleEffect);
+
+        // Initial setup
+        applyScaleEffect();
+    })();
+</script>
