@@ -90,7 +90,9 @@ var EmblaUtils = (function () {
   }
 
   function setTweenNodes(emblaApi) {
-    tweenNodes = emblaApi.slideNodes();
+    tweenNodes = emblaApi.slideNodes().map((slideNode) => {
+      return slideNode.querySelector('.__slide');
+    })
   }
 
   function setTweenFactor(emblaApi) {
@@ -104,34 +106,28 @@ var EmblaUtils = (function () {
     const isScrollEvent = eventName === "scroll";
 
     emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
-      let diffToTarget = scrollSnap - scrollProgress;
       const slidesInSnap = engine.slideRegistry[snapIndex];
+      let slideCount = slidesInSnap.length;
+      const wrapThreshold = slidesInSnap.length / 2;
 
       slidesInSnap.forEach((slideIndex) => {
-        if (isScrollEvent && !slidesInView.includes(slideIndex)) return;
+        const tweenNode = tweenNodes[slideIndex];
 
-        if (engine.options.loop) {
-          engine.slideLooper.loopPoints.forEach((loopItem) => {
-            const target = loopItem.target();
+        const snapPoint = emblaApi.scrollSnapList()[slideIndex];
+        let slideProgress = snapPoint - scrollProgress;
 
-            if (slideIndex === loopItem.index && target !== 0) {
-              const sign = Math.sign(target);
-
-              if (sign === -1) {
-                diffToTarget = scrollSnap - (1 + scrollProgress);
-              }
-              if (sign === 1) {
-                diffToTarget = scrollSnap + (1 - scrollProgress);
-              }
-            }
-          });
+        // Only apply wrapping if the slide is beyond the wrap threshold
+        // This will prevent slides from abruptly jumping for small scrolls
+        if (slideProgress < -wrapThreshold) {
+          slideProgress += slideCount;
+        } else if (slideProgress > wrapThreshold) {
+          slideProgress -= slideCount;
         }
 
-        const tweenValue = 1.2 - Math.abs(diffToTarget * tweenFactor);
-        const scale = numberWithinRange(tweenValue, 0.8, 1.2).toString();
-        const tweenNode = tweenNodes[slideIndex];
+        // Apply scale and opacity based on adjusted slide progress
+        const scaleFactor = Math.max(1 - Math.abs(slideProgress) * 0.9, 0.6);
         const currentTransform = tweenNode.style.transform || "";
-        tweenNode.style.transform = updateScaleOnly(currentTransform, scale);
+        tweenNode.style.transform = updateScaleOnly(currentTransform, scaleFactor);
       });
     });
   }
