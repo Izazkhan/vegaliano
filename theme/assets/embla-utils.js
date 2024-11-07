@@ -85,12 +85,9 @@ var EmblaUtils = (function () {
   let tweenFactor = 0;
   let tweenNodes = [];
 
-  function numberWithinRange(number, min, max) {
-    return Math.min(Math.max(number, min), max);
-  }
-
   function setTweenNodes(emblaApi) {
     tweenNodes = emblaApi.slideNodes().map((slideNode) => {
+      // return slideNode
       return slideNode.querySelector('.__slide');
     })
   }
@@ -125,7 +122,7 @@ var EmblaUtils = (function () {
         }
 
         // Apply scale and opacity based on adjusted slide progress
-        const scaleFactor = Math.max(1 - Math.abs(slideProgress) * 0.9, 0.6);
+        const scaleFactor = Math.max(1 - Math.abs(slideProgress) * 1.5, 0.6);
         const currentTransform = tweenNode.style.transform || "";
         tweenNode.style.transform = updateScaleOnly(currentTransform, scaleFactor);
       });
