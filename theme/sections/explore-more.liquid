@@ -1,20 +1,20 @@
 <div class="explore-more relative">
-    <h2 class="text-[15px] md:text-[30px] text-[#363636] text-center my-4 uppercase font-semibold"><span>More To Explore</span></h2>
+    <h2 class="text-[15px] md:text-[30px] text-[#363636] text-center my-4 uppercase font-semibold"><span>More To
+            Explore</span></h2>
     <div class="embla_explore_more relative w-full px-2 lg:px-0">
         <div class="embla_explore_more__viewport overflow-hidden">
             <div class="embla_explore_more__container flex md:gap-8 md:pl-8">
                 {% for i in (1..8) %}
                 <div
-                    class="embla_explore_more__slide -mr-2 md:mr-0 grow-0 shrink-0 basis-[50%] md:basis-[60%] lg:basis-1/3">
+                    class="embla_explore_more__slide embla__slide -mr-2 grow-0 shrink-0 basis-[50%] md:basis-[60%] lg:basis-1/3">
                     <div class="__slide w-full flex flex-col justify-center gap-2 items-center ">
                         <div class="relative group select-none w-full">
                             <img src="//asimjofa.com/cdn/shop/files/Kids_Teen-min_ba3f59ad-efa1-45f4-bccf-86515aaf3e5d.jpg?width=585"
-                                width="100%"
-                                height="auto"
-                                alt="AJLW-07 SATIN SILK 2 PCS"
+                                width="100%" height="auto" alt="AJLW-07 SATIN SILK 2 PCS"
                                 class="object-cover object-center">
                         </div>
-                        <div class="cat-title font-semibold text-[#222] text-[13px] md:text-[22px] tracking-[3px] uppercase">
+                        <div
+                            class="cat-title font-semibold text-[#222] text-[13px] md:text-[22px] tracking-[3px] uppercase">
                             Essentials {{ i }}
                         </div>
                     </div>
@@ -24,8 +24,6 @@
         </div>
     </div>
 </div>
-<style>
-</style>
 <script>
     (function () {
         const OPTIONS = {
@@ -36,8 +34,31 @@
         const emblaNode = document.querySelector('.embla_explore_more');
         const viewportNode = emblaNode.querySelector('.embla_explore_more__viewport');
 
-        const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
-        const removeTweenScale = EmblaUtils.setupTweenScale(emblaApi);
+        const embla = EmblaCarousel(viewportNode, OPTIONS);
+        const removeTweenScale = EmblaUtils.setupTweenScale(embla);
+
+        // Get all slides
+        const slides = emblaNode.querySelectorAll('.embla__slide');
+
+        // Function to update `is-selected` class
+        function updateSelectedSlide() {
+            const selectedIndex = embla.selectedScrollSnap(); // Get the centered slide index
+            // Remove `is-selected` from all slides
+            slides.forEach((slide, index) => {
+                console.log('selected', selectedIndex, slide);
+                if (index === selectedIndex) {
+                    slide.classList.add('is-selected');
+                } else {
+                    slide.classList.remove('is-selected');
+                }
+            });
+        }
+
+        // Run the update function on every select event
+        embla.on('select', updateSelectedSlide);
+
+        // Initial run to set the class on the first load
+        updateSelectedSlide();
 
     })();
 </script>

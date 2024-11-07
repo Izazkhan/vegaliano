@@ -122,9 +122,11 @@ var EmblaUtils = (function () {
         }
 
         // Apply scale and opacity based on adjusted slide progress
-        const scaleFactor = Math.max(1 - Math.abs(slideProgress) * 1.5, 0.6);
+        const scaleFactor = Math.max(1 - Math.abs(slideProgress) * 1.2, 0.6);
         const currentTransform = tweenNode.style.transform || "";
+        const paddingFactor = 100 * (1 - scaleFactor) - 5;
         tweenNode.style.transform = updateScaleOnly(currentTransform, scaleFactor);
+        tweenNode.style.paddingTop = Math.round(paddingFactor) + 'px';
       });
     });
   }
