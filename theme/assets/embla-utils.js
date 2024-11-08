@@ -61,9 +61,35 @@ var EmblaUtils = (function () {
     };
   }
 
+  function stopAutoplayOnNavBtns (emblaApi, ...navButtons) {
+    const onNavClick = () => {
+      const autoplay = emblaApi?.plugins()?.autoplay
+      if (!autoplay) return
+
+      const resetOrStop =
+        autoplay.options.stopOnInteraction === false
+          ? autoplay.reset
+          : autoplay.stop
+
+      resetOrStop()
+    }
+
+    navButtons.forEach((navButton) =>
+      navButton.addEventListener('click', onNavClick, true)
+    )
+
+    return () => {
+      navButtons.forEach((navButton) =>
+        navButton.removeEventListener('click', onNavClick, true)
+      )
+    }
+  }
+
   function addPrevNextBtnsClickHandlers(emblaApi, prevBtn, nextBtn) {
     const scrollPrev = () => emblaApi.scrollPrev();
     const scrollNext = () => emblaApi.scrollNext();
+
+    stopAutoplayOnNavBtns(emblaApi, prevBtn, nextBtn);
 
     prevBtn.addEventListener("click", scrollPrev, false);
     nextBtn.addEventListener("click", scrollNext, false);

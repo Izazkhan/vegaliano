@@ -5,6 +5,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xsm': '480px',
+        '2md': '896px',
+        '3xl': '1600px',
+      },
       colors: {
         primary: "#493323",
         link: "#493323"

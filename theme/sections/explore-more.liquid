@@ -39,26 +39,5 @@
 
         // Get all slides
         const slides = emblaNode.querySelectorAll('.embla__slide');
-
-        // Function to update `is-selected` class
-        function updateSelectedSlide() {
-            const selectedIndex = embla.selectedScrollSnap(); // Get the centered slide index
-            // Remove `is-selected` from all slides
-            slides.forEach((slide, index) => {
-                console.log('selected', selectedIndex, slide);
-                if (index === selectedIndex) {
-                    slide.classList.add('is-selected');
-                } else {
-                    slide.classList.remove('is-selected');
-                }
-            });
-        }
-
-        // Run the update function on every select event
-        embla.on('select', updateSelectedSlide);
-
-        // Initial run to set the class on the first load
-        updateSelectedSlide();
-
     })();
 </script>
