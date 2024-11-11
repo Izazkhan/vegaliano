@@ -7,91 +7,14 @@
     <div class="embla">
       <div class="embla__viewport overflow-hidden">
         <div class="embla__container flex -ml-[1rem] touch-pan-y">
-          <div class="embla__slide grow-0 shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/6 pl-[1rem] translate-3d">
-            <div
-              class="embla__slide__number flex items-center justify-center text-4xl font-semibold select-none"
-            >
-              <a href="#" class="w-full flex flex-col justify-center items-center">
-                    <div class="flex w-full justify-center items-center">
-                        <img src="{{ 'vasl.jpg' | asset_url }}" class="rounded-full w-full">
-                    </div>
-                    <div class="pt-4 text-[#191918] text-[12px]">
-                        Vasl
-                    </div>
-                </a>
+          {% for i in (1..6) %}
+            <div class="embla__slide grow-0 shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/6 pl-[1rem] translate-3d">
+              {% render 'featured-collection-card',
+                collection_title: 'Vasl',
+                collection_img_url: 'https://placehold.co/200'
+              %}
             </div>
-          </div>
-          <div class="embla__slide grow-0 shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/6 pl-[1rem] translate-3d">
-            <div
-              class="embla__slide__number flex items-center justify-center text-4xl font-semibold select-none"
-            >
-              <a href="#" class="w-full flex flex-col justify-center items-center">
-                    <div class="flex w-full justify-center items-center">
-                        <img src="{{ 'limited.jpg' | asset_url }}" class="rounded-full w-full">
-                    </div>
-                    <div class="pt-4 text-[#191918] text-[12px]">
-                        Limited Edition
-                    </div>
-                </a>
-            </div>
-          </div>
-          <div class="embla__slide grow-0 shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/6 pl-[1rem] translate-3d">
-            <div
-              class="embla__slide__number flex items-center justify-center text-4xl font-semibold select-none"
-            >
-              <a href="#" class="w-full flex flex-col justify-center items-center">
-                    <div class="flex w-full justify-center items-center">
-                        <img src="{{ 'chaandni_ratein.jpg' | asset_url }}" class="rounded-full w-full">
-                    </div>
-                    <div class="pt-4 text-[#191918] text-[12px]">
-                        Chandni Raatein
-                    </div>
-                </a>
-            </div>
-          </div>
-          <div class="embla__slide grow-0 shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/6 pl-[1rem] translate-3d">
-            <div
-              class="embla__slide__number flex items-center justify-center text-4xl font-semibold select-none"
-            >
-              <a href="#" class="w-full flex flex-col justify-center items-center">
-                    <div class="flex w-full justify-center items-center">
-                        <img src="{{ 'basic_print.jpg' | asset_url }}" class="rounded-full w-full">
-                    </div>
-                    <div class="pt-4 text-[#191918] text-[12px]">
-                        Basic Prints
-                    </div>
-                </a>
-            </div>
-          </div>
-          <div class="embla__slide grow-0 shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/6 pl-[1rem] translate-3d">
-            <div
-              class="embla__slide__number flex items-center justify-center text-4xl font-semibold select-none"
-            >
-              <a href="#" class="w-full flex flex-col justify-center items-center">
-                    <div class="flex w-full justify-center items-center">
-                        <img src="{{ 'essential_pret.jpg' | asset_url }}" class="rounded-full w-full">
-                    </div>
-                    <div class="pt-4 text-[#191918] text-[12px]">
-                        Essential Pret
-                    </div>
-                </a>
-            </div>
-          </div>
-          <div class="embla__slide grow-0 shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/6 pl-[1rem] translate-3d">
-            <div
-              class="embla__slide__number flex items-center justify-center text-4xl font-semibold select-none"
-            >
-              <a href="#" class="w-full flex flex-col justify-center items-center">
-                    <div class="flex w-full justify-center items-center">
-                        <img src="{{ 'kids.jpg' | asset_url }}" class="rounded-full w-full">
-                    </div>
-                    <div class="pt-4 text-[#191918] text-[12px]">
-                        Kids Pret
-                    </div>
-                </a>
-            </div>
-          </div>
-          <!-- Additional Slides -->
+          {% endfor %}
         </div>
       </div>
     </div>

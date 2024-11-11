@@ -11,8 +11,17 @@ module.exports = {
         '3xl': '1600px',
       },
       colors: {
-        primary: "#493323",
-        link: "#493323"
+        primary: "var(--color-primary)",
+        secondary: "var(--color-secondary)",
+        accent: "var(--color-accent)",
+        link: "var(--color-link)",
+        'link-hover': "var(--color-link-hover)",
+        'footer-link': "var(--color-footer-link)",
+        'footer-link-hover': "var(--color-footer-link-hover)",
+        'footer-heading': "var(--color-footer-heading)",
+        'product-title': "var(--color-product-title)",
+        'product-price': "var(--color-product-price)",
+        'footer': "var(--color-footer)",
       }
     },
     fontFamily: {

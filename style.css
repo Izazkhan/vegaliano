@@ -18,13 +18,29 @@
   }
 }
 
+:root {
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --color-accent: #151515;
+  --color-link: #000;
+  --color-hover: #222;
+  
+  /* Footer colors */
+  --color-footer: #f7fafa;
+  --color-footer-link: #878787;
+  --color-footer-link-hover: #293341;
+  --color-footer-heading: #222;
+
+  --color-product-title: #222;
+  --color-product-price: #696969;
+}
+
 button[aria-expanded="true"] svg {
   transform: scaleY(-1);
 }
 
 .lux-es-btn {
-  @apply
-  /* Normal */
+  @apply /* Normal */
   bg-white
   text-[13px]
   tracking-[.21rem]
@@ -46,7 +62,7 @@ button[aria-expanded="true"] svg {
   @apply bg-black
   border-black
   text-white
-  font-bold
+  font-bold;
 }
 
 ._dropdown {
@@ -54,8 +70,7 @@ button[aria-expanded="true"] svg {
 }
 
 ._dropdown a {
-  @apply
-  flex
+  @apply flex
   items-center
   w-full
   p-2
@@ -71,64 +86,63 @@ button[aria-expanded="true"] svg {
 .mega-menu {
   @apply w-full absolute left-0 bg-white border-t z-40 max-h-[789px] min-h-[512px] overflow-hidden capitalize
   /* For hiding and transitions */
-  opacity-0 invisible transition-all duration-300 ease-in-out 
+  opacity-0 invisible transition-all duration-300 ease-in-out;
 }
 
-
-.header-menu nav ul li.is-action__hovered .mega-menu{
+.header-menu nav ul li.is-action__hovered .mega-menu {
   @apply opacity-100 visible;
 }
 
 .mega-menu__container {
-  @apply flex space-x-4 justify-between p-5 max-h-[512px] max-w-[1200px] mx-auto left-0 right-0
+  @apply flex space-x-4 justify-between p-5 max-h-[512px] max-w-[1200px] mx-auto left-0 right-0;
 }
 
-.header-menu nav ul li{
-  @apply h-full
+.header-menu nav ul li {
+  @apply h-full;
 }
 
 .header-menu nav ul li a {
-  @apply flex items-center h-full
+  @apply flex items-center h-full;
 }
 .slick-next {
-  @apply absolute z-50 end-0 flex right-4 items-center justify-center h-full px-4 cursor-pointer
+  @apply absolute z-50 end-0 flex right-4 items-center justify-center h-full px-4 cursor-pointer;
 }
 .slick-next span {
-  @apply inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 px-4
+  @apply inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 px-4;
 }
 .slick-next svg {
-  @apply w-4 h-4 text-white
+  @apply w-4 h-4 text-white;
 }
 
 .slick-prev {
-  @apply absolute z-50 start-0 left-4 flex items-center justify-center h-full px-4 cursor-pointer
+  @apply absolute z-50 start-0 left-4 flex items-center justify-center h-full px-4 cursor-pointer;
 }
 
 .slick-prev span {
-  @apply inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 px-4
+  @apply inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 px-4;
 }
 
 .slick-prev svg {
-  @apply w-4 h-4 text-white
+  @apply w-4 h-4 text-white;
 }
 
 .slick-dotted .slick-dots li {
-  @apply w-3 h-3 rounded-full bg-white/50 bottom-4
+  @apply w-3 h-3 rounded-full bg-white/50 bottom-4;
 }
 
 .slick-dotted .slick-dots li.slick-active {
-  @apply w-3 h-3 rounded-full bg-white
+  @apply w-3 h-3 rounded-full bg-white;
 }
 
 /* Featured Tabs */
 /* Ensure ul and li are inline and enable horizontal scrolling */
 .featured-tabs ul {
-  @apply flex justify-center items-center overflow-x-auto whitespace-nowrap p-0 m-0 list-none
+  @apply flex justify-center items-center overflow-x-auto whitespace-nowrap p-0 m-0 list-none;
 }
 
 .featured-tabs ul li {
-  flex: 0 0 auto;          /* Prevents items from shrinking */
-  margin-right: 10px;      /* Optional: space between items */
+  flex: 0 0 auto; /* Prevents items from shrinking */
+  margin-right: 10px; /* Optional: space between items */
 }
 
 /* Hide scrollbar for cleaner look */
@@ -138,16 +152,50 @@ button[aria-expanded="true"] svg {
 
 /* Apply color to the SVG by setting the color on the button or span */
 .featured-tabs .slick-prev {
-  color: #FF5733; /* Desired color for the SVG arrow */
+  color: #ff5733; /* Desired color for the SVG arrow */
 }
 
 .featured-tabs .slick-prev:hover {
-  color: #C70039; /* Optional: Color on hover */
+  color: #c70039; /* Optional: Color on hover */
 }
 
 .embla__dot {
-  @apply bg-white/50
+  @apply bg-white/50;
 }
 .embla__dot--selected {
-  @apply bg-white
+  @apply bg-white;
 }
+
+/* Product Card */
+.product-card .group .main-img {
+  transform: scale(1);
+  opacity: 1;
+  transition: opacity 0.5s, transform 2s ease-in-out;
+}
+
+.product-card .group:hover .main-img {
+  transform: scale(1.1);
+  opacity: 0;
+  transition: opacity 0.5s, transform 2s ease-in-out;
+}
+
+.product-card .group .hover-img {
+  transform: scale(1);
+  opacity: 0;
+  transition: opacity 0.5s, transform 2s ease-in-out;
+}
+
+.product-card .group:hover .hover-img {
+  transform: scale(1.1);
+  opacity: 1;
+  transition: opacity 0.5s, transform 2s ease-in-out;
+}
+
+.product-card .atc-btn:hover .btn-icon {
+  transform: translateY(0);
+}
+
+.product-card .atc-btn:hover .btn-text {
+  transform: translateY(-100%);
+}
+/* Product Card End */

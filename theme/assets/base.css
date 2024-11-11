@@ -754,6 +754,10 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
 .me-2\.5 {
   margin-inline-end: 0.625rem;
 }
@@ -818,10 +822,6 @@ h2 {
   aspect-ratio: 0.79;
 }
 
-.aspect-\[1\.2\] {
-  aspect-ratio: 1.2;
-}
-
 .aspect-\[1\] {
   aspect-ratio: 1;
 }
@@ -880,6 +880,10 @@ h2 {
 
 .max-h-32 {
   max-height: 8rem;
+}
+
+.max-h-full {
+  max-height: 100%;
 }
 
 .min-h-screen {
@@ -1219,9 +1223,8 @@ h2 {
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
-.border-gray-900 {
-  --tw-border-opacity: 1;
-  border-color: rgb(17 24 39 / var(--tw-border-opacity));
+.border-primary {
+  border-color: var(--color-primary);
 }
 
 .bg-\[\#2CB742\] {
@@ -1238,24 +1241,18 @@ h2 {
   background-color: rgb(241 241 241 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#f7fafa\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(247 250 250 / var(--tw-bg-opacity));
-}
-
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
-
 .bg-blue-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
+.bg-footer {
+  background-color: var(--color-footer);
 }
 
 .bg-gray-100 {
@@ -1268,13 +1265,12 @@ h2 {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
-.bg-gray-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-}
-
 .bg-gray-900\/50 {
   background-color: rgb(17 24 39 / 0.5);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
 }
 
 .bg-transparent {
@@ -1574,11 +1570,6 @@ h2 {
   color: rgb(103 102 118 / var(--tw-text-opacity));
 }
 
-.text-\[\#878787\] {
-  --tw-text-opacity: 1;
-  color: rgb(135 135 135 / var(--tw-text-opacity));
-}
-
 .text-\[\#888\] {
   --tw-text-opacity: 1;
   color: rgb(136 136 136 / var(--tw-text-opacity));
@@ -1599,6 +1590,14 @@ h2 {
   color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
+.text-footer-heading {
+  color: var(--color-footer-heading);
+}
+
+.text-footer-link {
+  color: var(--color-footer-link);
+}
+
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
@@ -1607,11 +1606,6 @@ h2 {
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-
-.text-gray-600 {
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 .text-gray-700 {
@@ -1624,14 +1618,20 @@ h2 {
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
-.text-gray-950 {
-  --tw-text-opacity: 1;
-  color: rgb(3 7 18 / var(--tw-text-opacity));
+.text-primary {
+  color: var(--color-primary);
 }
 
-.text-primary {
-  --tw-text-opacity: 1;
-  color: rgb(73 51 35 / var(--tw-text-opacity));
+.text-product-price {
+  color: var(--color-product-price);
+}
+
+.text-product-title {
+  color: var(--color-product-title);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
 }
 
 .text-white {
@@ -1682,6 +1682,21 @@ h2 {
 
 .h-10\.5 {
   height: 42px;
+}
+
+:root {
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --color-accent: #151515;
+  --color-link: #000;
+  --color-hover: #222;
+  /* Footer colors */
+  --color-footer: #f7fafa;
+  --color-footer-link: #878787;
+  --color-footer-link-hover: #293341;
+  --color-footer-heading: #222;
+  --color-product-title: #222;
+  --color-product-price: #696969;
 }
 
 button[aria-expanded="true"] svg {
@@ -1745,9 +1760,9 @@ button[aria-expanded="true"] svg {
   border-radius: 0.5rem;
   padding: 0.5rem;
   padding-left: 2rem;
-  color: rgb(17 24 39 / var(--tw-text-opacity));
   --tw-text-opacity: 1;
-  color: rgb(73 51 35 / var(--tw-text-opacity));
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+  color: var(--color-primary);
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
@@ -1928,12 +1943,12 @@ button[aria-expanded="true"] svg {
 /* Apply color to the SVG by setting the color on the button or span */
 
 .featured-tabs .slick-prev {
-  color: #FF5733;
+  color: #ff5733;
   /* Desired color for the SVG arrow */
 }
 
 .featured-tabs .slick-prev:hover {
-  color: #C70039;
+  color: #c70039;
   /* Optional: Color on hover */
 }
 
@@ -1946,10 +1961,41 @@ button[aria-expanded="true"] svg {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-blue-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+/* Product Card */
+
+.product-card .group .main-img {
+  transform: scale(1);
+  opacity: 1;
+  transition: opacity 0.5s, transform 2s ease-in-out;
 }
+
+.product-card .group:hover .main-img {
+  transform: scale(1.1);
+  opacity: 0;
+  transition: opacity 0.5s, transform 2s ease-in-out;
+}
+
+.product-card .group .hover-img {
+  transform: scale(1);
+  opacity: 0;
+  transition: opacity 0.5s, transform 2s ease-in-out;
+}
+
+.product-card .group:hover .hover-img {
+  transform: scale(1.1);
+  opacity: 1;
+  transition: opacity 0.5s, transform 2s ease-in-out;
+}
+
+.product-card .atc-btn:hover .btn-icon {
+  transform: translateY(0);
+}
+
+.product-card .atc-btn:hover .btn-text {
+  transform: translateY(-100%);
+}
+
+/* Product Card End */
 
 .hover\:bg-blue-800:hover {
   --tw-bg-opacity: 1;
@@ -1966,14 +2012,13 @@ button[aria-expanded="true"] svg {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
-.hover\:text-\[\#293341\]:hover {
-  --tw-text-opacity: 1;
-  color: rgb(41 51 65 / var(--tw-text-opacity));
-}
-
 .hover\:text-blue-700:hover {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
+}
+
+.hover\:text-footer-link-hover:hover {
+  color: var(--color-footer-link-hover);
 }
 
 .hover\:text-gray-900:hover {

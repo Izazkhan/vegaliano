@@ -60,74 +60,7 @@
       <div class="embla_tabs_content__viewport overflow-hidden">
         <div class="embla_tabs_content__container w-full flex">
           {% for i in (1..8) %}
-            <div class="embla_tabs_content__slide px-1 md:px-4 flex flex-col grow-0 shrink-0 basis-1/2 lg:basis-1/4 overflow-hidden">
-              <a href="#" class="w-full flex flex-col justify-center items-center">
-                <!-- Image Container with Hover Effect -->
-                <div class="relative w-full overflow-hidden group select-none aspect-[0.68]">
-                  <img
-                    width="100%"
-                    height="100%"
-                    src="//asimjofa.com/cdn/shop/files/268A4332.jpg"
-                    alt="AJLW-07 SATIN SILK 2 PCS"
-                    class="main-img object-cover object-center"
-                  >
-
-                  <!-- Hover Image with Scale and Opacity Transitions -->
-                  <img
-                    width="100%"
-                    height="100%"
-                    src="//asimjofa.com/cdn/shop/files/268A4374.jpg"
-                    alt="AJLW-07 SATIN SILK 2 PCS"
-                    class="hover-img absolute top-0 left-0 object-cover object-center"
-                  >
-                  <noscript>
-                    <img
-                      width="100%"
-                      height="100%"
-                      src="//asimjofa.com/cdn/shop/files/268A4332.jpg?v=1729765773&width=600"
-                      alt="AJLW-07 SATIN SILK 2 PCS"
-                      class="object-cover object-center"
-                    >
-                  </noscript>
-                </div>
-              </a>
-
-              <!-- Product Details -->
-              <div class="flex justify-between items-center p-2 bg-gray-100">
-                <div class="flex flex-col text-[14px] basis-3/5 ">
-                  <span class="font-medium leading-6">AJLW-0{{ i }} Satin Silk 2 PCS</span>
-                  <span class="text-gray-600">Rs. 3,890</span>
-                </div>
-                <div class="basis-2/5 flex justify-center items-center">
-                  <a
-                    href="#"
-                    class="inline-flex justify-center items-center overflow-hidden relative atc-btn text-[12px] min-w-10 md:min-w-32 !h-[38px] bg-blue-500 text-white rounded-md hover:bg-blue-600 uppercase font-semibold"
-                  >
-                    <span class="btn-text h-full hidden md:flex justify-center items-center transition-all duration-200"
-                      >Add to Cart</span
-                    >
-                    <span
-                      class="btn-icon absolute flex justify-center items-center h-full transition-all duration-200 md:translate-y-[100%]"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                      </svg>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
+            {% render 'product-card', product_title: "Product Title i" %}
           {% endfor %}
         </div>
       </div>
@@ -175,38 +108,6 @@
   .tab-link.active {
     font-weight: 500;
     color: #111;
-  }
-
-  .group .main-img {
-    transform: scale(1);
-    opacity: 1;
-    transition: opacity 0.5s, transform 2s ease-in-out;
-  }
-
-  .group:hover .main-img {
-    transform: scale(1.1);
-    opacity: 0;
-    transition: opacity 0.5s, transform 2s ease-in-out;
-  }
-
-  .group .hover-img {
-    transform: scale(1);
-    opacity: 0;
-    transition: opacity 0.5s, transform 2s ease-in-out;
-  }
-
-  .group:hover .hover-img {
-    transform: scale(1.1);
-    opacity: 1;
-    transition: opacity 0.5s, transform 2s ease-in-out;
-  }
-
-  .atc-btn:hover .btn-icon {
-    transform: translateY(0);
-  }
-
-  .atc-btn:hover .btn-text {
-    transform: translateY(-100%);
   }
 </style>
 <script>

@@ -1,0 +1,8 @@
+<main class="content-area mt-4 max-w-[1600px] mx-auto">
+    <div class="flex flex-wrap justify-center">
+        {% for i in (1..10) %}
+        {%- assign pt = "Product " | append: i -%}
+            {% render 'product-card', product_title: pt %}
+        {% endfor %}
+    </div>
+</main>
