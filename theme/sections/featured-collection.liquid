@@ -1,19 +1,24 @@
 <div class="flex justify-center items-center p-5">
   <div class="text-[#363636] text-center w-1/4">
+    {% if collection %}
+    <!-- Display collection title on collection page -->
+    <h2 class="text-[15px] md:text-[18px] leading-[1.4] font-medium">Collections</h2>
+    {% else %}
     <h2 class="text-[15px] md:text-[30px] leading-[1.4] font-medium">WHAT'S</h2>
     <h2 class="text-[30px] md:text-[45px] leading-[1.4] font-semibold">NEW</h2>
+    {% endif %}
   </div>
   <div class="w-3/4">
     <div class="embla">
       <div class="embla__viewport overflow-hidden">
         <div class="embla__container flex -ml-[1rem] touch-pan-y">
           {% for i in (1..6) %}
-            <div class="embla__slide grow-0 shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/6 pl-[1rem] translate-3d">
-              {% render 'featured-collection-card',
-                collection_title: 'Vasl',
-                collection_img_url: 'https://placehold.co/200'
-              %}
-            </div>
+          <div class="embla__slide grow-0 shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/6 pl-[1rem] translate-3d">
+            {% render 'featured-collection-card',
+            collection_title: 'Vasl',
+            collection_img_url: 'https://placehold.co/200'
+            %}
+          </div>
           {% endfor %}
         </div>
       </div>
@@ -63,14 +68,14 @@
 
 {% schema %}
 {
-  "name": "Featured Collection",
-  "settings": [
-    {
-      "type": "text",
-      "default": "Collection Title",
-      "label": "Collection Title",
-      "id": "title"
-    }
-  ]
+"name": "Featured Collection",
+"settings": [
+{
+"type": "text",
+"default": "Collection Title",
+"label": "Collection Title",
+"id": "title"
+}
+]
 }
 {% endschema %}

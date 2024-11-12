@@ -15,13 +15,15 @@
     <script src="{{ 'embla-utils.js' | asset_url }}"></script>
 </head>
 
-<body class="min-h-screen">
+<body class="min-h-screen relative">
     {% render 'icons' %}
     {% render 'header' %}
     {{ content_for_layout }}
     {% render 'sidebar' %}
     {% section 'footer' %}
+    {% render 'currency-change' %}
     <script src="{{ 'flowbite.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'theme.js' | asset_url }}" async></script>
 </body>
 
 </html>
