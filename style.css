@@ -24,6 +24,13 @@
   --color-accent: #151515;
   --color-link: #000;
   --color-hover: #222;
+
+  --color-1: #000;
+  --color-2: #fff;
+  --color-3: #222;
+  --color-4: #f1efef;
+  --color-5: #dcdddd;
+  --color-6: #878787;
   
   /* Footer colors */
   --color-footer: #f7fafa;
@@ -164,6 +171,14 @@ button[aria-expanded="true"] svg {
 }
 .embla__dot--selected {
   @apply bg-white;
+}
+
+.shadow-cs {
+  box-shadow: #0000002b 0 0 5px;
+}
+
+.currency-btn.active {
+  @apply bg-four
 }
 
 /* Product Card */
