@@ -43,22 +43,21 @@
       <localization-form>
         {% form 'localization' %}
           <ul>
-            {% for country in localization.available_countries %}
-              {% if 'PK,US' contains country.iso_code %}
-                <li>
-                  <button class="currency-btn w-full px-4 py-2 border-b border-b-five hover:bg-four">
-                    <div class="flex gap-2 items-center">
-                      <svg width="27px" height="18px">
-                        <use href="#flag-icons-{{country.iso_code | downcase }}"></use>
-                      </svg>
-                      <span>
-                        {{ country.name }} ({{ country.currency.iso_code }}
-                        {{ country.currency.symbol }})
-                      </span>
-                    </div>
-                  </button>
-                </li>
-              {% endif %}
+            <li>{{ request.country }}</li>
+            {%- assign currencies = localization.available_countries | map: 'currency' | map: 'iso_code' | uniq -%}
+            {% for currency in currencies %}
+              <li>
+                <button class="currency-btn w-full px-4 py-2 border-b border-b-five hover:bg-four">
+                  <div class="flex gap-2 items-center">
+                    <svg width="27px" height="18px">
+                      <use href="#flag-icons-{{currency | downcase }}"></use>
+                    </svg>
+                    <span>
+                        {{ currency }}
+                    </span>
+                  </div>
+                </button>
+              </li>
             {% endfor %}
           </ul>
         {% endform %}

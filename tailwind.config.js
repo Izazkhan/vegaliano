@@ -20,6 +20,7 @@ module.exports = {
         four: "var(--color-4)",
         five: "var(--color-5)",
         six: "var(--color-6)",
+        seven: "var(--color-7)",
         link: "var(--color-link)",
         'link-hover': "var(--color-link-hover)",
         'footer-link': "var(--color-footer-link)",

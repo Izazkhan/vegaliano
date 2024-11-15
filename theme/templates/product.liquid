@@ -1,0 +1,19 @@
+<div class="product max-w-[1600px] mx-auto px-4">
+  <div class="breadcrumb py-4">
+    {% render 'breadcrumb' %}
+  </div>
+  <div class="main-product flex justify-between">
+    <div class="media-wrapper basis-3/5"></div>
+    <div class="product-info basis-2/5 flex flex-col gap-2">
+      <h1 class="text-[19px] font-semibold">Product Title</h1>
+      <div class="product-price">
+        <span class="text=[16px] font-medium">$9</span>
+      </div>
+      <div class="sku-wrapper text-[10px]">
+        <span>SKU: </span>
+        <span>{{ 'SKU' }}</span>
+      </div>
+      {% render 'variant-swatches' %}
+    </div>
+  </div>
+</div>

@@ -1,3 +1,28 @@
+:root {
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --color-accent: #151515;
+  --color-link: #000;
+  --color-hover: #222;
+
+  --color-1: #000;
+  --color-2: #fff;
+  --color-3: #222;
+  --color-4: #f1efef;
+  --color-5: #dcdddd;
+  --color-6: #878787;
+  --color-7: #bbb;
+  
+  /* Footer colors */
+  --color-footer: #f7fafa;
+  --color-footer-link: #878787;
+  --color-footer-link-hover: #293341;
+  --color-footer-heading: #222;
+
+  --color-product-title: #222;
+  --color-product-price: #696969;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,30 +41,6 @@
   .h-10\.5 {
     height: 42px;
   }
-}
-
-:root {
-  --color-primary: #000;
-  --color-secondary: #fff;
-  --color-accent: #151515;
-  --color-link: #000;
-  --color-hover: #222;
-
-  --color-1: #000;
-  --color-2: #fff;
-  --color-3: #222;
-  --color-4: #f1efef;
-  --color-5: #dcdddd;
-  --color-6: #878787;
-  
-  /* Footer colors */
-  --color-footer: #f7fafa;
-  --color-footer-link: #878787;
-  --color-footer-link-hover: #293341;
-  --color-footer-heading: #222;
-
-  --color-product-title: #222;
-  --color-product-price: #696969;
 }
 
 button[aria-expanded="true"] svg {

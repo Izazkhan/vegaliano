@@ -1,6 +1,26 @@
-/*
-! tailwindcss v3.4.11 | MIT License | https://tailwindcss.com
-*/
+:root {
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --color-accent: #151515;
+  --color-link: #000;
+  --color-hover: #222;
+  --color-1: #000;
+  --color-2: #fff;
+  --color-3: #222;
+  --color-4: #f1efef;
+  --color-5: #dcdddd;
+  --color-6: #878787;
+  --color-7: #bbb;
+  /* Footer colors */
+  --color-footer: #f7fafa;
+  --color-footer-link: #878787;
+  --color-footer-link-hover: #293341;
+  --color-footer-heading: #222;
+  --color-product-title: #222;
+  --color-product-price: #696969;
+}
+
+/* ! tailwindcss v3.4.11 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -701,6 +721,11 @@ h2 {
   order: 2;
 }
 
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
 .mx-8 {
   margin-left: 2rem;
   margin-right: 2rem;
@@ -752,6 +777,10 @@ h2 {
 
 .mr-1 {
   margin-right: 0.25rem;
+}
+
+.ms-1 {
+  margin-inline-start: 0.25rem;
 }
 
 .ms-3 {
@@ -1182,6 +1211,10 @@ h2 {
   border-width: 1px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1206,6 +1239,10 @@ h2 {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-one {
+  border-color: var(--color-1);
 }
 
 .border-primary {
@@ -1270,6 +1307,11 @@ h2 {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1330,6 +1372,11 @@ h2 {
   padding-right: 2rem;
 }
 
+.px-\[5px\] {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -1358,6 +1405,21 @@ h2 {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.py-\[3px\] {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .pb-3 {
@@ -1459,6 +1521,10 @@ h2 {
 
 .text-\[18px\] {
   font-size: 18px;
+}
+
+.text-\[19px\] {
+  font-size: 19px;
 }
 
 .text-\[28px\] {
@@ -1618,6 +1684,10 @@ h2 {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.underline {
+  text-decoration-line: underline;
+}
+
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1657,27 +1727,6 @@ h2 {
 
 .h-10\.5 {
   height: 42px;
-}
-
-:root {
-  --color-primary: #000;
-  --color-secondary: #fff;
-  --color-accent: #151515;
-  --color-link: #000;
-  --color-hover: #222;
-  --color-1: #000;
-  --color-2: #fff;
-  --color-3: #222;
-  --color-4: #f1efef;
-  --color-5: #dcdddd;
-  --color-6: #878787;
-  /* Footer colors */
-  --color-footer: #f7fafa;
-  --color-footer-link: #878787;
-  --color-footer-link-hover: #293341;
-  --color-footer-heading: #222;
-  --color-product-title: #222;
-  --color-product-price: #696969;
 }
 
 button[aria-expanded="true"] svg {
@@ -1986,6 +2035,10 @@ button[aria-expanded="true"] svg {
 
 /* Product Card End */
 
+.hover\:border-seven:hover {
+  border-color: var(--color-7);
+}
+
 .hover\:bg-four:hover {
   background-color: var(--color-4);
 }
@@ -2000,6 +2053,11 @@ button[aria-expanded="true"] svg {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
+.hover\:text-blue-600:hover {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+
 .hover\:text-footer-link-hover:hover {
   color: var(--color-footer-link-hover);
 }
@@ -2007,6 +2065,10 @@ button[aria-expanded="true"] svg {
 .hover\:text-gray-900:hover {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+
+.hover\:text-six:hover {
+  color: var(--color-6);
 }
 
 .focus\:outline-none:focus {
@@ -2030,6 +2092,21 @@ button[aria-expanded="true"] svg {
   outline-offset: 2px;
 }
 
+.active\:scale-95:active {
+  --tw-scale-x: .95;
+  --tw-scale-y: .95;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.active\:border-2:active {
+  border-width: 2px;
+}
+
+.active\:bg-red-500:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
 .disabled\:text-gray-400:disabled {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
@@ -2050,6 +2127,10 @@ button[aria-expanded="true"] svg {
 @media (min-width: 768px) {
   .md\:order-none {
     order: 0;
+  }
+
+  .md\:ms-2 {
+    margin-inline-start: 0.5rem;
   }
 
   .md\:block {
@@ -2213,6 +2294,11 @@ button[aria-expanded="true"] svg {
   .\32xl\:basis-1\/6 {
     flex-basis: 16.666667%;
   }
+}
+
+.rtl\:rotate-180:where([dir="rtl"], [dir="rtl"] *) {
+  --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .rtl\:space-x-reverse:where([dir="rtl"], [dir="rtl"] *) > :not([hidden]) ~ :not([hidden]) {

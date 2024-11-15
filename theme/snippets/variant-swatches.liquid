@@ -1,0 +1,35 @@
+<div class="variant-swatches mt-4">
+    <div class="swatch-grp flex flex-col gap-3">
+        <div class="flex items-center justify-between text-xs">
+            <h4 class="uppercase font-semibold">Size:</h4>
+            <div class="guide underline font-medium">
+                <a href="#">Size Guide</a>
+            </div>
+        </div>
+        <div class="swatch-items flex gap-3 text-[13px] font-medium select-none">
+            <div class="swatch-item border-one border active px-[5px] py-[3px]">2.4</div>
+            <div class="swatch-item border-one --is-soldout border px-[5px] py-[3px]">2.6</div>
+            <div class="swatch-item border-one border px-[5px] py-[3px]">2.8</div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .swatch-item {
+        cursor: pointer;
+    }
+    .swatch-item:hover:not(.active) {
+        border-color: var(--color-7);
+        color: var(--color-6)
+    }
+    .swatch-item.--is-soldout {
+        border-color: var(--color-7);
+        text-decoration: line-through;
+        color: var(--color-6);
+        cursor: not-allowed;
+
+    }
+    .swatch-item.active {
+        border-width: 2px;
+    }
+</style>
