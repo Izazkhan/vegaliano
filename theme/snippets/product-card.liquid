@@ -5,7 +5,7 @@
       <img
         width="100%"
         height="100%"
-        src="https://placehold.co/800x1180?text=Front"
+        src="{{ card_product.featured_media | image_url }}"
         alt="AJLW-07 SATIN SILK 2 PCS"
         class="main-img object-cover object-center"
       >
@@ -33,8 +33,8 @@
   <!-- Product Details -->
   <div class="flex justify-between items-center p-2 bg-gray-100">
     <div class="flex flex-col text-[14px] basis-3/5 ">
-      <span class="font-medium leading-6 text-product-title">{{ product_title }}</span>
-      <span class="text-product-price">Rs. 1,000</span>
+      <span class="font-medium leading-6 text-product-title">{{ card_product.title }}</span>
+      <span class="text-product-price">{{ card_product.price | money }}</span>
     </div>
     <div class="basis-2/5 flex justify-center items-center">
       <a

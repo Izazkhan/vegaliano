@@ -13,7 +13,9 @@
     <script src="https://unpkg.com/embla-carousel-fade/embla-carousel-fade.umd.js"></script>
     <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
     <script src="{{ 'embla-utils.js' | asset_url }}"></script>
+    <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
 </head>
+
 
 <body class="min-h-screen relative">
     {% render 'icons' %}
@@ -24,6 +26,23 @@
     {% render 'currency-change' %}
     <script src="{{ 'flowbite.min.js' | asset_url }}" defer></script>
     <script src="{{ 'theme.js' | asset_url }}" async></script>
+    <script>
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     // Check if there are query parameters in the URL
+        //     const currentUrl = window.location.href;
+        //     if (currentUrl.includes('_fd=') || currentUrl.includes('pb=')) {
+        //         // Create a URL object
+        //         const url = new URL(currentUrl);
+
+        //         // Remove specific parameters
+        //         url.searchParams.delete('_fd');
+        //         url.searchParams.delete('pb');
+
+        //         // Use the history API to update the URL
+        //         window.history.replaceState({}, document.title, url.pathname + url.search);
+        //     }
+        // });
+    </script>
 </body>
 
 </html>
