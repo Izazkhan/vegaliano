@@ -52,3 +52,48 @@
         emblaApi.on('destroy', removePrevNextBtnsClickHandlers).on('destroy', removeDotBtnsAndClickHandlers);
     })();
 </script>
+{% schema %}
+{
+  "name": "Embla Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "slider_title",
+      "label": "Slider Title",
+      "default": "Welcome to our store!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide Image",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Image Alt Text",
+          "default": "A beautiful image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Slide Link",
+          "default": ""
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "image_height": "large",
+    "swipe_on_mobile": true,
+    "color_scheme": "scheme-1"
+  }
+}
+
+{% endschema %}

@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "slide-show": {
+      "type": "slide-show"
+    },
+    "featured-collection": {
+      "type": "featured-collection"
+    },
+    "featured-tabs": {
+      "type": "featured-tabs"
+    },
+    "shop-by-category": {
+      "type": "shop-by-category"
+    },
+    "explore-more": {
+      "type": "explore-more"
+    },
+    "customer-favorites": {
+      "type": "customer-favorites"
+    },
+    "promotions": {
+      "type": "promotions"
+    },
+    "reviews": {
+      "type": "reviews"
+    }
+  },
+  "order": [
+    "slide-show",
+    "featured-collection",
+    "featured-tabs",
+    "shop-by-category",
+    "explore-more",
+    "customer-favorites",
+    "promotions",
+    "reviews"
+  ]
+}

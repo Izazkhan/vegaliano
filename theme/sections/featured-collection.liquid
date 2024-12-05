@@ -1,81 +1,84 @@
-<div class="flex justify-center items-center p-5">
-  <div class="text-[#363636] text-center w-1/4">
-    {% if collection %}
+<main class="content-area max-w-[1600px] mx-auto">
+  <div class="flex justify-center items-center p-5">
+    <div class="text-[#363636] text-center w-1/4">
+      {% if collection %}
       <!-- Display collection title on collection page -->
       <h2 class="text-[15px] md:text-[18px] leading-[1.4] font-medium">{{ section.settings.custom_title }}</h2>
-    {% else %}
+      {% else %}
       <h2 class="text-[15px] md:text-[30px] leading-[1.4] font-medium">WHAT'S</h2>
       <h2 class="text-[30px] md:text-[45px] leading-[1.4] font-semibold">NEW</h2>
-    {% endif %}
-  </div>
-  <div class="w-3/4">
-    <div class="embla">
-      <div class="embla__viewport overflow-hidden">
-        <div class="embla__container flex -ml-[1rem] touch-pan-y">
-          {% for i in (1..6) %}
+      {% endif %}
+    </div>
+    <div class="w-3/4">
+      <div class="embla">
+        <div class="embla__viewport overflow-hidden">
+          <div class="embla__container flex -ml-[1rem] touch-pan-y">
+            {% for i in (1..6) %}
             <div class="embla__slide grow-0 shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/6 pl-[1rem] translate-3d">
               {% render 'featured-collection-card',
-                collection_title: 'Vasl',
-                collection_img_url: 'https://placehold.co/200'
+              collection_title: 'Vasl',
+              collection_img_url: 'https://placehold.co/200'
               %}
             </div>
-          {% endfor %}
+            {% endfor %}
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<script>
-  (function () {
-    const OPTIONS = { slidesToScroll: 2, loop: true };
+  <script>
+    (function () {
+      const OPTIONS = { slidesToScroll: 2, loop: true };
 
-    const emblaNode = document.querySelector('.embla');
-    const viewportNode = emblaNode.querySelector('.embla__viewport');
+      const emblaNode = document.querySelector('.embla');
+      const viewportNode = emblaNode.querySelector('.embla__viewport');
 
-    const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
-    // Custom scroll logic
-    const handleNextSlide = () => {
-      const currentIndex = emblaApi.selectedScrollSnap();
-      const lastSlideIndex = emblaApi.scrollSnapList().length - 1;
+      const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
+      // Custom scroll logic
+      const handleNextSlide = () => {
+        const currentIndex = emblaApi.selectedScrollSnap();
+        const lastSlideIndex = emblaApi.scrollSnapList().length - 1;
 
-      // Move 4 slides if on the last two slides, otherwise move 2 slides
-      if (currentIndex >= lastSlideIndex - 2) {
-        emblaApi.scrollTo(0); // Go back to the start
-      } else {
-        emblaApi.scrollNext(); // Move forward by 2
-      }
-    };
+        // Move 4 slides if on the last two slides, otherwise move 2 slides
+        if (currentIndex >= lastSlideIndex - 2) {
+          emblaApi.scrollTo(0); // Go back to the start
+        } else {
+          emblaApi.scrollNext(); // Move forward by 2
+        }
+      };
 
-    const handlePrevSlide = () => {
-      const currentIndex = emblaApi.selectedScrollSnap();
+      const handlePrevSlide = () => {
+        const currentIndex = emblaApi.selectedScrollSnap();
 
-      // If at the start, go to the last two slides; otherwise, go back by 2 slides
-      if (currentIndex === 0) {
-        emblaApi.scrollTo(emblaApi.scrollSnapList().length - 1);
-      } else {
-        emblaApi.scrollPrev();
-      }
-    };
+        // If at the start, go to the last two slides; otherwise, go back by 2 slides
+        if (currentIndex === 0) {
+          emblaApi.scrollTo(emblaApi.scrollSnapList().length - 1);
+        } else {
+          emblaApi.scrollPrev();
+        }
+      };
 
-    // Clean up events on Embla destruction
-    emblaApi.on('destroy', () => {
-      nextBtnNode.removeEventListener('click', handleNextSlide);
-      prevBtnNode.removeEventListener('click', handlePrevSlide);
-    });
-  })();
-</script>
+      // Clean up events on Embla destruction
+      emblaApi.on('destroy', () => {
+        nextBtnNode.removeEventListener('click', handleNextSlide);
+        prevBtnNode.removeEventListener('click', handlePrevSlide);
+      });
+    })();
+  </script>
+
+</main>
 
 {% schema %}
 {
-  "name": "Featured Collection",
-  "settings": [
-    {
-      "type": "text",
-      "default": "Collection",
-      "label": "Collection",
-      "id": "custom_title"
-    }
-  ]
+"name": "Featured Collection",
+"settings": [
+{
+"type": "text",
+"default": "Collection",
+"label": "Collection",
+"id": "custom_title"
+}
+]
 }
 {% endschema %}
