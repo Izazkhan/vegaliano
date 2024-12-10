@@ -3,18 +3,30 @@
     "slide-show": {
       "type": "slide-show",
       "blocks": {
-        "slide_8tM7Q6": {
+        "slide_HaeEgC": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/first1920x900.svg",
-            "url": "",
+            "image": "shopify:\/\/shop_images\/winter-collection.svg",
+            "mobileImage": "shopify:\/\/shop_images\/winter-collection-1.svg",
+            "url": "shopify:\/\/collections\/winter",
+            "alt": "Winter Collection",
+            "featured": true
+          }
+        },
+        "slide_ip6VDj": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/limited-edition.svg",
+            "mobileImage": "shopify:\/\/shop_images\/limited-edition-1.svg",
+            "url": "#",
             "alt": "Slider Image",
-            "featured-slide-enable": true
+            "featured": true
           }
         }
       },
       "block_order": [
-        "slide_8tM7Q6"
+        "slide_HaeEgC",
+        "slide_ip6VDj"
       ],
       "settings": {}
     },

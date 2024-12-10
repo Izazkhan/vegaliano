@@ -3,14 +3,16 @@
     <div class="embla_slides_container md:aspect-[2.3] flex">
       {% for slide in section.blocks %}
         <div class="embla_slides_slide flex-none w-full">
-          <img
-            width="auto"
-            height="auto"
-            srcset="{{slide.settings.mobileImage | image_url}} 770w, {{slide.settings.image | image_url}} 1200w"
-            sizes="100vw"
-            class="embla_slides_slide__img w-full max-h-full object-cover select-none"
-            alt="{{slide.settings.alt}}"
-          >
+          <a href="{{ slide.settings.url }}">
+            <img
+              width="auto"
+              height="auto"
+              srcset="{{slide.settings.mobileImage | image_url}} 770w, {{slide.settings.image | image_url}} 1200w"
+              sizes="100vw"
+              class="embla_slides_slide__img w-full max-h-full object-cover select-none"
+              alt="{{slide.settings.alt}}"
+            >
+          </a>
         </div>
       {% endfor %}
     </div>
@@ -65,14 +67,20 @@
       "type": "slide",
       "settings": [
         {
+          "type": "header",
+          "content": "Set slider images with appropriate sizes"
+        },
+        {
           "type": "image_picker",
           "id": "image",
           "label": "Image (1920x810)"
-        }, {
+        },
+        {
           "type": "image_picker",
           "id": "mobileImage",
           "label": "Image (770x770)"
-        }, {
+        },
+        {
           "type": "url",
           "id": "url",
           "label": "Slide Link"
@@ -85,7 +93,7 @@
         },
         {
           "type": "checkbox",
-          "id": "featured-slide-enable",
+          "id": "featured",
           "label": "Enable",
           "default": true
         }
