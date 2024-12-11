@@ -3,26 +3,31 @@
     <div class="embla_tabs__viewport overflow-hidden mx-8">
       <div class="embla_tabs__container flex space-x-1">
         {% for collection in section.settings.featured_collections %}
-        <div class="embla_tabs__slide flex-shrink-0">
-          <button id="tab-{{ forloop.index }}" data-tab-target="#tab-{{ forloop.index }}-content"
-            class="tab-link text-[18px] text-[#888] block p-2 text-center {% if forloop.first %}active{% endif %}">
-            {{collection.title}}
-          </button>
-        </div>
+          <div class="embla_tabs__slide flex-shrink-0">
+            <button
+              id="tab-{{ forloop.index }}"
+              data-tab-target="#tab-{{ forloop.index }}-content"
+              class="tab-link text-[18px] text-[#888] block p-2 text-center {% if forloop.first %}active{% endif %}"
+            >
+              {{ collection.title }}
+            </button>
+          </div>
         {% endfor %}
       </div>
     </div>
 
     <!-- Controls positioned absolutely to the left and right -->
     <button
-      class="embla_tabs__button embla_tabs__button--prev absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888]">
+      class="embla_tabs__button embla_tabs__button--prev absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888]"
+    >
       <svg class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]">
         <use href="#embla_tabs__button__svg--prev"></use>
       </svg>
     </button>
 
     <button
-      class="embla_tabs__button embla_tabs__button--next absolute right-4 top-1/2 transform -translate-y-1/2 text-[#888]">
+      class="embla_tabs__button embla_tabs__button--next absolute right-4 top-1/2 transform -translate-y-1/2 text-[#888]"
+    >
       <svg class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]">
         <use href="#embla_tabs__button__svg--next"></use>
       </svg>
@@ -31,18 +36,22 @@
 
   <div class="tabsContent relative">
     {% for collection in section.settings.featured_collections %}
-    <div class="tab-content right-0 {% if forloop.first %}active{% endif %}" id="tab-{{ forloop.index }}-content"
-      role="tabpanel" aria-labelledby="tab-{{ forloop.index }}">
-      <div class="embla_tabs_content relative mx-auto px-2">
-        <div class="embla_tabs_content__viewport overflow-hidden">
-          <div class="embla_tabs_content__container w-full flex">
-            {% for product in collection.products %}
-            {% render 'product-card', card_product: product %}
-            {% endfor %}
+      <div
+        class="tab-content right-0 {% if forloop.first %}active{% endif %}"
+        id="tab-{{ forloop.index }}-content"
+        role="tabpanel"
+        aria-labelledby="tab-{{ forloop.index }}"
+      >
+        <div class="embla_tabs_content relative mx-auto px-2">
+          <div class="embla_tabs_content__viewport overflow-hidden">
+            <div class="embla_tabs_content__container w-full flex">
+              {% for product in collection.products %}
+                {% render 'product-card', card_product: product %}
+              {% endfor %}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     {% endfor %}
   </div>
 
@@ -134,19 +143,20 @@
 </main>
 {% schema %}
 {
-"name": "Featured Tabs",
-"settings": [
-{
-"type": "collection_list",
-"id": "featured_collections",
-"label": "Select Collections to Display",
-"limit": 6
-}, {
-"type": "text",
-"id": "section_title",
-"label": "Section Title",
-"default": "Featured Tabs"
-},
-]
+  "name": "Featured Tabs",
+  "settings": [
+    {
+      "type": "collection_list",
+      "id": "featured_collections",
+      "label": "Select Collections to Display",
+      "limit": 6
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Featured Tabs"
+    }
+  ]
 }
 {% endschema %}

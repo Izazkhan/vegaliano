@@ -39,7 +39,13 @@
     "featured-tabs": {
       "type": "featured-tabs",
       "settings": {
-        "featured_collections": [],
+        "featured_collections": [
+          "limited-edition",
+          "summer-collection",
+          "viscose",
+          "winter",
+          "khaddar"
+        ],
         "section_title": "Featured Tabs"
       }
     },

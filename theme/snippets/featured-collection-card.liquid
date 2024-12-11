@@ -1,10 +1,10 @@
-<div class="flex items-center justify-center text-4xl font-semibold select-none">
-    <a href="#" class="w-full flex flex-col justify-center items-center">
+<div class="flex items-center justify-center font-semibold select-none">
+    <a href="{{ collection.url }}" class="w-full flex flex-col justify-center items-center">
         <div class="flex w-full justify-center items-center">
-            <img src="{{ collection_img_url }}" alt="{{ collection_title }}" width="100%" height="auto" class="rounded-full w-full">
+            <img src="{{ collection.featured_image | image_url }}" alt="{{ collection.title }}" width="100%" height="auto" class="rounded-full w-full">
         </div>
         <div class="pt-4 text-[#191918] text-[12px]">
-            {{ collection_title }}
+            {{ collection.title }}
         </div>
     </a>
 </div>

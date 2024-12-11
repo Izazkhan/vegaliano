@@ -16,7 +16,7 @@
   <!-- drawer component -->
   {% form 'localization', return_to: request.url %}
   <div id="drawer-right-example"
-    class="fixed top-0 right-0 z-40 h-screen overflow-y-auto transition-transform translate-x-full bg-secondary w-80 dark:bg-gray-800"
+    class="fixed top-0 right-0 z-40 h-screen overflow-y-auto transition-transform translate-x-full bg-secondary w-80"
     tabindex="-1" aria-labelledby="drawer-right-label">
     <div class="relative px-4 py-2.5 flex justify-between items-center bg-primary">
       <h5 id="drawer-right-label" class="uppercase font-semibold text-secondary text-[14px]">Select Your Currency</h5>
@@ -31,7 +31,6 @@
     </div>
     <div class="">
       <ul id="currency-selector">
-        {%- assign countires = localization.available_countries -%}
         {%- assign currencies = localization.available_countries | map: 'currency' | map: 'iso_code' | uniq -%}
         {% for currency in currencies %}
         <li>
