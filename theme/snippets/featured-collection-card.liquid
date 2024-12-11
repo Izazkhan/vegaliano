@@ -1,10 +1,26 @@
 <div class="flex items-center justify-center font-semibold select-none">
-    <a href="{{ collection.url }}" class="w-full flex flex-col justify-center items-center">
-        <div class="flex w-full justify-center items-center">
-            <img src="{{ collection.featured_image | image_url }}" alt="{{ collection.title }}" width="100%" height="auto" class="rounded-full w-full">
-        </div>
-        <div class="pt-4 text-[#191918] text-[12px]">
-            {{ collection.title }}
-        </div>
-    </a>
+  <a href="{{ collection.url }}" class="w-full flex flex-col justify-center items-center">
+    <div class="flex w-full justify-center items-center">
+      {% if custom_image %}
+        <img
+          src="{{ custom_image | image_url: width: 200 }}"
+          alt="{{ collection.title }}"
+          width="100%"
+          height="auto"
+          class="rounded-full w-full"
+        >
+      {% else %}
+        <img
+          src="{{ collection.featured_image | image_url: width: 200 }}"
+          alt="{{ collection.title }}"
+          width="100%"
+          height="auto"
+          class="rounded-full w-full"
+        >
+      {% endif %}
+    </div>
+    <div class="pt-4 text-[#191918] text-[12px] text-center">
+      {{ collection.title }}
+    </div>
+  </a>
 </div>

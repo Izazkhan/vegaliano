@@ -1,24 +1,23 @@
 <main class="content-area max-w-[1600px] mx-auto">
   <div class="flex justify-center items-center p-5">
     <div class="text-[#363636] text-center w-1/4">
-      {% if collection %}
       <!-- Display collection title on collection page -->
-      <h2 class="text-[15px] md:text-[18px] leading-[1.4] font-medium">{{ section.settings.custom_title }}</h2>
-      {% else %}
-      <h2 class="text-[15px] md:text-[30px] leading-[1.4] font-medium">WHAT'S</h2>
-      <h2 class="text-[30px] md:text-[45px] leading-[1.4] font-semibold">NEW</h2>
-      {% endif %}
+      <h2 class="text-[15px] md:text-[30px] leading-[1.4] font-medium">{{ section.settings.custom_title }}</h2>
+      <h2 class="text-[30px] md:text-[45px] leading-[1.4] font-semibold">{{ section.settings.custom_title1 }}</h2>
     </div>
     <div class="w-3/4">
       <div class="embla">
         <div class="embla__viewport overflow-hidden">
           <div class="embla__container flex -ml-[1rem] touch-pan-y">
-            {% for collection in collections %}
-            <div class="embla__slide grow-0 shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/6 pl-[1rem] translate-3d">
-              {% render 'featured-collection-card',
-              collection: collection
-              %}
-            </div>
+            {% for block in section.blocks %}
+              {% if block.settings.collection != '' %}
+                <div class="embla__slide grow-0 shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/6 pl-[1rem] translate-3d">
+                  {% render 'featured-collection-card',
+                    collection: block.settings.collection,
+                    custom_image: block.settings.custom_image
+                  %}
+                </div>
+              {% endif %}
             {% endfor %}
           </div>
         </div>
@@ -28,7 +27,7 @@
 
   <script>
     (function () {
-      const OPTIONS = { slidesToScroll: 2, loop: true };
+      const OPTIONS = { slidesToScroll: 2, loop: true, align: 'start' };
 
       const emblaNode = document.querySelector('.embla');
       const viewportNode = emblaNode.querySelector('.embla__viewport');
@@ -65,19 +64,42 @@
       });
     })();
   </script>
-
 </main>
 
 {% schema %}
 {
-"name": "Featured Collection",
-"settings": [
-{
-"type": "text",
-"default": "Collection",
-"label": "Collection",
-"id": "custom_title"
-}
-]
+  "name": "Featured Collection",
+  "settings": [
+    {
+      "type": "text",
+      "default": "WHAT'S",
+      "label": "Title",
+      "id": "custom_title"
+    },
+    {
+      "type": "text",
+      "default": "NEW",
+      "id": "custom_title1",
+      "label": "Subtitle"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_slide",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Image (Optional)"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

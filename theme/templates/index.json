@@ -32,14 +32,62 @@
     },
     "featured-collection": {
       "type": "featured-collection",
+      "blocks": {
+        "collection_slide_rrffYR": {
+          "type": "collection_slide",
+          "settings": {
+            "collection": "essentials-1"
+          }
+        },
+        "collection_slide_ezK3QT": {
+          "type": "collection_slide",
+          "settings": {
+            "collection": "essential-pret"
+          }
+        },
+        "collection_slide_HwcEUV": {
+          "type": "collection_slide",
+          "settings": {
+            "collection": "khaddar"
+          }
+        },
+        "collection_slide_hVJNEx": {
+          "type": "collection_slide",
+          "settings": {
+            "collection": "unstiched-luxury"
+          }
+        },
+        "collection_slide_hndrVR": {
+          "type": "collection_slide",
+          "settings": {
+            "collection": "winter"
+          }
+        },
+        "collection_slide_btzxfJ": {
+          "type": "collection_slide",
+          "settings": {
+            "collection": "limited-edition",
+            "custom_image": "shopify:\/\/shop_images\/limited-edition-featured.svg"
+          }
+        }
+      },
+      "block_order": [
+        "collection_slide_rrffYR",
+        "collection_slide_ezK3QT",
+        "collection_slide_HwcEUV",
+        "collection_slide_hVJNEx",
+        "collection_slide_hndrVR",
+        "collection_slide_btzxfJ"
+      ],
       "settings": {
-        "custom_title": "Collection"
+        "custom_title": "Collection",
+        "custom_title1": "NEW"
       }
     },
     "featured-tabs": {
       "type": "featured-tabs",
       "settings": {
-        "featured_collections": [
+        "featured_tabs": [
           "limited-edition",
           "summer-collection",
           "viscose",
@@ -51,7 +99,17 @@
     },
     "shop-by-category": {
       "type": "shop-by-category",
-      "settings": {}
+      "settings": {
+        "featured_category_list": [
+          "kids",
+          "essential-pret",
+          "unstiched-luxury",
+          "essentials-1",
+          "luxury-pret",
+          "jewelry",
+          "menswear"
+        ]
+      }
     },
     "explore-more": {
       "type": "explore-more",

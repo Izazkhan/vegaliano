@@ -1,0 +1,43 @@
+{
+  "parent": "index.json",
+  "context": {
+    "market": "mexico"
+  },
+  "sections": {
+    "slide-show": {
+      "disabled": false,
+      "settings": {},
+      "blocks": {},
+      "block_order": [
+        "slide_HaeEgC",
+        "slide_ip6VDj"
+      ]
+    },
+    "featured-collection": {
+      "settings": {
+        "custom_title": "WHAT'S",
+        "custom_title1": "NEW",
+        "featured_collections": [
+          "khaddar",
+          "limited-edition",
+          "summer-collection",
+          "winter",
+          "viscose"
+        ]
+      },
+      "blocks": {}
+    },
+    "shop-by-category": {
+      "settings": {
+        "featured_categories": [
+          "viscose",
+          "winter",
+          "summer-collection",
+          "limited-edition",
+          "khaddar"
+        ]
+      },
+      "blocks": {}
+    }
+  }
+}

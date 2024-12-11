@@ -2,16 +2,18 @@
   <div class="embla_tabs relative mx-auto">
     <div class="embla_tabs__viewport overflow-hidden mx-8">
       <div class="embla_tabs__container flex space-x-1">
-        {% for collection in section.settings.featured_collections %}
-          <div class="embla_tabs__slide flex-shrink-0">
-            <button
-              id="tab-{{ forloop.index }}"
-              data-tab-target="#tab-{{ forloop.index }}-content"
-              class="tab-link text-[18px] text-[#888] block p-2 text-center {% if forloop.first %}active{% endif %}"
-            >
-              {{ collection.title }}
-            </button>
-          </div>
+        {% for collection in section.settings.featured_tabs %}
+          {% if collection.products_count > 0 %}
+            <div class="embla_tabs__slide flex-shrink-0">
+              <button
+                id="tab-{{ forloop.index }}"
+                data-tab-target="#tab-{{ forloop.index }}-content"
+                class="tab-link text-[18px] text-[#888] block p-2 text-center {% if forloop.first %}active{% endif %}"
+              >
+                {{ collection.title }}
+              </button>
+            </div>
+          {% endif %}
         {% endfor %}
       </div>
     </div>
@@ -35,23 +37,25 @@
   </div>
 
   <div class="tabsContent relative">
-    {% for collection in section.settings.featured_collections %}
-      <div
-        class="tab-content right-0 {% if forloop.first %}active{% endif %}"
-        id="tab-{{ forloop.index }}-content"
-        role="tabpanel"
-        aria-labelledby="tab-{{ forloop.index }}"
-      >
-        <div class="embla_tabs_content relative mx-auto px-2">
-          <div class="embla_tabs_content__viewport overflow-hidden">
-            <div class="embla_tabs_content__container w-full flex">
-              {% for product in collection.products %}
-                {% render 'product-card', card_product: product %}
-              {% endfor %}
+    {% for collection in section.settings.featured_tabs %}
+      {% if collection.products_count > 0 %}
+        <div
+          class="tab-content right-0 {% if forloop.first %}active{% endif %}"
+          id="tab-{{ forloop.index }}-content"
+          role="tabpanel"
+          aria-labelledby="tab-{{ forloop.index }}"
+        >
+          <div class="embla_tabs_content relative mx-auto px-2">
+            <div class="embla_tabs_content__viewport overflow-hidden">
+              <div class="embla_tabs_content__container w-full flex">
+                {% for product in collection.products %}
+                  {% render 'product-card', card_product: product %}
+                {% endfor %}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      {% endif %}
     {% endfor %}
   </div>
 
@@ -147,7 +151,7 @@
   "settings": [
     {
       "type": "collection_list",
-      "id": "featured_collections",
+      "id": "featured_tabs",
       "label": "Select Collections to Display",
       "limit": 6
     },
