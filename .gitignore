@@ -5,6 +5,9 @@ node_modules/
 dist/
 build/
 
+# Toml file
+# theme/shopify.theme.toml
+
 # Log files
 *.log
 

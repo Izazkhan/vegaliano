@@ -5,24 +5,36 @@
   <div class="embla_categories relative w-full">
     <div class="embla_categories__viewport overflow-hidden">
       <div class="embla_categories__container flex gap-1 pl-[0.23rem]">
-        {% for collection in section.settings.featured_category_list %}
-          <a
-            href="{{ collection.url }}"
-            class="embla_categories__slide flex flex-col justify-center gap-2 items-center grow-0 shrink-0 basis-1/2 lg:basis-1/4"
-          >
-            <div class="relative w-full overflow-hidden group select-none aspect-[0.79]">
-                <img
-                  width="100%"
-                  height="100%"
-                  src="{{ collection.featured_image | image_url }}"
-                  alt="{{ collection.title }}"
-                  class="h-full absolute top-0 object-cover object-center"
-                >
-            </div>
-              <div class="cat-title font-semibold text-[#222] text-[10px] md:text-[22px] tracking-[3px] uppercase">
-                {{ collection.title }}
+        {% for block in section.blocks %}
+          {% if block.settings.collection != '' %}
+            <a
+              href="{{ block.settings.collection.url }}"
+              class="embla_categories__slide flex flex-col justify-center gap-2 items-center grow-0 shrink-0 basis-1/2 lg:basis-1/4"
+            >
+              <div class="relative w-full overflow-hidden group select-none aspect-[0.79]">
+                {% if block.settings.custom_image %}
+                  <img
+                    width="100%"
+                    height="100%"
+                    src="{{ block.settings.custom_image | image_url }}"
+                    alt="{{ block.settings.collection.title }}"
+                    class="h-full absolute top-0 object-cover object-center"
+                  >
+                {% else %}
+                  <img
+                    width="100%"
+                    height="100%"
+                    src="{{ block.settings.collection.featured_image | image_url }}"
+                    alt="{{ block.settings.collection.title }}"
+                    class="h-full absolute top-0 object-cover object-center"
+                  >
+                {% endif %}
               </div>
-          </a>
+              <div class="cat-title font-semibold text-[#222] text-[10px] md:text-[22px] tracking-[3px] uppercase">
+                {{ block.settings.collection.title }}
+              </div>
+            </a>
+          {% endif %}
         {% endfor %}
       </div>
     </div>
@@ -56,6 +68,24 @@
       "type": "collection_list",
       "id": "featured_category_list",
       "label": "Select Categories"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Select Category",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Image (Optional)"
+        }
+      ]
     }
   ]
 }

@@ -36,7 +36,8 @@
         "collection_slide_rrffYR": {
           "type": "collection_slide",
           "settings": {
-            "collection": "essentials-1"
+            "collection": "essentials-1",
+            "custom_image": "shopify:\/\/shop_images\/essentials-featured.svg"
           }
         },
         "collection_slide_ezK3QT": {
@@ -54,7 +55,8 @@
         "collection_slide_hVJNEx": {
           "type": "collection_slide",
           "settings": {
-            "collection": "unstiched-luxury"
+            "collection": "unstiched-luxury",
+            "custom_image": "shopify:\/\/shop_images\/unstiched-featured1.svg"
           }
         },
         "collection_slide_hndrVR": {
@@ -80,7 +82,7 @@
         "collection_slide_btzxfJ"
       ],
       "settings": {
-        "custom_title": "Collection",
+        "custom_title": "WHAT'S",
         "custom_title1": "NEW"
       }
     },
@@ -99,6 +101,60 @@
     },
     "shop-by-category": {
       "type": "shop-by-category",
+      "blocks": {
+        "collection_L4JBjy": {
+          "type": "collection",
+          "settings": {
+            "collection": "kids",
+            "custom_image": "shopify:\/\/shop_images\/kids-featured1.svg"
+          }
+        },
+        "collection_yHi7TW": {
+          "type": "collection",
+          "settings": {
+            "collection": "essential-pret"
+          }
+        },
+        "collection_7XJhEt": {
+          "type": "collection",
+          "settings": {
+            "collection": "unstiched-luxury"
+          }
+        },
+        "collection_mGANWx": {
+          "type": "collection",
+          "settings": {
+            "collection": "essentials-1"
+          }
+        },
+        "collection_ntE9Wj": {
+          "type": "collection",
+          "settings": {
+            "collection": "luxury-pret"
+          }
+        },
+        "collection_yfrgDB": {
+          "type": "collection",
+          "settings": {
+            "collection": "jewelry"
+          }
+        },
+        "collection_FgecfE": {
+          "type": "collection",
+          "settings": {
+            "collection": "menswear"
+          }
+        }
+      },
+      "block_order": [
+        "collection_L4JBjy",
+        "collection_yHi7TW",
+        "collection_7XJhEt",
+        "collection_mGANWx",
+        "collection_ntE9Wj",
+        "collection_yfrgDB",
+        "collection_FgecfE"
+      ],
       "settings": {
         "featured_category_list": [
           "kids",
