@@ -1,17 +1,10 @@
 <div class="embla_slides relative w-full">
   <div class="embla_slides_viewport overflow-hidden w-full">
-    <div class="embla_slides_container md:aspect-[2.3] flex">
-      {% for collection in section.blocks %}
+    <div class="embla_slides_container aspect-[1.07] md:aspect-[2.3] flex">
+      {% for block in section.blocks %}
         <div class="embla_slides_slide flex-none w-full">
-          <a href="{{ collection.settings.url }}">
-            <img
-              width="auto"
-              height="auto"
-              srcset="{{collection.settings.mobileImage | image_url}} 770w, {{collection.settings.image | image_url}} 1200w"
-              sizes="100vw"
-              class="embla_slides_slide__img w-full max-h-full object-cover select-none"
-              alt="{{ collection.settings.alt }}"
-            >
+          <a href="{{ block.settings.url }}">
+              {% render 'image', mb_src: block.settings.mobileImage, src: block.settings.image, alt: block.settings.alt %}
           </a>
         </div>
       {% endfor %}

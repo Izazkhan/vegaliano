@@ -15,13 +15,23 @@
                 class="__slide w-full flex flex-col justify-center gap-2 items-center "
               >
                 <div class="relative group select-none w-full aspect-[1]">
-                  <img
-                    width="auto"
-                    height="auto"
-                    src="{{ block.settings.collection.featured_image | image_url }}"
-                    alt=""
-                    class="object-cover object-center"
-                  >
+                  {% if block.settings.custom_image %}
+                    <img
+                      width="auto"
+                      height="auto"
+                      src="{{ block.settings.custom_image | image_url }}"
+                      alt=""
+                      class="object-cover object-center"
+                    >
+                  {% else %}
+                    <img
+                      width="auto"
+                      height="auto"
+                      src="{{ block.settings.collection.featured_image | image_url }}"
+                      alt=""
+                      class="object-cover object-center"
+                    >
+                  {% endif %}
                 </div>
                 <div
                   class="cat-title font-semibold text-[#222] text-[13px] md:text-[22px] tracking-[3px] uppercase"

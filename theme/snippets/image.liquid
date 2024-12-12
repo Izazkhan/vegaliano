@@ -1,0 +1,40 @@
+{% assign small_screens = '320,480,768' | split: ',' %}
+{% assign large_screens = '1024,1280,1600,1920' | split: ',' %}
+{% assign mb_src = mb_src | default: src %}
+<picture>
+  <!-- Mobile image -->
+  <source
+    media="(max-width: 768px)"
+    srcset="
+      {% for width in small_screens %}
+        {{ mb_src | image_url: width: width }} {{ width }}w,
+      {% endfor %}
+    "
+  >
+  <!-- Medium size image -->
+  <source
+    media="(max-width: 1023px)"
+    srcset="
+      {% for width in large_screens %}
+        {{ src | image_url: width: width }} {{ width }}w,
+      {% endfor %}
+    "
+  >
+  <!-- Desktop image -->
+  <source
+    media="(min-width: 1024px)"
+    srcset="
+      {% for width in large_screens %}
+        {{ src | image_url: width: width }} {{ width }}w,
+      {% endfor %}
+    "
+  >
+  <!-- Fallback -->
+  <img
+    width="100%"
+    height="100%"
+    src="{{ src | image_url }}"
+    class="embla_slides_slide__img w-full max-h-full object-cover select-none"
+    alt="{{ alt }}"
+  >
+</picture>
