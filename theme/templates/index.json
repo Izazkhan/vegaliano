@@ -169,6 +169,38 @@
     },
     "explore-more": {
       "type": "explore-more",
+      "blocks": {
+        "collection_EEPebe": {
+          "type": "collection",
+          "settings": {
+            "collection": "khaddar"
+          }
+        },
+        "collection_MwyxNg": {
+          "type": "collection",
+          "settings": {
+            "collection": "jewelry"
+          }
+        },
+        "collection_4BKG8g": {
+          "type": "collection",
+          "settings": {
+            "collection": "summer-collection"
+          }
+        },
+        "collection_QBPDdW": {
+          "type": "collection",
+          "settings": {
+            "collection": "luxury-pret"
+          }
+        }
+      },
+      "block_order": [
+        "collection_EEPebe",
+        "collection_MwyxNg",
+        "collection_4BKG8g",
+        "collection_QBPDdW"
+      ],
       "settings": {}
     },
     "customer-favorites": {
