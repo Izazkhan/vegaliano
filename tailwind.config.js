@@ -8,7 +8,7 @@ module.exports = {
       screens: {
         'xsm': '480px',
         '2md': '896px',
-        '3xl': '1600px',
+        '3xl': '1600px'
       },
       colors: {
         primary: "var(--color-primary)",

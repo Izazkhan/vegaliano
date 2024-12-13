@@ -1,72 +1,92 @@
 {% liquid
-  assign small_screens = '320,480' | split: ','
-  assign medium_screens = '768,1024' | split: ','
+  assign all_screens = '320,480,768,1024,1280,1600' | split: ','
+  assign small_screens = '320,480,768' | split: ','
+  assign medium_screens = '1024' | split: ','
+  # We are not handling large screen sizes, because max container size is 1600px
   assign large_screens = '1280,1600' | split: ','
-  assign extra_large_screens = '1920,2560' | split: ','
-  assign mb_src = mb_src | default: src
+  assign class = class | default: ""
+  # Handle breakpoints, set defaults if not passed
+  assign breakpoints = breakpoints | default: ''
+
+  assign s_slides = 1
+  assign m_slides = 1
+  assign l_slides = 1
+  assign xl_slides = 1
+
+  assign bp_map_split = breakpoints | split: ','
+
+  for pair in bp_map_split
+    assign key_value = pair | split: ':'
+    assign key = key_value[0]
+    assign value = key_value[1]
+
+    case key
+      when 's'
+        assign s_slides = value
+        assign m_slides = value
+        assign l_slides = value
+        assign xl_slides = value
+      when 'm'
+        assign m_slides = value
+        assign l_slides = value
+        assign xl_slides = value
+      when 'l'
+        assign l_slides = value
+        assign xl_slides = value
+      when 'xl'
+        assign xl_slides = value
+    endcase
+  endfor
 %}
+
 <picture>
-  {% for bp in breakpoints %}
-    {% assign screen = bp | split: ':' | first %}
-    {% assign slides = bp | split: ':' | last %}
-    {% case screen %}
-      {% when 's' %}
-        <!-- Small screens -->
-        <source
-          media="(max-width: 480px)"
-          srcset="
-            {% for width in small_screens %}
-              {% assign wd = width | divided_by: slides %}
-              {{ mb_src | image_url: width: wd }} {{ wd }}w
-              {% if forloop.last == false %},{% endif %}
-            {% endfor %}
-          "
-        >
-      {% when 'm' %}
-        <!-- Medium screens -->
-        <source
-          media="(min-width: 481px) and (max-width: 1024px)"
-          srcset="
-            {% for width in medium_screens %}
-              {% assign wd = width | divided_by: slides %}
-              {{ mb_src | image_url: width: wd }} {{ wd }}w
-              {% if forloop.last == false %},{% endif %}
-            {% endfor %}
-          "
-        >
-      {% when 'l' %}
-        <!-- Large screens -->
-        <source
-          media="(min-width: 1025px) and (max-width: 1600px)"
-          srcset="
-            {% for width in large_screens %}
-              {% assign wd = width | divided_by: slides %}
-              {{ src | image_url: width: wd }} {{ wd }}w
-              {% if forloop.last == false %},{% endif %}
-            {% endfor %}
-          "
-        >
-      {% when 'xl' %}
-        <!-- Extra-large screens -->
-        <source
-          media="(min-width: 1601px)"
-          srcset="
-            {% for width in extra_large_screens %}
-              {% assign wd = width | divided_by: slides %}
-              {{ src | image_url: width: wd }} {{ wd }}w
-              {% if forloop.last == false %},{% endif %}
-            {% endfor %}
-          "
-        >
-    {% endcase %}
-  {% endfor %}
-  
+  <!-- Small screens -->
+  <source
+    media="
+      {% for width in all_screens %}
+       (max-width: {{width}}px)
+      {% if forloop.last == false %},{% endif %}
+      {% endfor %}
+    "
+    data-src="{{ s_slides }}"
+    srcset="
+      {% for width in small_screens %}
+        {% assign wd = width | divided_by: s_slides %}
+        {{ src | image_url: width: wd }} {{ width }}w,
+      {% endfor %}
+
+      {% for width in medium_screens %}
+        {% assign wd = width | divided_by: m_slides %}
+        {{ src | image_url: width: wd }} {{ width }}w,
+      {% endfor %}
+
+      {% for width in large_screens %}
+        {% assign wd = width | divided_by: l_slides %}
+        {{ src | image_url: width: wd }} {{ width }}w
+        {% if forloop.last == false %},{% endif %}
+      {% endfor %}
+    "
+  >
+
+  <!-- Extra-large screens -->
+  <!-- We are not handling large screen sizes, because max container size is 1600px -->
+  <source
+    media="(min-width: 1601px)"
+    srcset="
+      {% for width in large_screens %}
+        {% assign wd = width | divided_by: l_slides %}
+        {{ src | image_url: width: wd }} {{ wd }}w
+        {% if forloop.last == false %},{% endif %}
+      {% endfor %}
+    "
+  >
+
   <!-- Fallback image -->
   <img
     width="100%"
     height="100%"
     src="{{ src | image_url }}"
     alt="{{ alt }}"
-    class="main-img object-cover object-center"
+    class="{{ class }}"
   >
 </picture>

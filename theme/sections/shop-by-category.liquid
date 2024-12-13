@@ -1,4 +1,5 @@
-<div class="shop-by-category mt-12 relative">
+<main class="content-area max-w-[1600px] mx-auto px-6">
+  <div class="shop-by-category mt-12 relative">
   <h2 class="text-[15px] md:text-[30px] text-[#363636] text-center my-4 uppercase font-semibold">
     <span>Shop By Category</span>
   </h2>
@@ -13,21 +14,19 @@
             >
               <div class="relative w-full overflow-hidden group select-none aspect-[0.79]">
                 {% if block.settings.custom_image %}
-                  <img
-                    width="100%"
-                    height="100%"
-                    src="{{ block.settings.custom_image | image_url: width: 200 }}"
-                    alt="{{ block.settings.collection.title }}"
-                    class="h-full absolute top-0 object-cover object-center"
-                  >
+                  {% render 'card-image',
+                    class: 'h-full absolute top-0 object-cover object-center',
+                    src: block.settings.custom_image,
+                    alt: block.settings.collection.title,
+                    breakpoints: 's:2,m:2,l:4'
+                  %}
                 {% else %}
-                  <img
-                    width="100%"
-                    height="100%"
-                    src="{{ block.settings.collection.featured_image | image_url: width: 100 }}"
-                    alt="{{ block.settings.collection.title }}"
-                    class="h-full absolute top-0 object-cover object-center"
-                  >
+                  {% render 'card-image',
+                    class: 'h-full absolute top-0 object-cover object-center',
+                    src: block.settings.collection.featured_image,
+                    alt: block.settings.collection.title,
+                    breakpoints: 's:2,m:2,l:4'
+                  %}
                 {% endif %}
               </div>
               <div class="cat-title font-semibold text-[#222] text-[10px] md:text-[22px] tracking-[3px] uppercase">
@@ -40,6 +39,7 @@
     </div>
   </div>
 </div>
+</main>
 <script>
   (function () {
     const OPTIONS = {
