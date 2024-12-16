@@ -6,24 +6,22 @@
     <div
       class="relative w-full overflow-hidden {% if card_product.images.size > 1 %} group {% endif %} select-none aspect-[0.68]"
     >
+      <!-- Main Image -->
       {% render 'card-image',
         class: 'main-img object-cover object-center',
         src: card_product.featured_image,
         alt: card_product.title,
         breakpoints: 's:2,m:3,l:4'
       %}
-      {% comment %}
-        <img width="100%" height="100%" src="{{ card_product.featured_media | image_url }}"
-        alt="AJLW-07 SATIN SILK 2 PCS" class="main-img object-cover object-center">
-      {% endcomment %}
-
-      <!-- Hover Image with Scale and Opacity Transitions -->
-      {% comment %}
-        {% if card_product.images.size > 1 %}
-        <img width="100%" height="100%" src="{{ card_product.images[1] | image_url }}" alt="AJLW-07 SATIN SILK 2 PCS"
-          class="hover-img absolute top-0 left-0 object-cover object-center">
-        {% endif %}
-      {% endcomment %}
+      <!-- Hover Image -->
+      {% if card_product.images.size > 1 %}
+        {% render 'card-image',
+          class: 'hover-img absolute top-0 left-0 object-cover object-center',
+          src: card_product.images[1],
+          alt: card_product.title,
+          breakpoints: 's:2,m:3,l:4'
+        %}
+      {% endif %}
 
       <noscript>
         <img

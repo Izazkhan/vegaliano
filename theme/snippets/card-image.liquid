@@ -7,6 +7,8 @@
   assign class = class | default: ""
   # Handle breakpoints, set defaults if not passed
   assign breakpoints = breakpoints | default: ''
+  assign fallback_src = fallback_src | default: ''
+  assign src = src | default: fallback_src
 
   assign s_slides = 1
   assign m_slides = 1
