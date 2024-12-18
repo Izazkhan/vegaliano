@@ -8,7 +8,7 @@
     >
       <!-- Main Image -->
       {% render 'card-image',
-        class: 'main-img object-cover object-center',
+        class: 'main-img object-cover object-center w-full',
         src: card_product.featured_image,
         alt: card_product.title,
         breakpoints: 's:2,m:3,l:4'
@@ -16,7 +16,7 @@
       <!-- Hover Image -->
       {% if card_product.images.size > 1 %}
         {% render 'card-image',
-          class: 'hover-img absolute top-0 left-0 object-cover object-center',
+          class: 'hover-img absolute top-0 left-0 object-cover object-center w-full',
           src: card_product.images[1],
           alt: card_product.title,
           breakpoints: 's:2,m:3,l:4'

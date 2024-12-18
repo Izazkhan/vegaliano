@@ -13,21 +13,13 @@
               class="embla_categories__slide flex flex-col justify-center gap-2 items-center grow-0 shrink-0 basis-1/2 lg:basis-1/4"
             >
               <div class="relative w-full overflow-hidden group select-none aspect-[0.79]">
-                {% if block.settings.custom_image %}
-                  {% render 'card-image',
-                    class: 'h-full absolute top-0 object-cover object-center',
-                    src: block.settings.custom_image,
-                    alt: block.settings.collection.title,
-                    breakpoints: 's:2,m:2,l:4'
-                  %}
-                {% else %}
-                  {% render 'card-image',
-                    class: 'h-full absolute top-0 object-cover object-center',
-                    src: block.settings.collection.featured_image,
-                    alt: block.settings.collection.title,
-                    breakpoints: 's:2,m:2,l:4'
-                  %}
-                {% endif %}
+                {% render 'card-image',
+                  class: 'h-full absolute top-0 object-cover object-center',
+                  src: block.settings.custom_image,
+                  fallback_src: block.settings.collection.featured_image
+                  alt: block.settings.collection.title,
+                  breakpoints: 's:2,m:2,l:4'
+                %}
               </div>
               <div class="cat-title font-semibold text-[#222] text-[10px] md:text-[22px] tracking-[3px] uppercase">
                 {{ block.settings.collection.title }}

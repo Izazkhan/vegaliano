@@ -199,8 +199,8 @@
       ],
       "settings": {}
     },
-    "customer-favorites": {
-      "type": "customer-favorites",
+    "collection-gallery": {
+      "type": "collection-gallery",
       "settings": {}
     },
     "promotions": {
@@ -218,7 +218,7 @@
     "featured-tabs",
     "shop-by-category",
     "explore-more",
-    "customer-favorites",
+    "collection-gallery",
     "promotions",
     "reviews"
   ]

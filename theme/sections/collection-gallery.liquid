@@ -1,0 +1,204 @@
+{% liquid
+  assign large_blocks = section.blocks | where: 'type', 'image_large'
+  assign small_blocks = section.blocks | where: 'type', 'image_small'
+%}
+{% if large_blocks.size == 2 and small_blocks.size == 4 %}
+  <main class="content-area max-w-[1600px] mx-auto">
+    <div class="customer-favorites max-w-[1200px] mt-12 mx-auto px-4">
+      <h2 class="text-[15px] md:text-[30px] text-[#363636] text-center my-4 uppercase font-semibold">
+        <span>{{ section.settings.gallery_name }}</span>
+      </h2>
+      <!-- Main Container for the layout -->
+      <div class="grid gap-4 md:grid-cols-2">
+        <!-- Left Section (50% on large screens) -->
+        <div class="flex flex-col gap-4">
+          <!-- Full-width item (First Item) -->
+          <a href="#" class="masonry-item relative flex flex-col justify-center items-center aspect-[1.114]">
+            {% render 'card-image',
+              src: large_blocks[0].settings.gc_image,
+              fallback_src: large_blocks[0].settings.gcollection.featured_image,
+              class: 'object-cover object-center w-full h-full',
+              breakpoints: 's:1,m:2,l:2'
+            %}
+            <div class="absolute bottom-7 text-white uppercase text-[28px] leading-none font-medium">
+              {{ large_blocks[0].settings.gcollection.title }}
+            </div>
+          </a>
+
+          <!-- Two items side by side -->
+          <div class="hidden md:flex gap-4 order-2 md:order-none">
+            <a href="#" class="masonry-item w-1/2 relative flex flex-col justify-center items-center ">
+              {% render 'card-image',
+                src: small_blocks[0].settings.gc_image,
+                fallback_src: small_blocks[0].settings.gcollection.featured_image,
+                class: 'object-cover object-center w-full h-full',
+                breakpoints: 's:1,m:2,l:2'
+              %}
+              <div class="absolute bottom-7 text-white uppercase text-[18px] leading-none font-medium">
+                {{ small_blocks[0].settings.gcollection.title }}
+              </div>
+            </a>
+            <a href="#" class="masonry-item w-1/2 relative flex flex-col justify-center items-center ">
+              {% render 'card-image',
+                src: small_blocks[1].settings.gc_image,
+                fallback_src: small_blocks[1].settings.gcollection.featured_image,
+                class: 'object-cover object-center w-full h-full',
+                breakpoints: 's:1,m:2,l:2'
+              %}
+              <div class="absolute bottom-7 text-white uppercase text-[18px] leading-none font-medium">
+                {{ small_blocks[1].settings.gcollection.title }}
+              </div>
+            </a>
+          </div>
+
+          <!-- Two items side by side -->
+          <div class="flex md:hidden gap-4">
+            <a href="#" class="masonry-item h-full w-1/2 relative flex flex-col justify-center items-center ">
+              {% render 'card-image',
+                src: small_blocks[2].settings.gc_image,
+                fallback_src: small_blocks[2].settings.gcollection.featured_image,
+                class: 'object-cover object-center w-full h-full',
+                breakpoints: 's:1,m:2,l:2'
+              %}
+              <div class="absolute bottom-7 text-white uppercase text-[18px] leading-none font-medium">
+                {{ small_blocks[2].settings.gcollection.title }}
+              </div>
+            </a>
+            <a href="#" class="masonry-item h-full w-1/2 relative flex flex-col justify-center items-center ">
+              {% render 'card-image',
+                src: small_blocks[3].settings.gc_image,
+                fallback_src: small_blocks[3].settings.gcollection.featured_image,
+                class: 'object-cover object-center w-full h-full',
+                breakpoints: 's:1,m:2,l:2'
+              %}
+              <div class="absolute bottom-7 text-white uppercase text-[18px] leading-none font-medium">
+                {{ small_blocks[3].settings.gcollection.title }}
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Section (50% on large screens) -->
+        <div class="flex flex-col gap-4">
+          <!-- Two items side by side -->
+          <div class="md:hidden flex gap-4 order-2 md:order-none">
+            <a href="#" class="masonry-item w-1/2 relative flex flex-col justify-center items-center">
+              {% render 'card-image',
+                src: small_blocks[0].settings.gc_image,
+                fallback_src: small_blocks[0].settings.gcollection.featured_image,
+                class: 'object-cover object-center w-full h-full',
+                breakpoints: 's:1,m:2,l:2'
+              %}
+              <div class="absolute bottom-7 text-white uppercase text-[18px] leading-none font-medium">
+                {{ small_blocks[0].settings.gcollection.title }}
+              </div>
+            </a>
+            <a href="#" class="masonry-item w-1/2 relative flex flex-col justify-center items-center">
+              {% render 'card-image',
+                src: small_blocks[1].settings.gc_image,
+                fallback_src: small_blocks[1].settings.gcollection.featured_image,
+                class: 'object-cover object-center w-full h-full',
+                breakpoints: 's:1,m:2,l:2'
+              %}
+              <div class="absolute bottom-7 text-white uppercase text-[18px] leading-none font-medium">
+                {{ small_blocks[1].settings.gcollection.title }}
+              </div>
+            </a>
+          </div>
+
+          <!-- Two items side by side -->
+          <div class="md:flex hidden gap-4">
+            <a href="#" class="masonry-item h-full w-1/2 relative flex flex-col justify-center items-center">
+              {% render 'card-image',
+                src: small_blocks[2].settings.gc_image,
+                fallback_src: small_blocks[2].settings.gcollection.featured_image,
+                class: 'object-cover object-center w-full h-full',
+                breakpoints: 's:1,m:2,l:2'
+              %}
+              <div class="absolute bottom-7 text-white uppercase text-[18px] leading-none font-medium">
+                {{ small_blocks[2].settings.gcollection.title }}
+              </div>
+            </a>
+            <a href="#" class="masonry-item h-full w-1/2 relative flex flex-col justify-center items-center">
+              {% render 'card-image',
+                src: small_blocks[3].settings.gc_image,
+                fallback_src: small_blocks[3].settings.gcollection.featured_image,
+                class: 'object-cover object-center w-full h-full',
+                breakpoints: 's:1,m:2,l:2'
+              %}
+              <div class="absolute bottom-7 text-white uppercase text-[18px] leading-none font-medium">
+                {{ small_blocks[3].settings.gcollection.title }}
+              </div>
+            </a>
+          </div>
+
+          <!-- Full-width item (Sixth Item) -->
+          <a
+            href="#"
+            class="masonry-item order-1 md:order-none relative flex flex-col justify-center items-center aspect-[1.114]"
+          >
+            {% render 'card-image',
+              src: large_blocks[1].settings.gc_image,
+              fallback_src: large_blocks[1].settings.gcollection.featured_image,
+              class: 'object-cover object-center w-full h-full',
+              breakpoints: 's:1,m:2,l:2'
+            %}
+            <div class="absolute bottom-7 text-white uppercase text-[28px] leading-none font-medium">
+              {{ large_blocks[1].settings.gcollection.title }}
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Collection Gallery",
+  "settings": [
+    {
+      "type": "text",
+      "id": "gallery_name",
+      "label": "Collection Gallery",
+      "default": "Customer Favorites"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_large",
+      "name": "Collection (Large Image)",
+      "settings": [
+        {
+          "type": "collection",
+          "label": "Select Collection",
+          "id": "gcollection"
+        },
+        {
+          "type": "image_picker",
+          "label": "Custom Image (840x754)",
+          "id": "gc_image"
+        }
+      ],
+      "limit": 2
+    },
+    {
+      "type": "image_small",
+      "name": "Collection (Small Image)",
+      "settings": [
+        {
+          "type": "collection",
+          "label": "Select Collection",
+          "id": "gcollection"
+        },
+        {
+          "type": "image_picker",
+          "label": "Custom Image (402x524)",
+          "id": "gc_image"
+        }
+      ],
+      "limit": 4
+    }
+  ]
+}
+{% endschema %}
