@@ -1,0 +1,20 @@
+{
+  "name": "Header",
+  "type": "header",
+  "sections": {
+    "announcement_bar_6qEiHB": {
+      "type": "announcement-bar",
+      "settings": {
+        "note": "<p> Limited Edition is live. <a href=\"\/collections\/limited-edition\" title=\"Limited Edition\"><strong>Shop<\/strong><\/a> your favourites now!<\/p>"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {}
+    }
+  },
+  "order": [
+    "announcement_bar_6qEiHB",
+    "header"
+  ]
+}

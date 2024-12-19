@@ -1,0 +1,24 @@
+<div class="text-center text-white bg-black p-2 text-[12px] h-10 flex items-center justify-center leading-5">
+    {{ section.settings.note }}
+</div>
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "note",
+      "default": "<p>Welcome to our store.</p>",
+      "label": "Announcement"
+    }
+  ],
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "presets": [
+    {
+      "name": "Announcement Bar"
+    }
+  ]
+}
+{% endschema %}

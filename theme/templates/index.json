@@ -6,7 +6,6 @@
         "slide_HaeEgC": {
           "type": "slide",
           "settings": {
-            "name": "WinterCollection",
             "image": "shopify:\/\/shop_images\/winter-slider.jpg",
             "mobileImage": "shopify:\/\/shop_images\/winter-slider-1.jpg",
             "collection": "winter",
@@ -17,7 +16,6 @@
         "slide_ip6VDj": {
           "type": "slide",
           "settings": {
-            "name": "",
             "image": "shopify:\/\/shop_images\/limited-edition.jpg",
             "mobileImage": "shopify:\/\/shop_images\/limited-edition-1.jpg",
             "collection": "limited-edition",
