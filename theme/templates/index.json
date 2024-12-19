@@ -6,9 +6,10 @@
         "slide_HaeEgC": {
           "type": "slide",
           "settings": {
+            "name": "WinterCollection",
             "image": "shopify:\/\/shop_images\/winter-slider.jpg",
             "mobileImage": "shopify:\/\/shop_images\/winter-slider-1.jpg",
-            "url": "shopify:\/\/collections\/winter",
+            "collection": "winter",
             "alt": "Winter Collection",
             "featured": true
           }
@@ -16,9 +17,10 @@
         "slide_ip6VDj": {
           "type": "slide",
           "settings": {
+            "name": "",
             "image": "shopify:\/\/shop_images\/limited-edition.jpg",
             "mobileImage": "shopify:\/\/shop_images\/limited-edition-1.jpg",
-            "url": "#",
+            "collection": "limited-edition",
             "alt": "Slider Image",
             "featured": true
           }
@@ -33,12 +35,6 @@
     "featured-collection": {
       "type": "featured-collection",
       "blocks": {
-        "collection_slide_rrffYR": {
-          "type": "collection_slide",
-          "settings": {
-            "collection": "essentials-1"
-          }
-        },
         "collection_slide_ezK3QT": {
           "type": "collection_slide",
           "settings": {
@@ -71,7 +67,6 @@
         }
       },
       "block_order": [
-        "collection_slide_rrffYR",
         "collection_slide_ezK3QT",
         "collection_slide_HwcEUV",
         "collection_slide_hVJNEx",
@@ -111,18 +106,6 @@
             "collection": "essential-pret"
           }
         },
-        "collection_7XJhEt": {
-          "type": "collection",
-          "settings": {
-            "collection": "unstiched-luxury"
-          }
-        },
-        "collection_mGANWx": {
-          "type": "collection",
-          "settings": {
-            "collection": "essentials-1"
-          }
-        },
         "collection_ntE9Wj": {
           "type": "collection",
           "settings": {
@@ -135,6 +118,18 @@
             "collection": "jewelry"
           }
         },
+        "collection_jPRRU4": {
+          "type": "collection",
+          "settings": {
+            "collection": "unstiched-luxury"
+          }
+        },
+        "collection_hJeYrg": {
+          "type": "collection",
+          "settings": {
+            "collection": "viscose"
+          }
+        },
         "collection_FgecfE": {
           "type": "collection",
           "settings": {
@@ -145,10 +140,10 @@
       "block_order": [
         "collection_L4JBjy",
         "collection_yHi7TW",
-        "collection_7XJhEt",
-        "collection_mGANWx",
         "collection_ntE9Wj",
         "collection_yfrgDB",
+        "collection_jPRRU4",
+        "collection_hJeYrg",
         "collection_FgecfE"
       ],
       "settings": {
@@ -201,11 +196,61 @@
     },
     "collection-gallery": {
       "type": "collection-gallery",
-      "settings": {}
+      "settings": {
+        "gallery_name": "Customer Favorites"
+      }
     },
     "promotions": {
       "type": "promotions",
-      "settings": {}
+      "blocks": {
+        "product_q7JNNj": {
+          "type": "product",
+          "settings": {
+            "product": "product-1"
+          }
+        },
+        "product_maLA3L": {
+          "type": "product",
+          "settings": {
+            "product": "product-2"
+          }
+        },
+        "product_eNGVi4": {
+          "type": "product",
+          "settings": {
+            "product": "product-3"
+          }
+        },
+        "product_LDRJbq": {
+          "type": "product",
+          "settings": {
+            "product": "product-4"
+          }
+        },
+        "product_nNVFEM": {
+          "type": "product",
+          "settings": {
+            "product": "product-5"
+          }
+        },
+        "product_TqFgCF": {
+          "type": "product",
+          "settings": {
+            "product": "product-6"
+          }
+        }
+      },
+      "block_order": [
+        "product_q7JNNj",
+        "product_maLA3L",
+        "product_eNGVi4",
+        "product_LDRJbq",
+        "product_nNVFEM",
+        "product_TqFgCF"
+      ],
+      "settings": {
+        "name": "#Hashtag"
+      }
     },
     "reviews": {
       "type": "reviews",

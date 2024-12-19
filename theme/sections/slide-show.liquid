@@ -3,7 +3,7 @@
     <div class="embla_slides_container aspect-[1.07] md:aspect-[2.3] flex">
       {% for block in section.blocks %}
         <div class="embla_slides_slide flex-none w-full">
-          <a href="{{ block.settings.url }}">
+          <a href="{{ block.settings.collection.url }}">
               {% render 'slider-image', mb_src: block.settings.mobileImage, src: block.settings.image, alt: block.settings.alt %}
           </a>
         </div>
@@ -74,8 +74,8 @@
           "label": "Image (770x770)"
         },
         {
-          "type": "url",
-          "id": "url",
+          "type": "collection",
+          "id": "collection",
           "label": "Slide Link"
         },
         {
