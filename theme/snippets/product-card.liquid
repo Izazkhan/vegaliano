@@ -32,6 +32,11 @@
           class="object-cover object-center"
         >
       </noscript>
+      {% if sale_is_on %}
+      <div class="badge">
+        <img src="{{ '20.png' | asset_url }}">
+      </div>
+      {% endif %}
     </div>
   </a>
 

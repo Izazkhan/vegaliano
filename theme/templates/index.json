@@ -78,16 +78,37 @@
     },
     "featured-tabs": {
       "type": "featured-tabs",
-      "settings": {
-        "featured_tabs": [
-          "limited-edition",
-          "summer-collection",
-          "viscose",
-          "winter",
-          "khaddar"
-        ],
-        "section_title": "Featured Tabs"
-      }
+      "blocks": {
+        "featured_tab_bmpqpf": {
+          "type": "featured_tab",
+          "settings": {
+            "title": "30% off",
+            "title_style": "capitalize",
+            "products": [
+              "product-1",
+              "product-2"
+            ],
+            "sale_status": true
+          }
+        },
+        "featured_tab_pKDMzN": {
+          "type": "featured_tab",
+          "settings": {
+            "title": "40% Off",
+            "title_style": "capitalize",
+            "products": [
+              "product-6",
+              "product-5"
+            ],
+            "sale_status": false
+          }
+        }
+      },
+      "block_order": [
+        "featured_tab_bmpqpf",
+        "featured_tab_pKDMzN"
+      ],
+      "settings": {}
     },
     "shop-by-category": {
       "type": "shop-by-category",

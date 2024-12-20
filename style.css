@@ -12,7 +12,7 @@
   --color-5: #dcdddd;
   --color-6: #878787;
   --color-7: #bbb;
-  
+
   /* Footer colors */
   --color-footer: #f7fafa;
   --color-footer-link: #878787;
@@ -179,7 +179,7 @@ button[aria-expanded="true"] svg {
 }
 
 .currency-btn.active {
-  @apply bg-four
+  @apply bg-four;
 }
 
 /* Product Card */
@@ -215,3 +215,15 @@ button[aria-expanded="true"] svg {
   transform: translateY(-100%);
 }
 /* Product Card End */
+
+/* Product Badges */
+.badge {
+  position: absolute;
+  top: calc(-2.5%);
+  left: calc(69%);
+  width: 100%;
+}
+
+.badge img {
+  width: 34%;
+}

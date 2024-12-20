@@ -2,15 +2,16 @@
   <div class="embla_tabs relative mx-auto">
     <div class="embla_tabs__viewport overflow-hidden mx-8">
       <div class="embla_tabs__container flex space-x-1">
-        {% for collection in section.settings.featured_tabs %}
-          {% if collection.products_count > 0 %}
+        {% assign featured_tabs = section.blocks | where: 'type', 'featured_tab' %}
+        {% for tab in featured_tabs %}
+          {% if tab.settings.products.count > 0 %}
             <div class="embla_tabs__slide flex-shrink-0">
               <button
                 id="tab-{{ forloop.index }}"
                 data-tab-target="#tab-{{ forloop.index }}-content"
-                class="tab-link text-[18px] text-[#888] block p-2 text-center {% if forloop.first %}active{% endif %}"
+                class="tab-link text-[18px] text-[#888] block p-2 text-center {{ tab.settings.title_style }} {% if forloop.first %}active{% endif %}"
               >
-                {{ collection.title }}
+                {{ tab.settings.title }}
               </button>
             </div>
           {% endif %}
@@ -37,8 +38,8 @@
   </div>
 
   <div class="tabsContent relative">
-    {% for collection in section.settings.featured_tabs %}
-      {% if collection.products_count > 0 %}
+    {% for tab in featured_tabs %}
+      {% if tab.settings.products.count > 0 %}
         <div
           class="tab-content right-0 {% if forloop.first %}active{% endif %}"
           id="tab-{{ forloop.index }}-content"
@@ -48,8 +49,8 @@
           <div class="embla_tabs_content relative mx-auto px-2">
             <div class="embla_tabs_content__viewport overflow-hidden">
               <div class="embla_tabs_content__container w-full flex">
-                {% for product in collection.products %}
-                  {% render 'product-card', card_product: product %}
+                {% for product in tab.settings.products %}
+                  {% render 'product-card', card_product: product, sale_is_on: tab.settings.sale_status %}
                 {% endfor %}
               </div>
             </div>
@@ -148,18 +149,50 @@
 {% schema %}
 {
   "name": "Featured Tabs",
-  "settings": [
+  "settings": [],
+  "blocks": [
     {
-      "type": "collection_list",
-      "id": "featured_tabs",
-      "label": "Select Collections to Display",
+      "name": "Tab",
+      "type": "featured_tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "select",
+          "id": "title_style",
+          "label": "Title Style",
+          "options": [
+            {
+              "value": "normal",
+              "label": "Normal"
+            },
+            {
+              "value": "uppercase",
+              "label": "UPPERCASE"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "product_list",
+          "id": "products",
+          "label": "Select Products"
+        },
+        {
+          "type": "checkbox",
+          "id": "sale_status",
+          "label": "Add Discount Label",
+          "default": true
+        }
+      ],
       "limit": 6
-    },
-    {
-      "type": "text",
-      "id": "section_title",
-      "label": "Section Title",
-      "default": "Featured Tabs"
     }
   ]
 }

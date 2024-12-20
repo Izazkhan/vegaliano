@@ -1612,6 +1612,10 @@ h2 {
   text-transform: uppercase;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .leading-5 {
   line-height: 1.25rem;
 }
@@ -2071,6 +2075,19 @@ button[aria-expanded="true"] svg {
 }
 
 /* Product Card End */
+
+/* Product Badges */
+
+.badge {
+  position: absolute;
+  top: calc(-2.5%);
+  left: calc(69%);
+  width: 100%;
+}
+
+.badge img {
+  width: 34%;
+}
 
 .hover\:bg-four:hover {
   background-color: var(--color-4);
