@@ -2089,6 +2089,22 @@ button[aria-expanded="true"] svg {
   width: 34%;
 }
 
+.badge-1 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  top: calc(-10%);
+  left: calc(-20%);
+  background: #c63e4b;
+  color: #fff;
+  width: calc(50%);
+  height: calc(25%);
+  font-weight: 600;
+  font-size: clamp(0.2rem, 4vw, 4rem);
+  transform: rotate(-45deg);
+}
+
 .hover\:bg-four:hover {
   background-color: var(--color-4);
 }

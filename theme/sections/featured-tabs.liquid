@@ -50,7 +50,7 @@
             <div class="embla_tabs_content__viewport overflow-hidden">
               <div class="embla_tabs_content__container w-full flex">
                 {% for product in tab.settings.products %}
-                  {% render 'product-card', card_product: product, sale_is_on: tab.settings.sale_status %}
+                  {% render 'product-card', card_product: product, sale_status: tab.settings.sale_status, sale_percentage: tab.settings.sale_percentage %}
                 {% endfor %}
               </div>
             </div>
@@ -184,12 +184,6 @@
           "type": "product_list",
           "id": "products",
           "label": "Select Products"
-        },
-        {
-          "type": "checkbox",
-          "id": "sale_status",
-          "label": "Add Discount Label",
-          "default": true
         }
       ],
       "limit": 6

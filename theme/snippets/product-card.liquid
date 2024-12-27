@@ -1,3 +1,5 @@
+{% assign sale_percentage = sale_percentage | default: '' %}
+{% assign sale_status = sale_status | default: false %}
 <div
   class="product-card px-1 md:px-4 flex flex-col mb-4 grow-0 shrink-0 basis-1/2 md:basis-1/3 lg:basis-1/4 overflow-hidden"
 >
@@ -32,11 +34,13 @@
           class="object-cover object-center"
         >
       </noscript>
-      {% if sale_is_on %}
       <div class="badge">
         <img src="{{ '20.png' | asset_url }}">
       </div>
-      {% endif %}
+      <div class="badge-1">
+        <div>20%</div>
+        <div>Off</div>
+      </div>
     </div>
   </a>
 
@@ -44,7 +48,7 @@
   <div class="flex justify-between items-center p-2 bg-gray-100">
     <div class="flex flex-col text-[14px] basis-3/5 ">
       <span class="font-medium leading-6 text-product-title">{{ card_product.title }}</span>
-      <span class="text-product-price">{{ card_product.price | money }}</span>
+      {% render 'price', product: card_product %}
     </div>
     <div class="basis-2/5 flex justify-center items-center">
       <a
