@@ -3,7 +3,7 @@
 <div
   class="product-card px-1 md:px-4 flex flex-col mb-4 grow-0 shrink-0 basis-1/2 md:basis-1/3 lg:basis-1/4 overflow-hidden"
 >
-  <a href="{{ card_product.url |  within: collection }}" class="w-full flex flex-col justify-center items-center">
+  <a href="{{ card_product.url | within: collection }}" class="w-full flex flex-col justify-center items-center">
     <!-- Image Container with Hover Effect -->
     <div
       class="relative w-full overflow-hidden {% if card_product.images.size > 1 %} group {% endif %} select-none aspect-[0.68]"
@@ -34,18 +34,7 @@
           class="object-cover object-center"
         >
       </noscript>
-      <div class="badge">
-        <img src="{{ '20.png' | asset_url }}">
-      </div>
-      <div class="badge-1">
-        <div class="abcc">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360.96 358.98">
-            <text>20%</text>
-          </svg>
-        </div>
-        {% comment %} <div class="sub1 leading-none">20%</div> {% endcomment %}
-        <div class="sub">OFF</div>
-      </div>
+      {% render 'badge', off_percentage: 20, position: 'right' %}
     </div>
   </a>
 

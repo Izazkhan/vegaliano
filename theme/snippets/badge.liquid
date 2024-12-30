@@ -1,0 +1,39 @@
+{% liquid
+    assign position = position | default: 'left'
+    assign svg_style = 'transform: rotate(-45deg);'
+    assign polygon = 'polygon(0 0, 100% 0, 0 100%)'
+    assign right = 'auto'
+    assign left = '0'
+  
+    if position == 'right'
+      assign svg_style = 'transform: rotate(45deg);'
+      assign polygon = 'polygon(100% 100%, 100% 0, 0 0)'
+      assign right = '0'
+      assign left = 'auto'
+    endif
+  %}
+  <style>
+    .discount_badge {
+      clip-path: {{ polygon }};
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: absolute;
+      top: 0%;
+      right: {{ right }};
+      left: {{ left }};
+      background: #c63e4b;
+      color: #fff;
+      width: 30%;
+      aspect-ratio: 1 / 1;
+      font-weight: 700;
+    }
+  </style>
+  <div class="discount_badge font-sans">
+    <svg xmlns="http://www.w3.org/2000/svg" style="{{ svg_style }}" viewBox="0 0 360.96 358.98">
+      <!-- Overlapping Texts -->
+      <text x="45%" y="42%" text-anchor="middle" font-size="110" fill="#fff">{{ off_percentage }}%</text>
+      <text x="88%" y="28%" text-anchor="middle" font-size="32" fill="#fff" dy="1.5em">OFF</text>
+    </svg>
+  </div>
+  
