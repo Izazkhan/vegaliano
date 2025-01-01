@@ -4,14 +4,18 @@
       <div class="embla_tabs__container flex space-x-1">
         {% assign featured_tabs = section.blocks | where: 'type', 'featured_tab' %}
         {% for tab in featured_tabs %}
-          {% if tab.settings.products.count > 0 %}
+          {% assign tab_title = tab.settings.title | default: tab.settings.collection.title %}
+          {% if tab.settings.products.count > 0
+            or tab.settings.collection != ''
+            and tab.settings.collection.products.size > 0
+          %}
             <div class="embla_tabs__slide flex-shrink-0">
               <button
                 id="tab-{{ forloop.index }}"
                 data-tab-target="#tab-{{ forloop.index }}-content"
                 class="tab-link text-[18px] text-[#888] block p-2 text-center {{ tab.settings.title_style }} {% if forloop.first %}active{% endif %}"
               >
-                {{ tab.settings.title }}
+                {{ tab_title }}
               </button>
             </div>
           {% endif %}
@@ -39,7 +43,10 @@
 
   <div class="tabsContent relative">
     {% for tab in featured_tabs %}
-      {% if tab.settings.products.count > 0 %}
+      {% if tab.settings.products.count > 0
+        or tab.settings.collection != ''
+        and tab.settings.collection.products.size > 0
+      %}
         <div
           class="tab-content right-0 {% if forloop.first %}active{% endif %}"
           id="tab-{{ forloop.index }}-content"
@@ -49,9 +56,23 @@
           <div class="embla_tabs_content relative mx-auto px-2">
             <div class="embla_tabs_content__viewport overflow-hidden">
               <div class="embla_tabs_content__container w-full flex">
-                {% for product in tab.settings.products %}
-                  {% render 'product-card', card_product: product, sale_status: tab.settings.sale_status, sale_percentage: tab.settings.sale_percentage %}
-                {% endfor %}
+                {% if tab.settings.products.count > 0 %}
+                  {% for product in tab.settings.products %}
+                    {% render 'product-card',
+                      card_product: product,
+                      sale_status: tab.settings.display_discount_badge,
+                      sale_percentage: tab.settings.sale_percentage
+                    %}
+                  {% endfor %}
+                {% else %}
+                  {% for product in tab.settings.collection.products %}
+                    {% render 'product-card',
+                      card_product: product,
+                      sale_status: tab.settings.display_discount_badge,
+                      sale_percentage: tab.settings.sale_percentage
+                    %}
+                  {% endfor %}
+                {% endif %}
               </div>
             </div>
           </div>
@@ -181,9 +202,49 @@
           "default": "uppercase"
         },
         {
+          "type": "header",
+          "content": "Collection"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "range",
+          "id": "max_products",
+          "label": "Max products to display",
+          "min": 4,
+          "max": 12,
+          "step": 1,
+          "default": 8
+        },{
+          "type": "header",
+          "content": "Customize Product Listing"
+        },
+        {
+          "type": "paragraph",
+          "content": "Select products from the chosen collection to ensure consistency in your product showcase."
+        },
+        {
           "type": "product_list",
           "id": "products",
-          "label": "Select Products"
+          "label": "Select products"
+        },
+        {
+          "type": "header",
+          "content": "Discount/Sale Badge"
+        },
+        {
+          "type": "number",
+          "id": "sale_percentage",
+          "default": 0,
+          "label": "Discount Percentage"
+        },{
+          "type": "checkbox",
+          "id": "display_discount_badge",
+          "default": true,
+          "label": "Display Discount Badge"
         }
       ],
       "limit": 6

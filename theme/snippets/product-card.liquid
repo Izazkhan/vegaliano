@@ -34,7 +34,9 @@
           class="object-cover object-center"
         >
       </noscript>
-      {% render 'badge', off_percentage: 20, position: 'right' %}
+      {% if sale_status %}
+        {% render 'badge', off_percentage: sale_percentage, position: 'right' %}
+      {% endif %}
     </div>
   </a>
 
