@@ -67,6 +67,7 @@
                     {% for product in tab.settings.products %}
                       {% render 'product-card',
                         card_product: product,
+                        collection: tab.settings.collection,
                         sale_status: tab.settings.display_discount_badge,
                         sale_percentage: tab.settings.sale_percentage
                       %}
@@ -75,6 +76,7 @@
                     {% for product in tab.settings.collection.products %}
                       {% render 'product-card',
                         card_product: product,
+                        collection: tab.settings.collection,
                         sale_status: tab.settings.display_discount_badge,
                         sale_percentage: tab.settings.sale_percentage
                       %}

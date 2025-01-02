@@ -4,22 +4,25 @@
   </div>
   <div class="main-product flex flex-col md:flex-row justify-between">
     <div class="media-wrapper basis-3/5 md:px-3">
-      <div class="grid md:grid-cols-2 gap-4 sm:hidden">
+      <div class="grid md:grid-cols-2 gap-4 sm:hidden md:grid">
         {% for product_image in product.images %}
           <img src="{{ product_image | image_url }}" alt="{{product.title}}">
         {% endfor %}
       </div>
-      <div class="embla_product relative w-full">
+      <div class="embla_product relative w-full md:hidden">
         <div class="embla_product__viewport overflow-hidden">
           <div class="embla_product__container flex touch-pan-y">
-            <div class="embla_product__slide">
-              {% for product_image in product.images %}
+            {% for product_image in product.images %}
+              <div class="embla_product__slide flex-none w-full">
                 <img src="{{ product_image | image_url }}" alt="{{product.title}}">
-              {% endfor %}
-            </div>
+              </div>
+            {% endfor %}
           </div>
         </div>
       </div>
+      <div
+        class="embla_product__dots absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
+      ></div>
     </div>
     <div class="product-info basis-2/5 flex flex-col gap-2">
       <h1 class="text-[19px] font-semibold">Product Title</h1>
@@ -39,16 +42,13 @@
   (function () {
     const OPTIONS = { loop: true, duration: 30 };
     const emblaNode = document.querySelector('.embla_product');
-    const viewportNode = emblaNode.querySelector('.embla_product_viewport');
-    const prevBtn = emblaNode.querySelector('.embla_product_button--prev');
-    const nextBtn = emblaNode.querySelector('.embla_product_button--next');
-    const dotsNode = document.querySelector('.embla_product_dots');
+    const viewportNode = emblaNode.querySelector('.embla_product__viewport');
+    const dotsNode = document.querySelector('.embla_product__dots');
 
     const emblaApi = EmblaCarousel(viewportNode, OPTIONS, [EmblaCarouselFade()]);
 
-    const removePrevNextBtnsClickHandlers = EmblaUtils.addPrevNextBtnsClickHandlers(emblaApi, prevBtn, nextBtn);
     const removeDotBtnsAndClickHandlers = EmblaUtils.addDotBtnsAndClickHandlers(emblaApi, dotsNode);
 
-    emblaApi.on('destroy', removePrevNextBtnsClickHandlers).on('destroy', removeDotBtnsAndClickHandlers);
+    emblaApi.on('destroy', removeDotBtnsAndClickHandlers);
   })();
 </script>
