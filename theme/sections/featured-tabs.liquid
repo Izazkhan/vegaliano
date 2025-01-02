@@ -1,176 +1,206 @@
-<main class="content-area max-w-[1600px] mx-auto">
-  <div class="embla_tabs relative mx-auto">
-    <div class="embla_tabs__viewport overflow-hidden mx-8">
-      <div class="embla_tabs__container flex space-x-1">
-        {% assign featured_tabs = section.blocks | where: 'type', 'featured_tab' %}
-        {% for tab in featured_tabs %}
-          {% assign tab_title = tab.settings.title | default: tab.settings.collection.title %}
-          {% if tab.settings.products.count > 0
-            or tab.settings.collection != ''
-            and tab.settings.collection.products.size > 0
-          %}
-            <div class="embla_tabs__slide flex-shrink-0">
-              <button
-                id="tab-{{ forloop.index }}"
-                data-tab-target="#tab-{{ forloop.index }}-content"
-                class="tab-link text-[18px] text-[#888] block p-2 text-center {{ tab.settings.title_style }} {% if forloop.first %}active{% endif %}"
-              >
-                {{ tab_title }}
-              </button>
-            </div>
-          {% endif %}
-        {% endfor %}
+{% liquid
+  assign featured_tabs = section.blocks | where: 'type', 'featured_tab'
+  assign show_content_area = false
+  for tab in featured_tabs
+    if tab.settings.collection != '' and tab.settings.collection.products.size > 0
+      assign show_content_area = true
+      break
+    endif
+  endfor
+%}
+
+{% if show_content_area %}
+  <main class="content-area max-w-[1600px] mx-auto" data-val="{{ show_content_area }}">
+    <div class="embla_tabs relative mx-auto">
+      <div class="embla_tabs__viewport overflow-hidden mx-8">
+        <div class="embla_tabs__container flex space-x-1">
+          {% for tab in featured_tabs %}
+            {% assign tab_title = tab.settings.title | default: tab.settings.collection.title %}
+            {% if tab.settings.collection != '' and tab.settings.collection.products.size > 0 %}
+              <div class="embla_tabs__slide flex-shrink-0">
+                <button
+                  id="tab-{{ forloop.index }}"
+                  data-tab-target="#tab-{{ forloop.index }}-content"
+                  class="tab-link text-[18px] text-[#888] block p-2 text-center {{ section.settings.title_style }} {% if forloop.first %}active{% endif %}"
+                >
+                  {{ tab_title }}
+                </button>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
+
+      <!-- Controls positioned absolutely to the left and right -->
+      <button
+        class="embla_tabs__button embla_tabs__button--prev absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888]"
+      >
+        <svg class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]">
+          <use href="#embla_tabs__button__svg--prev"></use>
+        </svg>
+      </button>
+
+      <button
+        class="embla_tabs__button embla_tabs__button--next absolute right-4 top-1/2 transform -translate-y-1/2 text-[#888]"
+      >
+        <svg class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]">
+          <use href="#embla_tabs__button__svg--next"></use>
+        </svg>
+      </button>
     </div>
 
-    <!-- Controls positioned absolutely to the left and right -->
-    <button
-      class="embla_tabs__button embla_tabs__button--prev absolute left-4 top-1/2 transform -translate-y-1/2 text-[#888]"
-    >
-      <svg class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]">
-        <use href="#embla_tabs__button__svg--prev"></use>
-      </svg>
-    </button>
-
-    <button
-      class="embla_tabs__button embla_tabs__button--next absolute right-4 top-1/2 transform -translate-y-1/2 text-[#888]"
-    >
-      <svg class="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]">
-        <use href="#embla_tabs__button__svg--next"></use>
-      </svg>
-    </button>
-  </div>
-
-  <div class="tabsContent relative">
-    {% for tab in featured_tabs %}
-      {% if tab.settings.products.count > 0
-        or tab.settings.collection != ''
-        and tab.settings.collection.products.size > 0
-      %}
-        <div
-          class="tab-content right-0 {% if forloop.first %}active{% endif %}"
-          id="tab-{{ forloop.index }}-content"
-          role="tabpanel"
-          aria-labelledby="tab-{{ forloop.index }}"
-        >
-          <div class="embla_tabs_content relative mx-auto px-2">
-            <div class="embla_tabs_content__viewport overflow-hidden">
-              <div class="embla_tabs_content__container w-full flex">
-                {% if tab.settings.products.count > 0 %}
-                  {% for product in tab.settings.products %}
-                    {% render 'product-card',
-                      card_product: product,
-                      sale_status: tab.settings.display_discount_badge,
-                      sale_percentage: tab.settings.sale_percentage
-                    %}
-                  {% endfor %}
-                {% else %}
-                  {% for product in tab.settings.collection.products %}
-                    {% render 'product-card',
-                      card_product: product,
-                      sale_status: tab.settings.display_discount_badge,
-                      sale_percentage: tab.settings.sale_percentage
-                    %}
-                  {% endfor %}
-                {% endif %}
+    <div class="tabsContent relative">
+      {% assign active_class_assigned = false %}
+      {% for tab in featured_tabs %}
+        {% if tab.settings.collection != '' and tab.settings.collection.products.size > 0 %}
+          <div
+            class="tab-content right-0 {% if active_class_assigned == false %}active{% endif %}"
+            id="tab-{{ forloop.index }}-content"
+            role="tabpanel"
+            aria-labelledby="tab-{{ forloop.index }}"
+          >
+            {% assign active_class_assigned = true %}
+            <div class="embla_tabs_content relative mx-auto px-2">
+              <div class="embla_tabs_content__viewport overflow-hidden">
+                <div class="embla_tabs_content__container w-full flex">
+                  {% if tab.settings.products.count > 0 %}
+                    {% for product in tab.settings.products %}
+                      {% render 'product-card',
+                        card_product: product,
+                        sale_status: tab.settings.display_discount_badge,
+                        sale_percentage: tab.settings.sale_percentage
+                      %}
+                    {% endfor %}
+                  {% else %}
+                    {% for product in tab.settings.collection.products %}
+                      {% render 'product-card',
+                        card_product: product,
+                        sale_status: tab.settings.display_discount_badge,
+                        sale_percentage: tab.settings.sale_percentage
+                      %}
+                    {% endfor %}
+                  {% endif %}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
+        {% endif %}
+      {% endfor %}
+    </div>
 
-  <style>
-    /* Transition styles for tab content */
-    .tab-content {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: 0.2s ease-in-out;
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 0;
-    }
+    <style>
+      /* Transition styles for tab content */
+      .tab-content {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 0.2s ease-in-out;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 0;
+      }
 
-    .tab-content.active {
-      visibility: visible;
-      opacity: 1;
-      transform: none;
-      position: relative;
-    }
+      .tab-content.active {
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        position: relative;
+      }
 
-    .tab-link.active {
-      font-weight: 500;
-      color: #111;
-    }
-  </style>
-  <script>
-    (function () {
-      document.addEventListener('DOMContentLoaded', () => {
-        // Tabs Content Slider
-        const emblaTabsContents = document.querySelectorAll('.embla_tabs_content');
-        emblaTabsContents.forEach((emblaNode) => {
-          const viewportNode = emblaNode.querySelector('.embla_tabs_content__viewport');
+      .tab-link.active {
+        font-weight: 500;
+        color: #111;
+      }
+    </style>
+    <script>
+      (function () {
+        document.addEventListener('DOMContentLoaded', () => {
+          // Tabs Content Slider
+          const emblaTabsContents = document.querySelectorAll('.embla_tabs_content');
+          emblaTabsContents.forEach((emblaNode) => {
+            const viewportNode = emblaNode.querySelector('.embla_tabs_content__viewport');
 
-          const emblaApi = EmblaCarousel(
-            viewportNode,
-            {
-              slidesToScroll: 'auto',
-              loop: true,
-              align: 'start',
-            },
-            [EmblaCarouselAutoplay({ playOnInit: true, delay: 3000, stopOnInteraction: false })]
-          );
-        });
-      });
-    })();
-
-    (function () {
-      document.addEventListener('DOMContentLoaded', () => {
-        // Tabs Slider
-        const emblaNode = document.querySelector('.embla_tabs');
-        const viewportNode = emblaNode.querySelector('.embla_tabs__viewport');
-        const prevBtnNode = emblaNode.querySelector('.embla_tabs__button--prev');
-        const nextBtnNode = emblaNode.querySelector('.embla_tabs__button--next');
-
-        const emblaApi = EmblaCarousel(viewportNode, { dragFree: true });
-        EmblaUtils.addPrevNextBtnsClickHandlers(emblaApi, prevBtnNode, nextBtnNode);
-
-        const tabLinks = document.querySelectorAll('.tab-link');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        let transitionTimeout;
-
-        tabLinks.forEach((link) => {
-          link.addEventListener('click', () => {
-            tabLinks.forEach((otherLink) => otherLink.classList.remove('active'));
-            // Add active class to the clicked link
-            link.classList.add('active');
-            const targetId = link.getAttribute('data-tab-target');
-            const targetContent = document.querySelector(targetId);
-
-            const currentContent = document.querySelector('.tab-content.active');
-            if (currentContent && currentContent !== targetContent) {
-              currentContent.classList.remove('active');
-              currentContent.style.visibility = 'hidden';
-            }
-
-            targetContent.style.visibility = 'visible';
-            targetContent.classList.remove('exiting');
-            targetContent.classList.add('active');
+            const emblaApi = EmblaCarousel(
+              viewportNode,
+              {
+                slidesToScroll: 'auto',
+                loop: true,
+                align: 'start',
+              },
+              [EmblaCarouselAutoplay({ playOnInit: true, delay: 3000, stopOnInteraction: false })]
+            );
           });
         });
-      });
-    })();
-  </script>
-</main>
+      })();
+
+      (function () {
+        document.addEventListener('DOMContentLoaded', () => {
+          // Tabs Slider
+          const emblaNode = document.querySelector('.embla_tabs');
+          const viewportNode = emblaNode.querySelector('.embla_tabs__viewport');
+          const prevBtnNode = emblaNode.querySelector('.embla_tabs__button--prev');
+          const nextBtnNode = emblaNode.querySelector('.embla_tabs__button--next');
+
+          const emblaApi = EmblaCarousel(viewportNode, { dragFree: true });
+          EmblaUtils.addPrevNextBtnsClickHandlers(emblaApi, prevBtnNode, nextBtnNode);
+
+          const tabLinks = document.querySelectorAll('.tab-link');
+          const tabContents = document.querySelectorAll('.tab-content');
+
+          let transitionTimeout;
+
+          tabLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+              tabLinks.forEach((otherLink) => otherLink.classList.remove('active'));
+              // Add active class to the clicked link
+              link.classList.add('active');
+              const targetId = link.getAttribute('data-tab-target');
+              const targetContent = document.querySelector(targetId);
+
+              const currentContent = document.querySelector('.tab-content.active');
+              if (currentContent && currentContent !== targetContent) {
+                currentContent.classList.remove('active');
+                currentContent.style.visibility = 'hidden';
+              }
+
+              targetContent.style.visibility = 'visible';
+              targetContent.classList.remove('exiting');
+              targetContent.classList.add('active');
+            });
+          });
+        });
+      })();
+    </script>
+  </main>
+{% endif %}
+
 {% schema %}
 {
   "name": "Featured Tabs",
-  "settings": [],
+  "settings": [
+    {
+      "type": "select",
+      "id": "title_style",
+      "label": "Title Style",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "uppercase",
+          "label": "UPPERCASE"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "uppercase"
+    }
+  ],
   "blocks": [
     {
       "name": "Tab",
@@ -182,28 +212,12 @@
           "label": "Title"
         },
         {
-          "type": "select",
-          "id": "title_style",
-          "label": "Title Style",
-          "options": [
-            {
-              "value": "normal",
-              "label": "Normal"
-            },
-            {
-              "value": "uppercase",
-              "label": "UPPERCASE"
-            },
-            {
-              "value": "capitalize",
-              "label": "Capitalize"
-            }
-          ],
-          "default": "uppercase"
-        },
-        {
           "type": "header",
           "content": "Collection"
+        },
+        {
+          "type": "paragraph",
+          "content": "A collection must be selected."
         },
         {
           "type": "collection",
@@ -218,7 +232,8 @@
           "max": 12,
           "step": 1,
           "default": 8
-        },{
+        },
+        {
           "type": "header",
           "content": "Customize Product Listing"
         },
@@ -240,7 +255,8 @@
           "id": "sale_percentage",
           "default": 0,
           "label": "Discount Percentage"
-        },{
+        },
+        {
           "type": "checkbox",
           "id": "display_discount_badge",
           "default": true,
@@ -250,8 +266,6 @@
       "limit": 6
     }
   ],
-  "presets": [
-    {"name": "Featured Tabs"}
-  ]
+  "presets": [{ "name": "Featured Tabs" }]
 }
 {% endschema %}

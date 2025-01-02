@@ -1135,6 +1135,14 @@ h2 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -2082,59 +2090,6 @@ button[aria-expanded="true"] svg {
 
 /* Product Badges */
 
-.badge {
-  position: absolute;
-  top: calc(-2.5%);
-  left: calc(69%);
-  width: 100%;
-}
-
-.badge img {
-  width: 34%;
-}
-
-.badge-1 {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  position: absolute;
-  top: -11%;
-  left: -19%;
-  background: #c63e4b;
-  color: #fff;
-  width: 45%;
-  height: 25%;
-  font-weight: 700;
-  transform: rotate(-45deg);
-}
-
-.badge-1 .sub1{
-  font-size: 75%;
-}
-
-.badge-1 .sub{
-  font-size: 34%;
-  margin-left: 2px
-}
-
-.abcc {
-  width: 50%;
-  /* Set your container width */
-  height: 50%;
-  /* Set your container height */
-}
-
-.abcc svg {
-  width: 100%;
-  height: auto;
-}
-
-.abcc text {
-  transform: translate(40px, 202px);
-  font-size: 150px;
-  fill: #fff;
-}
-
 .hover\:bg-four:hover {
   background-color: var(--color-4);
 }
@@ -2193,11 +2148,23 @@ button[aria-expanded="true"] svg {
   .xsm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .xsm\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 640px) {
+  .sm\:hidden {
+    display: none;
+  }
+
   .sm\:basis-1\/2 {
     flex-basis: 50%;
+  }
+
+  .sm\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 
@@ -2242,6 +2209,14 @@ button[aria-expanded="true"] svg {
     flex-basis: 25%;
   }
 
+  .md\:basis-2\/5 {
+    flex-basis: 40%;
+  }
+
+  .md\:basis-3\/5 {
+    flex-basis: 60%;
+  }
+
   .md\:translate-y-\[100\%\] {
     --tw-translate-y: 100%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2257,6 +2232,10 @@ button[aria-expanded="true"] svg {
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:flex-col {
+    flex-direction: column;
   }
 
   .md\:gap-2 {
@@ -2276,6 +2255,11 @@ button[aria-expanded="true"] svg {
   .md\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .md\:px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 
   .md\:pl-2 {

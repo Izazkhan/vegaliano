@@ -83,24 +83,28 @@
           "type": "featured_tab",
           "settings": {
             "title": "30% off",
-            "title_style": "capitalize",
+            "collection": "upto-30",
+            "max_products": 8,
             "products": [
               "product-1",
               "product-2"
             ],
-            "sale_status": true
+            "sale_percentage": 30,
+            "display_discount_badge": true
           }
         },
         "featured_tab_pKDMzN": {
           "type": "featured_tab",
           "settings": {
             "title": "40% Off",
-            "title_style": "capitalize",
+            "collection": "upto-40",
+            "max_products": 8,
             "products": [
               "product-6",
               "product-5"
             ],
-            "sale_status": false
+            "sale_percentage": 40,
+            "display_discount_badge": true
           }
         }
       },
@@ -108,7 +112,9 @@
         "featured_tab_bmpqpf",
         "featured_tab_pKDMzN"
       ],
-      "settings": {}
+      "settings": {
+        "title_style": "capitalize"
+      }
     },
     "shop-by-category": {
       "type": "shop-by-category",
@@ -165,17 +171,7 @@
         "collection_hJeYrg",
         "collection_FgecfE"
       ],
-      "settings": {
-        "featured_category_list": [
-          "kids",
-          "essential-pret",
-          "unstiched-luxury",
-          "essentials-1",
-          "luxury-pret",
-          "jewelry",
-          "menswear"
-        ]
-      }
+      "settings": {}
     },
     "explore-more": {
       "type": "explore-more",
