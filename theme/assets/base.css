@@ -66,7 +66,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: Helvetica, Montserrat, sans-serif;
+  font-family: Montserrat, sans-serif;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -1529,7 +1529,7 @@ h2 {
 }
 
 .font-sans {
-  font-family: Helvetica, Montserrat, sans-serif;
+  font-family: Montserrat, sans-serif;
 }
 
 .text-\[10px\] {
@@ -2098,28 +2098,30 @@ button[aria-expanded="true"] svg {
   align-items: flex-end;
   justify-content: center;
   position: absolute;
-  top: -19%;
-  left: -28%;
+  top: -11%;
+  left: -19%;
   background: #c63e4b;
   color: #fff;
-  width: 50%;
-  aspect-ratio: 1 / 1;
+  width: 45%;
+  height: 25%;
   font-weight: 700;
   transform: rotate(-45deg);
 }
 
-.badge-1 .sub1 {
+.badge-1 .sub1{
   font-size: 75%;
 }
 
-.badge-1 .sub {
+.badge-1 .sub{
   font-size: 34%;
-  margin-left: 2px;
+  margin-left: 2px
 }
 
 .abcc {
-  width: 100%;
+  width: 50%;
   /* Set your container width */
+  height: 50%;
+  /* Set your container height */
 }
 
 .abcc svg {
@@ -2129,15 +2131,8 @@ button[aria-expanded="true"] svg {
 
 .abcc text {
   transform: translate(40px, 202px);
+  font-size: 150px;
   fill: #fff;
-}
-
-.abcc text:nth-child(1) {
-  font-size: 65px;
-}
-
-.abcc text:nth-child(2) {
-  font-size: 20px;
 }
 
 .hover\:bg-four:hover {
@@ -2209,11 +2204,6 @@ button[aria-expanded="true"] svg {
 @media (min-width: 768px) {
   .md\:order-none {
     order: 0;
-  }
-
-  .md\:mx-4 {
-    margin-left: 1rem;
-    margin-right: 1rem;
   }
 
   .md\:ms-2 {
