@@ -4,25 +4,71 @@
   </div>
   <div class="main-product flex flex-col md:flex-row justify-between">
     <div class="media-wrapper basis-3/5 md:px-3">
-      <div class="grid md:grid-cols-2 gap-4 sm:hidden md:grid">
-        {% for product_image in product.images %}
-          <img src="{{ product_image | image_url }}" alt="{{product.title}}">
+      <div class="hidden md:grid grid-cols-2 relative">
+        {% for media in product.media %}
+          {% if media.media_type == 'image' %}
+            <div class="relative img-container m-2">
+              <div class="image-details w-full bg-white"></div>
+              {% render 'card-image',
+                class: 'image-zoom w-full aspect-[0.68]',
+                data_zoom: media,
+                data_id: product.id,
+                src: media,
+                alt: product.title,
+                breakpoints: 's:1,m:4,l:3'
+              %}
+            </div>
+          {% else %}
+            <div class="relative img-container m-2 overflow-hidden">
+              <div class="image-details w-full bg-white"></div>
+              {% assign poster = product.featured_image | image_url %}
+              <video id="player" playsinline controls data-poster="{{poster}}" class="aspect-[0.68] h-full">
+                {% for video in media.sources %}
+                  {% if video.format == 'mp4' %}
+                    <source src="{{ video.url }}" type="video/mp4">
+                  {% endif %}
+                {% endfor %}
+              </video>
+            </div>
+          {% endif %}
         {% endfor %}
       </div>
-      <div class="embla_product relative w-full md:hidden">
-        <div class="embla_product__viewport overflow-hidden">
-          <div class="embla_product__container flex touch-pan-y">
-            {% for product_image in product.images %}
-              <div class="embla_product__slide flex-none w-full">
-                <img src="{{ product_image | image_url }}" alt="{{product.title}}">
-              </div>
-            {% endfor %}
+      <div class="block md:hidden">
+        <div class="embla_product relative w-full">
+          <div class="embla_product__viewport overflow-hidden">
+            <div class="embla_product__container flex touch-pan-y gallery">
+              {% for product_image in product.images %}
+                <a
+                  class="embla_product__slide flex-none"
+                  data-pswp-width="{{ product_image.width }}"
+                  data-pswp-height="{{ product_image.height }}"
+                  href="{{ product_image | image_url }}"
+                  target="_blank"
+                >
+                  {% render 'card-image', src: product_image, alt: product.title, breakpoints: 's:1,m:2,l:2' %}
+                </a>
+              {% endfor %}
+              {% assign vids = product.media | where: 'media_type', 'video' %}
+              {% for media in vids %}
+                <div
+                  class="embla_product__slide flex-none"
+                >
+                  <video id="player1" playsinline controls data-poster="{{poster}}" class="aspect-[0.68] h-full">
+                    {% for video in media.sources %}
+                      {% if video.format == 'mp4' %}
+                        <source src="{{ video.url }}" type="video/mp4">
+                      {% endif %}
+                    {% endfor %}
+                  </video>
+                </div>
+              {% endfor %}
+            </div>
           </div>
         </div>
+        <div
+          class="embla_product__dots absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
+        ></div>
       </div>
-      <div
-        class="embla_product__dots absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
-      ></div>
     </div>
     <div class="product-info basis-2/5 flex flex-col gap-2">
       <h1 class="text-[19px] font-semibold">Product Title</h1>
@@ -50,5 +96,31 @@
     const removeDotBtnsAndClickHandlers = EmblaUtils.addDotBtnsAndClickHandlers(emblaApi, dotsNode);
 
     emblaApi.on('destroy', removeDotBtnsAndClickHandlers);
+
+    const lightbox = new PhotoSwipeLightbox({
+      // may select multiple "galleries"
+      gallery: '.gallery',
+
+      // Elements within gallery (slides)
+      children: 'a',
+
+      // setup PhotoSwipe Core dynamic import
+      pswpModule: PhotoSwipe,
+    });
+    lightbox.init();
+    lightbox.on('change', () => {
+      // triggers when slide is switched, and at initialization
+      const currentIndex = lightbox.pswp.currIndex; // Get the active index
+      emblaApi.scrollTo(currentIndex, true);
+    });
+
+    const player = new Plyr('#player');
+    const player1 = new Plyr('#player1');
   })();
+  document.querySelectorAll('.img-container').forEach(function (image) {
+    new window.Drift(image.querySelector('.image-zoom'), {
+      zoomFactor: 2,
+      paneContainer: image.querySelector('.image-details'),
+    });
+  });
 </script>

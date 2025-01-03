@@ -5,6 +5,10 @@
   # We are not handling large screen sizes, because max container size is 1600px
   assign large_screens = '1280,1600' | split: ','
   assign class = class | default: ''
+  # On product page we use image magnifier
+  assign data_zoom = data_zoom | default: null
+  assign data_id = data_id | default: null
+  assign data_optimumx = data_optimumx | default: 2
   # Handle breakpoints, set defaults if not passed
   assign breakpoints = breakpoints | default: ''
   assign fallback_src = fallback_src | default: ''
@@ -50,6 +54,9 @@
   src="{{ src | image_url }}"
   alt="{{ alt }}"
   class="{{ class }}"
+  {% if data_id %} data-id="{{ data_id }}" {% endif %}
+  {% if data_zoom %} data-zoom="{{ data_zoom | image_url }}" {% endif %}
+  {% if data_optimumx %} data-optimumx="{{ data_optimumx }}" {% endif %}
   media="
     {% for width in all_screens %}
      (max-width: {{width}}px)

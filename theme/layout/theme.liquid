@@ -1,31 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asim Jofa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    {{ content_for_header }}
-    {{ 'base.css' | asset_url | stylesheet_tag }}
-    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
-    <script src="https://unpkg.com/embla-carousel-fade/embla-carousel-fade.umd.js"></script>
-    <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
-    <script src="{{ 'embla-utils.js' | asset_url }}"></script>
-    <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asim Jofa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  {{ content_for_header }}
+  {% if template contains 'product' %}
+  {{ 'drift.min.css' | asset_url | stylesheet_tag }}
+  {{ 'photoswipe.min.css' | asset_url | stylesheet_tag }}
+  {{ 'plyr.css' | asset_url | stylesheet_tag }}
+  {% endif %}
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'embla-carousel.js' | asset_url }}"></script>
+  <script src="{{ 'embla-carousel-fade.js' | asset_url }}"></script>
+  <script src="{{ 'embla-carousel-autoplay.js' | asset_url }}"></script>
+  <script src="{{ 'embla-utils.js' | asset_url }}"></script>
+  {% if template contains 'product' %}
+  <script src="{{ 'drift.min.js' | asset_url }}"></script>
+  <script src="{{ 'photoswipe.min.js' | asset_url }}"></script>
+  <script src="{{ 'photoswipe-lightbox.min.js' | asset_url }}"></script>
+  <script src="{{ 'plyr.js' | asset_url }}"></script>
+  {% endif %}
+  <script src="{{ 'localization-form.js' | asset_url }}" defer></script>
 </head>
 
-
 <body class="min-h-screen relative">
-    {% render 'icons' %}
-    {% sections 'header-group' %}
-    {{ content_for_layout }}
-    {% render 'sidebar' %}
-    {% section 'footer' %}
-    {% render 'currency-change' %}
-    <script src="{{ 'flowbite.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'theme.js' | asset_url }}" async></script>
+  {% render 'icons' %}
+  {% sections 'header-group' %}
+  {{ content_for_layout }}
+  {% render 'sidebar' %}
+  {% section 'footer' %}
+  {% render 'currency-change' %}
+  <script src="{{ 'flowbite.min.js' | asset_url }}" defer></script>
+  <script src="{{ 'theme.js' | asset_url }}" async></script>
 </body>
 
 </html>

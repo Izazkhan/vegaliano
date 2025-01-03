@@ -85,10 +85,7 @@
             "title": "30% off",
             "collection": "upto-30",
             "max_products": 8,
-            "products": [
-              "product-1",
-              "product-2"
-            ],
+            "products": [],
             "sale_percentage": 30,
             "display_discount_badge": true
           }
@@ -99,10 +96,7 @@
             "title": "40% Off",
             "collection": "upto-40",
             "max_products": 8,
-            "products": [
-              "product-6",
-              "product-5"
-            ],
+            "products": [],
             "sale_percentage": 40,
             "display_discount_badge": true
           }
