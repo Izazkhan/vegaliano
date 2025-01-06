@@ -19,8 +19,7 @@
               %}
             </div>
           {% else %}
-            <div class="relative img-container m-2 overflow-hidden">
-              <div class="image-details w-full bg-white"></div>
+            <div class="relative m-2 overflow-hidden">
               {% assign poster = product.featured_image | image_url %}
               <video id="player" playsinline controls data-poster="{{poster}}" class="aspect-[0.68] h-full">
                 {% for video in media.sources %}
