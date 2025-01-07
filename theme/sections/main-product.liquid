@@ -1,0 +1,91 @@
+<product-info
+  id="main-product-{{section.id}}"
+>
+</product-info>
+
+{% schema %}
+{
+  "name": "Product Description",
+  "tag": "section",
+  "class": "main-product",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "default": "Text Block",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "settings": []
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "settings": []
+    },
+    {
+      "type": "sku",
+      "name": "SKU",
+      "settings": [
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "Body"
+            },
+            {
+              "value": "subtitle",
+              "label": "Subtitle"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            }
+          ],
+          "default": "body",
+          "label": "Text Style"
+        }
+      ]
+    },
+    {
+      "type": "inventory",
+      "name": "Inventory",
+      "settings": [
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "Body"
+            },
+            {
+              "value": "subtitle",
+              "label": "Subtitle"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            }
+          ],
+          "default": "body",
+          "label": "Text Style"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

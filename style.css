@@ -243,29 +243,47 @@ button[aria-expanded="true"] svg {
   transform: rotate(-45deg);
 }
 
-.badge-1 .sub1{
+.badge-1 .sub1 {
   font-size: 75%;
 }
 
-.badge-1 .sub{
+.badge-1 .sub {
   font-size: 34%;
-  margin-left: 2px
+  margin-left: 2px;
 }
 
 .abcc {
   width: 50%; /* Set your container width */
   height: 50%; /* Set your container height */
-
 }
 
 .abcc svg {
   width: 100%;
   height: auto;
-
 }
 
 .abcc text {
   transform: translate(40px, 202px);
   font-size: 150px;
   fill: #fff;
+}
+
+.is-empty .cart__warnings {
+  display: block;
+}
+
+.is-empty .cart__contents,
+.is-empty .cart__header {
+  display: none;
+}
+
+.cart__warnings {
+  display: none;
+  text-align: center;
+  padding: 3rem 0 1rem;
+}
+
+.cart-table thead th,
+.cart-table tbody tr:nth-last-child() td {
+  border-bottom: 0.1rem solid rgba(18, 18, 18, 0.08);
 }

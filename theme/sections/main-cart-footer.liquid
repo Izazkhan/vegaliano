@@ -1,0 +1,18 @@
+<cart-footer>
+    <div class="max-w-[1600px] mx-auto px-4 py-6 text-right">
+        <div class="totals mb-4">
+            <h2 class="totals__total text-lg font-semibold">Total</h2>
+            <p class="totals__total-value text-xl font-bold text-gray-800">
+                {{ cart.total_price | money_with_currency }}
+            </p>
+        </div>
+        <small class="tax-note caption-large block text-gray-500 mb-4">
+            Taxes, discounts, and shipping calculated at checkout.
+        </small>
+        <div>
+            <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+                Checkout
+            </button>
+        </div>
+    </div>
+</cart-footer>
