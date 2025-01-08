@@ -1,5 +1,5 @@
-<cart-items class="is-emptyy">
-  <div class="max-w-[1600px] mx-auto px-4">
+<cart-items class="{% if cart == empty %} is-empty{% endif %}">
+  <div class="max-w-[1200px] mx-auto px-4">
     <!-- Cart Header -->
     <div class="cart__header text-center py-8">
       <h1 class="text-3xl font-bold">Your Cart</h1>
@@ -7,13 +7,23 @@
 
     <!-- Empty Cart Message -->
     <div class="cart__warnings flex justify-center items-center h-[50vh] text-center hidden">
-      <h1 class="text-2xl font-medium text-gray-600">Your Cart is Empty</h1>
+      <h1 class="cart__empty-text pb-8">Your Cart is Empty</h1>
+      <a href="{{ routes.all_products_collection_url }}" class="bg-gray-950 text-white px-6 py-4 hover:bg-gray-900 ">
+        Continue Shopping
+      </a>
+
+      {%- if shop.customer_accounts_enabled and customer == null -%}
+        <h2 class="cart__login-title pt-16 pb-4">Have an account?</h2>
+        <p class="cart__login-paragraph">
+          <a class="font-semibold" href="{{routes.account_login_url}}">Log in</a> to check out faster.
+        </p>
+      {%- endif -%}
     </div>
 
     <!-- Cart Items Table -->
     <div class="cart-items">
       <form action="#" method="POST" id="cart">
-        <table class="cart-table table-auto border-collapse w-full text-left text-sm">
+        <table class="cart-table table-auto border-collapse w-full text-left text-sm table w-full">
           <!-- Table Caption -->
           <caption class="hidden">
             Your cart
@@ -22,46 +32,58 @@
           <!-- Table Header -->
           <thead>
             <tr>
-              <th colspan="2" class="px-4 py-2">Product</th>
-              <th class="px-4 py-2">Quantity</th>
-              <th class="px-4 py-2 text-right">Total</th>
+              <th colspan="2">Product</th>
+              <th>Quantity</th>
+              <th class=" text-right">Total</th>
             </tr>
           </thead>
 
           <!-- Table Body -->
           <tbody>
-            <!-- Dummy Item 1 -->
-            <tr>
-              <td class="cart-item__media px-4 py-2">
-                <img src="https://via.placeholder.com/100" alt="Product 1" class="w-16 h-16 object-cover">
-              </td>
-              <td class="cart-item__details px-4 py-2">
-                <a href="#" class="text-blue-500 hover:underline font-medium">Dummy Product 1</a>
-                <div class="text-sm text-gray-500">
-                    <div>$20.00</div>
+            {% for item in cart.items %}
+              <tr class="table-row">
+                <td class="cart-item__media">
+                  {% if item.image %}
+                    <img
+                      src="{{ item.image | image_url: width: 300 }}"
+                      class="cart-item__image"
+                      alt="{{ item.image.alt | escape }}"
+                      loading="lazy"
+                      width="150"
+                      height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
+                    >
+                  {% endif %}
+                </td>
+                <td class="cart-item__details">
+                  <a href="#" class="text-blue-500 hover:underline font-medium">Dummy Product 1</a>
+                  <div class="text-sm text-gray-500">
+                    <div class="product-option">
+                      {{ item.original_price | money }}
+                    </div>
                     <div>Color: Black</div>
-                </div>
-              </td>
-              <td class="cart-item__quantity px-4 py-2">
-                <quantity-input class="flex items-center">
-                  <input
-                    type="number"
-                    name="updates[]"
-                    value="1"
-                    min="1"
-                    class="w-16 rounded px-2 py-1 text-center"
-                  >
-                  <cart-remove-button>
-                    <a href="#" class="text-sm">
-                      <svg class="w-4 h-4 inline-block">
-                        <use href="#cart-remove"></use>
-                      </svg>
-                    </a>
-                  </cart-remove-button>
-                </quantity-input>
-              </td>
-              <td class="cart-item__total px-4 py-2 text-right">$20.00</td>
-            </tr>
+                  </div>
+                </td>
+                <td class="cart-item__quantity">
+                  <quantity-input class="flex items-center">
+                    <input
+                      type="number"
+                      name="updates[]"
+                      value="1"
+                      min="1"
+                      class="w-16 rounded px-2 py-1 text-center"
+                    >
+                    <cart-remove-button>
+                      <a href="#" class="text-sm">
+                        <svg class="w-4 h-4 inline-block">
+                          <use href="#cart-remove"></use>
+                        </svg>
+                      </a>
+                    </cart-remove-button>
+                  </quantity-input>
+                </td>
+                <td class="cart-item__total text-right">$20.00</td>
+              </tr>
+            {% endfor %}
           </tbody>
         </table>
       </form>

@@ -272,7 +272,8 @@ button[aria-expanded="true"] svg {
   display: block;
 }
 
-.is-empty .cart__contents,
+.is-empty .cart-items,
+.is-empty .cart-footer,
 .is-empty .cart__header {
   display: none;
 }
@@ -283,7 +284,29 @@ button[aria-expanded="true"] svg {
   padding: 3rem 0 1rem;
 }
 
+.cart-table {
+  border: none;
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0;
+}
 .cart-table thead th,
+.cart-table tbody td {
+  @apply pt-16 align-top
+}
+
+.cart-item__media {
+  @apply w-[8rem]
+}
+
+.cart-item__media img{
+  @apply max-w-full
+}
+
+.cart-table tbody tr td+td {
+  padding-left: 2rem
+}
+
 .cart-table tbody tr:nth-last-child() td {
   border-bottom: 0.1rem solid rgba(18, 18, 18, 0.08);
 }
