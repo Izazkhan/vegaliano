@@ -55,7 +55,7 @@
                   {% endif %}
                 </td>
                 <td class="cart-item__details">
-                  <a href="#" class="text-blue-500 hover:underline font-medium">Dummy Product 1</a>
+                  <a href="#" class="text-blue-500 hover:underline font-medium">{{ item.title }}</a>
                   <div class="text-sm text-gray-500">
                     <div class="product-option">
                       {{ item.original_price | money }}
@@ -68,7 +68,7 @@
                     <input
                       type="number"
                       name="updates[]"
-                      value="1"
+                      value="{{item.quantity}}"
                       min="1"
                       class="w-16 rounded px-2 py-1 text-center"
                     >
@@ -81,11 +81,12 @@
                     </cart-remove-button>
                   </quantity-input>
                 </td>
-                <td class="cart-item__total text-right">$20.00</td>
+                <td class="cart-item__total text-right">{{ item.original_price | money }}</td>
               </tr>
             {% endfor %}
           </tbody>
         </table>
+        <input type="submit" value="Update cart">
       </form>
     </div>
   </div>
