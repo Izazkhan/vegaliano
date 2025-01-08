@@ -18,6 +18,10 @@
   <script src="{{ 'embla-carousel-fade.js' | asset_url }}"></script>
   <script src="{{ 'embla-carousel-autoplay.js' | asset_url }}"></script>
   <script src="{{ 'embla-utils.js' | asset_url }}"></script>
+  {% if template contains 'cart' %}
+  <script src="{{ 'cart.js' | asset_url }}" defer></script>
+  <script src="{{ 'shopify.money.js' | asset_url }}" defer></script>
+  {% endif %}
   {% if template contains 'product' %}
   <script src="{{ 'drift.min.js' | asset_url }}"></script>
   <script src="{{ 'photoswipe.min.js' | asset_url }}"></script>
@@ -25,6 +29,10 @@
   <script src="{{ 'plyr.js' | asset_url }}"></script>
   {% endif %}
   <script src="{{ 'localization-form.js' | asset_url }}" defer></script>
+  <script>
+    var Shopify = Shopify || {};
+    Shopify.money_format = "{{ shop.money_format }}";
+  </script>
 </head>
 
 <body class="min-h-screen relative">

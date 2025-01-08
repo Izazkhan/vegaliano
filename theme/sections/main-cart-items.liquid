@@ -13,17 +13,18 @@
       </a>
 
       {%- if shop.customer_accounts_enabled and customer == null -%}
-        <h2 class="cart__login-title pt-16 pb-4">Have an account?</h2>
-        <p class="cart__login-paragraph">
-          <a class="font-semibold" href="{{routes.account_login_url}}">Log in</a> to check out faster.
-        </p>
+      <h2 class="cart__login-title pt-16 pb-4">Have an account?</h2>
+      <p class="cart__login-paragraph">
+        <a class="font-semibold" href="{{routes.account_login_url}}">Log in</a> to check out faster.
+      </p>
       {%- endif -%}
     </div>
 
     <!-- Cart Items Table -->
     <div class="cart-items">
       <form action="#" method="POST" id="cart">
-        <table class="cart-table table-auto border-collapse w-full text-left text-sm table w-full">
+        <input type="hidden" class="line-item-key" value="{{ item.key }}">
+        <table class="cart-table table-auto border-collapse text-left text-sm table w-full">
           <!-- Table Caption -->
           <caption class="hidden">
             Your cart
@@ -41,52 +42,68 @@
           <!-- Table Body -->
           <tbody>
             {% for item in cart.items %}
-              <tr class="table-row">
-                <td class="cart-item__media">
-                  {% if item.image %}
-                    <img
-                      src="{{ item.image | image_url: width: 300 }}"
-                      class="cart-item__image"
-                      alt="{{ item.image.alt | escape }}"
-                      loading="lazy"
-                      width="150"
-                      height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
-                    >
-                  {% endif %}
-                </td>
-                <td class="cart-item__details">
-                  <a href="#" class="text-blue-500 hover:underline font-medium">{{ item.title }}</a>
-                  <div class="text-sm text-gray-500">
-                    <div class="product-option">
-                      {{ item.original_price | money }}
-                    </div>
-                    <div>Color: Black</div>
+            <tr class="table-row" data-item-key="{{ item.key }}">
+              <td class="cart-item__media">
+                {% if item.image %}
+                <img src="{{ item.image | image_url: width: 300 }}" class="cart-item__image"
+                  alt="{{ item.image.alt | escape }}" loading="lazy" width="150"
+                  height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}">
+                {% endif %}
+              </td>
+              <td class="cart-item__details">
+                <a href="#" class="text-blue-500 hover:underline font-medium">{{ item.title }}</a>
+                <div class="text-sm text-gray-500">
+                  <div class="product-option">
+                    {{ item.original_price | money }}
                   </div>
-                </td>
-                <td class="cart-item__quantity">
-                  <quantity-input class="flex items-center">
-                    <input
-                      type="number"
-                      name="updates[]"
-                      value="{{item.quantity}}"
-                      min="1"
-                      class="w-16 rounded px-2 py-1 text-center"
-                    >
+                </div>
+              </td>
+              <td class="cart-item__quantity">
+                <quantity-input>
+                  <div class="flex items-center justify-start">
+                    <div class="flex items-center border border-gray-300 rounded-md overflow-hidden">
+                      <!-- Decrement Button -->
+                      <button onclick='updateQuantity(this, -1)' type="button"
+                        class="decrement px-2 py-2 bg-gray-100 hover:bg-gray-200" aria-label="Decrease quantity">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                          stroke="currentColor" stroke-width="2">
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                      </button>
+
+                      <!-- Quantity Display -->
+                      <input type="number" value="{{item.quantity}}" min="1"
+                        class="quantity-input w-12 border-0 text-center" aria-label="Quantity"
+                        id="quantity-{{item.key}}" {% if item.variant.quantity_rule.max !=null %}
+                        max="{{ item.variant.quantity_rule.max }}" {% endif %}>
+
+                      <!-- Increment Button -->
+                      <button onclick='updateQuantity(this, 1)' type="button"
+                        class="increment px-2 py-2 bg-gray-100 hover:bg-gray-200" aria-label="Increase quantity">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                          stroke="currentColor" stroke-width="2">
+                          <line x1="12" y1="5" x2="12" y2="19" />
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                      </button>
+                    </div>
                     <cart-remove-button>
-                      <a href="#" class="text-sm">
+                      <a href="#" class="text-sm ml-4">
                         <svg class="w-4 h-4 inline-block">
                           <use href="#cart-remove"></use>
                         </svg>
                       </a>
                     </cart-remove-button>
-                  </quantity-input>
-                </td>
-                <td class="cart-item__total text-right">{{ item.original_price | money }}</td>
-              </tr>
+                  </div>
+
+                </quantity-input>
+              </td>
+              <td class="cart-item__total text-right" id="line-price-{{item.key}}">{{ item.original_line_price | money
+                }}</td>
+            </tr>
             {% endfor %}
           </tbody>
         </table>
-        <input type="submit" value="Update cart">
       </form>
     </div>
   </div>
@@ -94,7 +111,7 @@
 
 {% schema %}
 {
-  "name": "Cart Items",
-  "settings": []
+"name": "Cart Items",
+"settings": []
 }
 {% endschema %}
